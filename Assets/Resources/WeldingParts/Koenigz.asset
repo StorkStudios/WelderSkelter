@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Koenigz
   m_EditorClassIdentifier: 
   prefab: {fileID: 6683197320899064633, guid: 412c31ebd127b08428a1db95e6c6836a, type: 3}
-  uiSprite: {fileID: 0}
+  uiSprite: {fileID: -1553035333, guid: f7bee393cb3028546b397df9bfc15b23, type: 3}

@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ff58dc7e9ce795e8b76a7deb45ed5a0, type: 3}
-  m_Name: RedBullech
+  m_Script: {fileID: 11500000, guid: 602a1c90b2582ea46894a204081eea0d, type: 3}
+  m_Name: Skill3it
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4117770229375186772, guid: 336b09ea3cbd1bc4f8d740c7a67f55e3, type: 3}
-  uiSprite: {fileID: 572831240, guid: 1fa7cce957e83444e8e788228c5aa41a, type: 3}
+  title: -50% Eye Damage
+  rarity: {fileID: 11400000, guid: 3a9dae79d3fd7a041b3105e30f2f4184, type: 2}
+  upgrade: {fileID: 0}
+  cost: 0

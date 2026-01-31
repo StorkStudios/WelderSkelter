@@ -1,7 +1,7 @@
 using StorkStudios.CoreNest;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Tasks/Money Task")]
+[CreateAssetMenu(menuName = "Tasks/Upgrade Task")]
 public class UpgradeTask : Task
 {
     [SerializeField]

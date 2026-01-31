@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Statue
   m_EditorClassIdentifier: 
   prefab: {fileID: 2657212027737955876, guid: ad14790be62ae7c41b4e5dfe864c7b7e, type: 3}
-  uiSprite: {fileID: 0}
+  uiSprite: {fileID: -38686491, guid: dec7aa0e9e09fb0449eed056359cdb52, type: 3}

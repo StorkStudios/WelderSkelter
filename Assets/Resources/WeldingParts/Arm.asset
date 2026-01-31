@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Arm
   m_EditorClassIdentifier: 
   prefab: {fileID: 7121831562505491121, guid: 929361399029be668b59df74d0992169, type: 3}
+  uiSprite: {fileID: -440110962, guid: dda8d71433de44a4989cee1cf1369172, type: 3}

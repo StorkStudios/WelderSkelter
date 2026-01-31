@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: BubbleTea
   m_EditorClassIdentifier: 
   prefab: {fileID: 7794043304452594257, guid: 2d0bb404e041d2f428e5a851591182e5, type: 3}
-  uiSprite: {fileID: 0}
+  uiSprite: {fileID: 1793347253, guid: 0ab75c90ca33ece47bad1f1b61615a91, type: 3}

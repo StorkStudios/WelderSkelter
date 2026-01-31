@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Helmet
   m_EditorClassIdentifier: 
   prefab: {fileID: 5487848313955275732, guid: bd50ae117ed164349871e33c38aaf3ed, type: 3}
-  uiSprite: {fileID: 0}
+  uiSprite: {fileID: -544090416, guid: e4597effc2f568148a78c4a2883df35f, type: 3}
