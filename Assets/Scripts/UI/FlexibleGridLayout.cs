@@ -34,6 +34,9 @@ public class FlexibleGridLayout : LayoutGroup
     [SerializeField]
     [HideInInspector]
     private bool aspectRatio;
+    [SerializeField]
+    [HideInInspector]
+    private bool resizeWidthToFit;
 
     public enum GridPriority
     {
@@ -85,6 +88,11 @@ public class FlexibleGridLayout : LayoutGroup
 
             SetChildAlongAxis(item, 0, xPos, cellSize.x);
             SetChildAlongAxis(item, 1, yPos, cellSize.y);
+        }
+
+        if (resizeWidthToFit)
+        {
+            rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, columns * (cellSize.x + spacing.x) - spacing.x + padding.right + padding.left);
         }
     }
 
@@ -243,6 +251,7 @@ public class FlexibleGridLayout : LayoutGroup
             {
                 flexibleGridLayout.aspectRatio = EditorGUILayout.Toggle("Aspect Ratio", flexibleGridLayout.aspectRatio);
             }
+            flexibleGridLayout.resizeWidthToFit = EditorGUILayout.Toggle("Resize width to fit", flexibleGridLayout.resizeWidthToFit);
 
             if (EditorGUI.EndChangeCheck())
             {
