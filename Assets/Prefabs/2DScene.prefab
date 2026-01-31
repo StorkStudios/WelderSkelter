@@ -1,5 +1,64 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &976296404220253045
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3454500510070268232}
+  - component: {fileID: 8255253598768337845}
+  - component: {fileID: 2564225318043917640}
+  m_Layer: 0
+  m_Name: ItemSeller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3454500510070268232
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976296404220253045}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.016525269, y: -0.29535267, z: 0.060043335}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6826643092270939660}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8255253598768337845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976296404220253045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b0e980f90acc1f4acc8b9ddd3f8d22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weldingCamera: {fileID: 8989575912184210822}
+--- !u!114 &2564225318043917640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976296404220253045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a31e4435dc343c0e0a248526ecb25332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sellRadius: 0.5
 --- !u!1 &1507873371600401692
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,6 +171,7 @@ Transform:
   - {fileID: 8737409156710213208}
   - {fileID: 3606480512431176102}
   - {fileID: 7098226649011406443}
+  - {fileID: 3454500510070268232}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &8989575912184210822
@@ -571,6 +631,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2141570609298742858, guid: 687a27f7e8a8d2c6c882253dbd852cd0, type: 3}
+      propertyPath: weldingCamera
+      value: 
+      objectReference: {fileID: 8989575912184210822}
+    - target: {fileID: 5585480337774110908, guid: 687a27f7e8a8d2c6c882253dbd852cd0, type: 3}
       propertyPath: weldingCamera
       value: 
       objectReference: {fileID: 8989575912184210822}
