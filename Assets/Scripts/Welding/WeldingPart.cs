@@ -6,7 +6,8 @@ using UnityEngine;
 public class WeldingPart : MonoBehaviour
 {
     private WeldingPartData data;
-    private Dictionary<string, int> components;
+    private Dictionary<WeldingPartData, int> components;
+    public Dictionary<WeldingPartData, int> Components => components;
     private List<ColliderEvents> weldTriggers;
     public List<ColliderEvents> WeldTriggers => weldTriggers;
     private Dictionary<WeldingPart, int> collidingParts = new Dictionary<WeldingPart, int>();
@@ -21,7 +22,7 @@ public class WeldingPart : MonoBehaviour
         set
         {
             data = value;
-            components = new Dictionary<string, int> { { data.name, 1 } };
+            components = new Dictionary<WeldingPartData, int> { { data, 1 } };
         }
     }
 
@@ -136,12 +137,6 @@ public class WeldingPart : MonoBehaviour
     public bool IsCollidingWith(WeldingPart otherPart)
     {
         return collidingParts.ContainsKey(otherPart);
-    }
-
-    public int GetValue()
-    {
-        int componentsSum = components.Aggregate(0, (current, key) => current + key.Value);
-        return componentsSum * (componentsSum - 1) * 10;
     }
 
     private void OnDestroy()

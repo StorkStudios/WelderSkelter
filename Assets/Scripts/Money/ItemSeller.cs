@@ -1,8 +1,12 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using StorkStudios.CoreNest;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(WeldingCanvasUtils))]
-public class ItemSeller : MonoBehaviour
+public class ItemSeller : Singleton<ItemSeller>
 {
     public class ItemSellerModifiers
     {
@@ -13,6 +17,8 @@ public class ItemSeller : MonoBehaviour
     private float sellRadius = 0.5f;
 
     private WeldingCanvasUtils weldingCanvasUtils;
+
+    public Action<Dictionary<WeldingPartData, int>> ItemSoldEvent;
 
     private void Start()
     {
@@ -34,9 +40,9 @@ public class ItemSeller : MonoBehaviour
         if (itemToSell != null)
         {
             WeldingPart weldingPart = itemToSell.GetComponentInParent<WeldingPart>();
-            if (weldingPart != null)
+            if (weldingPart != null && (weldingPart.Components.Count > 1 || weldingPart.Components.First().Value > 1))
             {
-                MoneyManager.Instance.AddMoney(weldingPart.GetValue());
+                ItemSoldEvent?.Invoke(weldingPart.Components);
                 Destroy(weldingPart.gameObject);
             }
         }
