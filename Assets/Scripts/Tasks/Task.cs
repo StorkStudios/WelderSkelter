@@ -6,9 +6,12 @@ public abstract class Task : ScriptableObject
     [SerializeField]
     private string title;
     [SerializeField]
+    private Color color;
+    [SerializeField]
     private List<WeldingPartData> requiredParts;
 
     public string Title => title;
+    public Color Color => color;
     public List<WeldingPartData> RequiredParts => requiredParts;
 
     public abstract void Complete();

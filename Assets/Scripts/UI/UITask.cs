@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class UITask : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class UITask : MonoBehaviour
     private UIIngredient ingredientPrefab;
     [SerializeField]
     private CanvasGroup group;
+    [SerializeField]
+    private Image backgroundImage;
     [SerializeField]
     private TextMeshProUGUI title;
     [SerializeField]
@@ -34,6 +37,9 @@ public class UITask : MonoBehaviour
         }
 
         group.alpha = 1;
+
+        backgroundImage.color = task.Color;
+
         title.text = task.Title;
         foreach (Transform ingredient in ingredientsParent)
         {
