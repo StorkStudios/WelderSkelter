@@ -30,6 +30,7 @@ public class UITask : MonoBehaviour
         if (task == null)
         {
             group.alpha = 0;
+            return;
         }
 
         group.alpha = 1;
@@ -38,7 +39,10 @@ public class UITask : MonoBehaviour
         {
             Destroy(ingredient.gameObject);
         }
-        //todo: spawn ingredients
+        foreach (WeldingPartData part in task.RequiredParts)
+        {
+            Instantiate(ingredientPrefab.gameObject, ingredientsParent).GetComponent<UIIngredient>().SetSprite(part.UISprite);
+        }
 
         money.gameObject.SetActive(false);
         upgrade.gameObject.SetActive(false);
