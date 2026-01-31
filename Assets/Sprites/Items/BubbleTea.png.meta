@@ -121,12 +121,113 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: BubbleTea_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 58, y: -289}
+        - {x: 79, y: -280}
+        - {x: 102, y: -263}
+        - {x: 143, y: -27}
+        - {x: 157, y: 55}
+        - {x: 163, y: 71}
+        - {x: 176, y: 88}
+        - {x: 176, y: 137}
+        - {x: 166, y: 148}
+        - {x: 157, y: 148}
+        - {x: 157, y: 172}
+        - {x: 135, y: 216}
+        - {x: 90, y: 247}
+        - {x: 80, y: 250}
+        - {x: 40, y: 258}
+        - {x: 28, y: 258}
+        - {x: 38, y: 280}
+        - {x: 62, y: 323}
+        - {x: 56, y: 346}
+        - {x: 23, y: 346}
+        - {x: 2, y: 300}
+        - {x: -19, y: 260}
+        - {x: -32, y: 261}
+        - {x: -62, y: 253}
+        - {x: -103, y: 233}
+        - {x: -136, y: 202}
+        - {x: -146, y: 181}
+        - {x: -159, y: 143}
+        - {x: -170, y: 137}
+        - {x: -174, y: 129}
+        - {x: -174, y: 110}
+        - {x: -172, y: 86}
+        - {x: -155, y: 74}
+        - {x: -141, y: -9}
+        - {x: -98, y: -259}
+        - {x: -94, y: -265}
+        - {x: -79, y: -279}
+        - {x: -47, y: -293}
+        - {x: -24, y: -295}
+        - {x: 27, y: -295}
+      physicsShape:
+      - - {x: 69, y: -286}
+        - {x: 80, y: -278}
+        - {x: 101, y: -262}
+        - {x: 120, y: -158}
+        - {x: 158, y: 62}
+        - {x: 175, y: 85}
+        - {x: 175, y: 136}
+        - {x: 169, y: 145}
+        - {x: 157, y: 167}
+        - {x: 143, y: 203}
+        - {x: 114, y: 231}
+        - {x: 82, y: 249}
+        - {x: 52, y: 256}
+        - {x: 28, y: 259}
+        - {x: 40, y: 283}
+        - {x: 58, y: 322}
+        - {x: 57, y: 337}
+        - {x: 51, y: 345}
+        - {x: 46, y: 346}
+        - {x: 28, y: 346}
+        - {x: 25, y: 345}
+        - {x: -19, y: 261}
+        - {x: -37, y: 260}
+        - {x: -76, y: 247}
+        - {x: -96, y: 235}
+        - {x: -129, y: 209}
+        - {x: -147, y: 180}
+        - {x: -156, y: 144}
+        - {x: -166, y: 142}
+        - {x: -173, y: 132}
+        - {x: -173, y: 94}
+        - {x: -172, y: 85}
+        - {x: -155, y: 74}
+        - {x: -113, y: -174}
+        - {x: -99, y: -257}
+        - {x: -87, y: -272}
+        - {x: -63, y: -287}
+        - {x: -32, y: -295}
+        - {x: 31, y: -295}
+      tessellationDetail: 0.1
+      bones: []
+      spriteID: 96fc1f01a23942e44be6d3a3e21eb216
+      internalID: 1793347253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 1b99838d0e2d3d543856c21798d280e9
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +236,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BubbleTea_0: 1793347253
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

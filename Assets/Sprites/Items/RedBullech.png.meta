@@ -121,12 +121,57 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: RedBullech_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 138, y: -354}
+        - {x: 147, y: -313}
+        - {x: 147, y: 365}
+        - {x: 105, y: 376}
+        - {x: -66, y: 376}
+        - {x: -79, y: 372}
+        - {x: -119, y: 356}
+        - {x: -119, y: -308}
+        - {x: -96, y: -349}
+        - {x: -64, y: -367}
+        - {x: 88, y: -367}
+      physicsShape:
+      - - {x: 146, y: -318}
+        - {x: 146, y: 349}
+        - {x: 140, y: 370}
+        - {x: 97, y: 375}
+        - {x: -87, y: 375}
+        - {x: -117, y: 367}
+        - {x: -118, y: 353}
+        - {x: -118, y: -256}
+        - {x: -117, y: -300}
+        - {x: -103, y: -338}
+        - {x: -60, y: -367}
+        - {x: 108, y: -367}
+      tessellationDetail: 0.075
+      bones: []
+      spriteID: 98b503a89d380a4429db8edde549a6a5
+      internalID: 572831240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 9153613289837a2429bac1f5f5f0d6b1
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +180,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      RedBullech_0: 572831240
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

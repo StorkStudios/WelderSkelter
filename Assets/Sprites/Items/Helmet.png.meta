@@ -121,12 +121,99 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Helmet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 101, y: -327}
+        - {x: 172, y: -334}
+        - {x: 188, y: -294}
+        - {x: 210, y: -279}
+        - {x: 236, y: -234}
+        - {x: 251, y: -189}
+        - {x: 288, y: 24}
+        - {x: 288, y: 108}
+        - {x: 267, y: 184}
+        - {x: 225, y: 263}
+        - {x: 194, y: 287}
+        - {x: 113, y: 339}
+        - {x: 51, y: 359}
+        - {x: 8, y: 359}
+        - {x: -10, y: 358}
+        - {x: -74, y: 345}
+        - {x: -127, y: 322}
+        - {x: -196, y: 242}
+        - {x: -220, y: 166}
+        - {x: -250, y: 105}
+        - {x: -250, y: 75}
+        - {x: -247, y: 61}
+        - {x: -232, y: -14}
+        - {x: -214, y: -48}
+        - {x: -182, y: -74}
+        - {x: -174, y: -135}
+        - {x: -201, y: -153}
+        - {x: -214, y: -216}
+        - {x: -202, y: -271}
+        - {x: -157, y: -317}
+        - {x: -72, y: -340}
+        - {x: 63, y: -340}
+      physicsShape:
+      - - {x: 169, y: -327}
+        - {x: 206, y: -283}
+        - {x: 235, y: -242}
+        - {x: 250, y: -191}
+        - {x: 274, y: -57}
+        - {x: 287, y: 18}
+        - {x: 287, y: 94}
+        - {x: 286, y: 119}
+        - {x: 264, y: 181}
+        - {x: 223, y: 260}
+        - {x: 198, y: 282}
+        - {x: 122, y: 335}
+        - {x: 50, y: 359}
+        - {x: 9, y: 359}
+        - {x: -12, y: 358}
+        - {x: -90, y: 338}
+        - {x: -144, y: 300}
+        - {x: -173, y: 269}
+        - {x: -210, y: 195}
+        - {x: -210, y: 137}
+        - {x: -227, y: 132}
+        - {x: -246, y: 120}
+        - {x: -249, y: 104}
+        - {x: -249, y: 53}
+        - {x: -233, y: 2}
+        - {x: -219, y: -42}
+        - {x: -180, y: -82}
+        - {x: -212, y: -186}
+        - {x: -203, y: -255}
+        - {x: -192, y: -289}
+        - {x: -127, y: -326}
+        - {x: -76, y: -339}
+        - {x: 70, y: -339}
+      tessellationDetail: 0.067
+      bones: []
+      spriteID: a94fa60bab304124c9b2559641f0edf3
+      internalID: -544090416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e1feaec6fc4095347afcb74e04996de5
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +222,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Helmet_0: -544090416
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

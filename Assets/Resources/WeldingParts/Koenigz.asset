@@ -10,6 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ff58dc7e9ce795e8b76a7deb45ed5a0, type: 3}
-  m_Name: Sebastian
+  m_Name: Koenigz
   m_EditorClassIdentifier: 
-  prefab: {fileID: 7121831562505491121, guid: 764385fe11967a7e787f1cd03f7dd807, type: 3}
+  prefab: {fileID: 6683197320899064633, guid: 412c31ebd127b08428a1db95e6c6836a, type: 3}
+  uiSprite: {fileID: 0}
