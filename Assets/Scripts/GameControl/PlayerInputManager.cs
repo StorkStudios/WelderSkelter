@@ -14,6 +14,7 @@ public class PlayerInputManager : Singleton<PlayerInputManager>
     public event System.Action WeldStartEvent;
     public event System.Action WeldStopEvent;
     public event System.Action ItemSellEvent;
+    public event System.Action ToggleMaskEvent;
     public event System.Action<Vector2> MouseMoveOnWeldCanvasEvent;
 
 
@@ -50,6 +51,14 @@ public class PlayerInputManager : Singleton<PlayerInputManager>
         {
             Vector2 mousePosition = MousePositionToPositionOnWeldViewport(context.ReadValue<Vector2>());
             MouseMoveOnWeldCanvasEvent?.Invoke(mousePosition);
+        }
+    }
+
+    public void OnMaskToggle(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            ToggleMaskEvent?.Invoke();
         }
     }
 

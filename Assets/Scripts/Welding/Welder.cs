@@ -5,7 +5,7 @@ using StorkStudios.CoreNest;
 using UnityEngine;
 
 [RequireComponent(typeof(WeldingCanvasUtils))]
-public class Welder : MonoBehaviour
+public class Welder : Singleton<Welder>
 {
     public class WelderModifiers
     {
@@ -19,6 +19,7 @@ public class Welder : MonoBehaviour
     private WeldingCanvasUtils weldingCanvasUtils;
     private Vector2 lastWeldPosition;
     private bool isWelding;
+    public bool IsWelding => isWelding;
 
     private WelderModifiers welderModifiers; //TODO: Handle upgrades
     private float weldingSampleDistance = 0.1f;
