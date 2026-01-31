@@ -15,7 +15,11 @@ public class Item : ScriptableObject
     [EditObjectInInspector]
     private Upgrade upgrade;
 
+    [SerializeField]
+    private int cost;
+
     public string Title => title;
     public ItemRarity Rarity => rarity;
     public Upgrade Upgrade => upgrade;
+    public int Cost => cost;
 }
