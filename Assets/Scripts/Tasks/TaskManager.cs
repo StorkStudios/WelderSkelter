@@ -12,9 +12,21 @@ public class TaskManager : Singleton<TaskManager>
     [SerializeField]
     private List<UpgradeTask> upgradeTasks;
 
+    public event System.Action<List<Task>> CurrentTasksChanged;
+
     private List<Task> currentTasks = new List<Task>();
 
     public List<Task> CurrentTasks => currentTasks;
+
+    private void Initialize()
+    {
+        currentTasks.Clear();
+        for (int i = 0; i < maxTasks; i++)
+        {
+            currentTasks.Add(GetNewTask());
+        }
+        CurrentTasksChanged?.Invoke(currentTasks);
+    }
 
     private Task GetNewTask()
     {
@@ -28,5 +40,6 @@ public class TaskManager : Singleton<TaskManager>
     {
         currentTasks[currentTasks.IndexOf(task)] = GetNewTask();
         task.Complete();
+        CurrentTasksChanged?.Invoke(currentTasks);
     }
 }

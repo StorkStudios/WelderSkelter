@@ -5,6 +5,9 @@ using UnityEngine;
 public class Item : ScriptableObject
 {
     [SerializeField]
+    private string title;
+
+    [SerializeField]
     [EditObjectInInspector]
     private ItemRarity rarity;
 
@@ -12,6 +15,7 @@ public class Item : ScriptableObject
     [EditObjectInInspector]
     private Upgrade upgrade;
 
+    public string Title => title;
     public ItemRarity Rarity => rarity;
     public Upgrade Upgrade => upgrade;
 }
