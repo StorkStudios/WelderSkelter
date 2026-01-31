@@ -9,6 +9,7 @@ namespace StorkStudios.CoreNest
 		Ignore_Raycast = 2,
 		Water = 4,
 		UI = 5,
+		Welding = 6,
 	}
 	
 	public static class LayerExtensions
