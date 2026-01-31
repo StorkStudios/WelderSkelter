@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ public class WeldingPartsSpawner : MonoBehaviour
     {
         weldingPartDataList = new List<WeldingPartData>(Resources.LoadAll<WeldingPartData>("WeldingParts"));
         SpawnInitialParts();
+        StartCoroutine(SpawnItemsCoroutine());
     }
 
     private void SpawnInitialParts()
@@ -16,6 +18,15 @@ public class WeldingPartsSpawner : MonoBehaviour
         SpawnRandomPart();
         SpawnRandomPart();
         SpawnRandomPart();
+    }
+
+    private IEnumerator SpawnItemsCoroutine()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(2);
+            SpawnRandomPart();
+        }
     }
 
     private void SpawnRandomPart()
