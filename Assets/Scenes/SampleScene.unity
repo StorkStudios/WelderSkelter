@@ -202,6 +202,8 @@ GameObject:
   - component: {fileID: 56847454}
   - component: {fileID: 56847455}
   - component: {fileID: 56847456}
+  - component: {fileID: 56847457}
+  - component: {fileID: 56847458}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -251,9 +253,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b810c358d65362d988133d77592ccb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: 0
   currentLevel: 0
   moneyRequiredPerLevel: 
+--- !u!114 &56847457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56847453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e54a34def41367215a1d6bdeb271dfe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eyesightReductionPerSecond: 0.1
+--- !u!114 &56847458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56847453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 149031836ebf54382a4a276c1b99cb54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &73639069
 GameObject:
   m_ObjectHideFlags: 0
@@ -2211,7 +2237,7 @@ MonoBehaviour:
   gridPriority: 0
   rows: 2
   columns: 2
-  cellSize: {x: 108.90976, y: 129.34628}
+  cellSize: {x: 184.13535, y: 216.13873}
   spacing: {x: 34, y: 34}
   fitX: 1
   fitY: 1
