@@ -58,22 +58,18 @@ public class Welder : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(point, welderModifiers.radius);
         HashSet<WeldingPart> weldedParts = colliders.Select(c => c.GetComponentInParent<WeldingPart>()).Where(wp => wp != null).ToHashSet();
 
-        for (int i = 0; i < weldedParts.Count; i++)
+        for (int i = 0; i < weldedParts.Count - 1; i++)
         {
-            for (int j = 0; j < weldedParts.Count; j++)
+            for (int j = i + 1; j < weldedParts.Count; j++)
             {
                 WeldingPart weldingPart = weldedParts.ElementAt(i);
-                if (weldingPart != null)
+                WeldingPart otherWeldingPart = weldedParts.ElementAt(j);
+                if (weldingPart != null && otherWeldingPart != null && otherWeldingPart != weldingPart)
                 {
-                    WeldingPart otherWeldingPart = weldedParts.ElementAt(j);
-                    if (otherWeldingPart != null && otherWeldingPart != weldingPart)
+                    if (weldingPart.IsCollidingWith(otherWeldingPart))
                     {
-                        Debug.Log($"Checking welding between parts: {weldingPart.name} and {otherWeldingPart.name}");
-                        if (weldingPart.CollidingParts.Contains(otherWeldingPart))
-                        {
-                            weldingPart.WeldWith(otherWeldingPart);
-                            Debug.Log($"Welded parts: {weldingPart.name} with {otherWeldingPart.name}");
-                        }
+                        weldingPart.WeldWith(otherWeldingPart);
+                        Debug.Log($"Welded parts: {weldingPart.name} with {otherWeldingPart.name}");
                     }
                 }
             }

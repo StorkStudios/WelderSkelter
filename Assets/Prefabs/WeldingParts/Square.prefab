@@ -194,8 +194,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6795539775128111453}
   - component: {fileID: 3740783621114558296}
+  - component: {fileID: 6201633119041617967}
   m_Layer: 7
-  m_Name: WeldingTrigger
+  m_Name: SquareWeldingTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -269,3 +270,15 @@ PolygonCollider2D:
       - {x: 0.08, y: 0.07}
       - {x: 0.055, y: 0.08}
   m_UseDelaunayMesh: 0
+--- !u!114 &6201633119041617967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8908772799097249814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f30422dbb103274e9ddfbe7302c677a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
