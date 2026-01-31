@@ -138,6 +138,12 @@ public class WeldingPart : MonoBehaviour
         return collidingParts.ContainsKey(otherPart);
     }
 
+    public int GetValue()
+    {
+        int componentsSum = components.Aggregate(0, (current, key) => current + key.Value);
+        return componentsSum * (componentsSum - 1) * 10;
+    }
+
     private void OnDestroy()
     {
         foreach (ColliderEvents trigger in weldTriggers)

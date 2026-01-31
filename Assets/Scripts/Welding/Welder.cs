@@ -4,6 +4,7 @@ using System.Linq;
 using StorkStudios.CoreNest;
 using UnityEngine;
 
+[RequireComponent(typeof(WeldingCanvasUtils))]
 public class Welder : MonoBehaviour
 {
     public class WelderModifiers
@@ -13,12 +14,9 @@ public class Welder : MonoBehaviour
 
     [SerializeField]
     [NotNull]
-    private Camera weldingCamera;
-
-    [SerializeField]
-    [NotNull]
     private SpriteRenderer welderSpriteRenderer;
 
+    private WeldingCanvasUtils weldingCanvasUtils;
     private Vector2 lastWeldPosition;
     private bool isWelding;
 
@@ -32,6 +30,8 @@ public class Welder : MonoBehaviour
         PlayerInputManager.Instance.WeldStopEvent += OnWeldStop;
 
         welderModifiers = new WelderModifiers();
+
+        weldingCanvasUtils = GetComponent<WeldingCanvasUtils>();
     }
 
     private void Update()
@@ -77,7 +77,7 @@ public class Welder : MonoBehaviour
 
     private void OnMouseMoveOnWeldCanvas(Vector2 vector)
     {
-        transform.position = GetWorldPositionOnWeldCanvas(vector);
+        transform.position = weldingCanvasUtils.GetWorldPositionOnWeldCanvas(vector);
     }
 
     private void OnWeldStart()
@@ -92,11 +92,5 @@ public class Welder : MonoBehaviour
     {
         welderSpriteRenderer.color = Color.yellow;
         isWelding = false;
-    }
-
-    private Vector3 GetWorldPositionOnWeldCanvas(Vector2 canvasPosition)
-    {
-        Vector3 worldPosition = weldingCamera.ViewportToWorldPoint(new Vector3(canvasPosition.x, canvasPosition.y, weldingCamera.nearClipPlane));
-        return worldPosition;
     }
 }

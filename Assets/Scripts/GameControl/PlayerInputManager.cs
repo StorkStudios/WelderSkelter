@@ -13,6 +13,7 @@ public class PlayerInputManager : Singleton<PlayerInputManager>
 
     public event System.Action WeldStartEvent;
     public event System.Action WeldStopEvent;
+    public event System.Action ItemSellEvent;
     public event System.Action<Vector2> MouseMoveOnWeldCanvasEvent;
 
 
@@ -32,6 +33,14 @@ public class PlayerInputManager : Singleton<PlayerInputManager>
         else if (context.canceled)
         {
             WeldStopEvent?.Invoke();
+        }
+    }
+
+    public void OnSellItem(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            ItemSellEvent?.Invoke();
         }
     }
 
