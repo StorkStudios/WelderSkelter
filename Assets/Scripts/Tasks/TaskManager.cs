@@ -42,4 +42,12 @@ public class TaskManager : Singleton<TaskManager>
         task.Complete();
         CurrentTasksChanged?.Invoke(currentTasks);
     }
+
+    [InvokeButton]
+    public void EndTask()
+    {
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #endif
+    }
 }
