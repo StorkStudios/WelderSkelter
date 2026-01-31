@@ -55,6 +55,7 @@ public class Welder : MonoBehaviour
 
     private void WeldOnPoint(Vector2 point)
     {
+        Debug.Log("Welding at point: " + point);
         Collider2D[] colliders = Physics2D.OverlapCircleAll(point, welderModifiers.radius);
         HashSet<WeldingPart> weldedParts = colliders.Select(c => c.GetComponentInParent<WeldingPart>()).Where(wp => wp != null).ToHashSet();
 
@@ -69,7 +70,6 @@ public class Welder : MonoBehaviour
                     if (weldingPart.IsCollidingWith(otherWeldingPart))
                     {
                         weldingPart.WeldWith(otherWeldingPart);
-                        Debug.Log($"Welded parts: {weldingPart.name} with {otherWeldingPart.name}");
                     }
                 }
             }

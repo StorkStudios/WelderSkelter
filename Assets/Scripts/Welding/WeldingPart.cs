@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -12,6 +13,9 @@ public class WeldingPart : MonoBehaviour
     public List<ColliderEvents> WeldTriggers => weldTriggers;
     private Dictionary<WeldingPart, int> collidingParts = new Dictionary<WeldingPart, int>();
     private Rigidbody2D rb;
+    public bool WeldedThisFrame = false;
+
+    public string Summary => components.Keys.Aggregate("", (current, key) => current + $"{key} x{components[key]}, ");
 
     private void Awake()
     {
@@ -71,6 +75,12 @@ public class WeldingPart : MonoBehaviour
 
     public void WeldWith(WeldingPart otherPart)
     {
+        if (otherPart.WeldedThisFrame || WeldedThisFrame)
+        {
+            return;
+        }
+
+        Debug.Log($"Welding parts: {Summary} with {otherPart.Summary}");
         foreach (var component in otherPart.components)
         {
             if (components.ContainsKey(component.Key))
@@ -112,6 +122,7 @@ public class WeldingPart : MonoBehaviour
         rb.linearVelocity = combinedVelocity;
         rb.angularVelocity = combinedAngularVelocity;
 
+        otherPart.WeldedThisFrame = true;
         Destroy(otherPart);
         Destroy(otherRb);
     }
