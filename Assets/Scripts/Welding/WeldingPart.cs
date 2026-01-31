@@ -5,9 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class WeldingPart : MonoBehaviour
 {
-    [SerializeField]
-    private string partName;
-
+    private WeldingPartData data;
     private Dictionary<string, int> components;
     private List<ColliderEvents> weldTriggers;
     public List<ColliderEvents> WeldTriggers => weldTriggers;
@@ -17,11 +15,19 @@ public class WeldingPart : MonoBehaviour
 
     public string Summary => components.Keys.Aggregate("", (current, key) => current + $"{key} x{components[key]}, ");
 
+    public WeldingPartData Data
+    {
+        get => data;
+        set
+        {
+            data = value;
+            components = new Dictionary<string, int> { { data.name, 1 } };
+        }
+    }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.AddForce(Random.insideUnitCircle * 5f, ForceMode2D.Impulse);
-        components = new Dictionary<string, int> { { partName, 1 } };
         weldTriggers = new List<ColliderEvents>(GetComponentsInChildren<ColliderEvents>());
         foreach (ColliderEvents trigger in weldTriggers)
         {
