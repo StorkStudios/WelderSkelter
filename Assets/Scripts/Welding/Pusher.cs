@@ -60,6 +60,8 @@ public class Pusher : MonoBehaviour
         UpdatePusherPosition();
 
         ItemSeller.Instance.ItemSold += OnItemSold;
+
+        OnBeforeWorkPhaseStart();
     }
 
     private void OnItemSold(Dictionary<WeldingPartData, int> dictionary)
@@ -185,6 +187,9 @@ public class Pusher : MonoBehaviour
     private void OnBeforeWorkPhaseStart()
     {
         modifier = PlayerUpgrades.Instance.GetModifier<PusherModifier>();
-        spawnCoroutine = StartCoroutine(SpawnItemsCoroutine());
+        if (spawnCoroutine != null)
+        {
+            spawnCoroutine = StartCoroutine(SpawnItemsCoroutine());
+        }
     }
 }

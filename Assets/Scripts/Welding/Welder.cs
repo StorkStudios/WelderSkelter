@@ -35,6 +35,8 @@ public class Welder : Singleton<Welder>
         WorkPhaseManager.Instance.WorkPhasePreStartEvent += OnBeforeWorkPhaseStart;
 
         welderParticles.SetActive(false);
+
+        OnBeforeWorkPhaseStart();
     }
 
     private void OnBeforeWorkPhaseStart()
