@@ -44,6 +44,13 @@ public class WeldingPart : MonoBehaviour
         }
         modifier = PlayerUpgrades.Instance.GetModifier<WeldingPartModifier>();
         WeldingMask.Instance.MaskOn.ValueChanged += OnMaskOnChanged;
+        WorkPhaseManager.Instance.WorkPhaseEnded += (_) =>
+        {
+            if (this != null && gameObject != null)
+            {
+                Destroy(gameObject);
+            }
+        };
     }
 
     private void OnMaskOnChanged(bool _, bool newValue)
