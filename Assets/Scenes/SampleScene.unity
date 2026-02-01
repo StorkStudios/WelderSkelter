@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &56664327
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3636,27 +3636,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3713082809575077154, guid: 65431561702cb0cdf829c1ca5f0e632f, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.732
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 3713082809575077154, guid: 65431561702cb0cdf829c1ca5f0e632f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.53
+      value: -1.16
       objectReference: {fileID: 0}
     - target: {fileID: 3713082809575077154, guid: 65431561702cb0cdf829c1ca5f0e632f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.43
+      value: 8.32
       objectReference: {fileID: 0}
     - target: {fileID: 3713082809575077154, guid: 65431561702cb0cdf829c1ca5f0e632f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.86
+      value: 3.75
       objectReference: {fileID: 0}
     - target: {fileID: 3713082809575077154, guid: 65431561702cb0cdf829c1ca5f0e632f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.70710677
+      value: 0.7372774
       objectReference: {fileID: 0}
     - target: {fileID: 3713082809575077154, guid: 65431561702cb0cdf829c1ca5f0e632f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.70710677
+      value: -0.67559016
       objectReference: {fileID: 0}
     - target: {fileID: 3713082809575077154, guid: 65431561702cb0cdf829c1ca5f0e632f, type: 3}
       propertyPath: m_LocalRotation.y
@@ -3668,15 +3668,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3713082809575077154, guid: 65431561702cb0cdf829c1ca5f0e632f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
+      value: -85
       objectReference: {fileID: 0}
     - target: {fileID: 3713082809575077154, guid: 65431561702cb0cdf829c1ca5f0e632f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3713082809575077154, guid: 65431561702cb0cdf829c1ca5f0e632f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4113152287552858072, guid: 65431561702cb0cdf829c1ca5f0e632f, type: 3}
       propertyPath: m_CastShadows
@@ -4950,7 +4950,7 @@ MonoBehaviour:
   gridPriority: 0
   rows: 2
   columns: 2
-  cellSize: {x: 215.56662, y: 252.40295}
+  cellSize: {x: 181.47668, y: 213.07126}
   spacing: {x: 34, y: 34}
   fitX: 1
   fitY: 1
