@@ -918,7 +918,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bf4a1a5c37d65809ab8d2883ef3555ba, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 22f737fa700149e48a7b2040ae4ac915, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6780,7 +6780,7 @@ MonoBehaviour:
   gridPriority: 0
   rows: 2
   columns: 2
-  cellSize: {x: 215.48831, y: 252.31259}
+  cellSize: {x: 215.58026, y: 252.41867}
   spacing: {x: 34, y: 34}
   fitX: 1
   fitY: 1

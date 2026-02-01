@@ -27,6 +27,8 @@ public class WeldingMask : Singleton<WeldingMask>
     {
         PlayerInputManager.Instance.ToggleMaskEvent += OnMaskToggled;
         WorkPhaseManager.Instance.WorkPhasePreStartEvent += OnPreStart;
+
+        OnPreStart();
     }
 
     private void Update()
