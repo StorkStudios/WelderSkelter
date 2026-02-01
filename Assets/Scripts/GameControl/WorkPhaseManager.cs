@@ -7,6 +7,7 @@ public class WorkPhaseManager : Singleton<WorkPhaseManager>
     [ReadOnly]
     private DayshiftData currentData;
 
+    public DayshiftData CurrentData => currentData;
     public float DayTimer { get; private set; } = 0;
 
     public event System.Action<bool> WorkPhaseEnded;
