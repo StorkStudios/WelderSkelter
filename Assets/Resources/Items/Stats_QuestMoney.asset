@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Stats_QuestMoney
   m_EditorClassIdentifier: 
   title: +25% Quest Reward
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 0.5254902, g: 0.6901961, b: 0.36862746, a: 1}
   rarity: {fileID: 11400000, guid: 9896bf38fd23f424e8cbf21c675c5e11, type: 2}
   upgrade: {fileID: 11400000, guid: 83da5d57e06c9556ea1776713dee4893, type: 2}
   cost: 500

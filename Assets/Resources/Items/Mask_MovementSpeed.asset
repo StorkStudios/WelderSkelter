@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Mask_MovementSpeed
   m_EditorClassIdentifier: 
   title: 'MASK: -30% Item Speed'
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 0.5254902, g: 0.6901961, b: 0.36862746, a: 1}
   rarity: {fileID: 11400000, guid: b98e1b5f87c33ee4c9bc594f271de9d4, type: 2}
   upgrade: {fileID: 11400000, guid: fc274e3b5d5f7343eaea27b0c689a4d4, type: 2}
   cost: 500
