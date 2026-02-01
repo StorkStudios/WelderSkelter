@@ -231,8 +231,8 @@ MonoBehaviour:
   - {fileID: 1388376490202423078}
   pusher: {fileID: 7344234452075250156}
   pusherAnimator: {fileID: 6479473302682024666}
-  basePushForce: {x: 0, y: -2}
-  randomPushForceRange: {x: 2, y: 1}
+  basePushForce: {x: 0, y: -8}
+  randomPushForceRange: {x: 6, y: 0}
 --- !u!114 &9181816776966940310
 MonoBehaviour:
   m_ObjectHideFlags: 0
