@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    private enum Phase { Work, Shop }
+    private enum Phase { Menu, Work, Shop, End }
 
     [SerializeField]
     private SerializedDictionary<Phase, GameObject> phaseParents;
@@ -16,33 +16,33 @@ public class GameManager : Singleton<GameManager>
     [ReadOnly]
     private int currentDay;
 
-    private Phase phase;
+    private bool win;
 
     private void Start()
     {
+        MainMenuController.Instance.StartGameEvent += OnStartGame;
         WorkPhaseManager.Instance.WorkPhaseEnded += OnGamePhaseEnded;
         ShopPhaseManager.Instance.ShopPhaseEnded += OnShopPhaseEnded;
 
+        SetPhase(Phase.Menu);
+    }
+
+    private void OnStartGame()
+    {
         currentDay = 0;
         SetPhase(Phase.Work);
     }
 
     private void OnGamePhaseEnded(bool won)
     {
-        if (won)
+        if (won && currentDay < dayshifts.Count - 1)
         {
-            if (currentDay == dayshifts.Count - 1)
-            {
-                //todo: win
-            }
-            else
-            {
-                SetPhase(Phase.Shop);
-            }
+            SetPhase(Phase.Shop);
         }
         else
         {
-            //todo: lose
+            win = won;
+            SetPhase(Phase.End);
         }
     }
 
@@ -54,7 +54,6 @@ public class GameManager : Singleton<GameManager>
 
     private void SetPhase(Phase phase)
     {
-        this.phase = phase;
         foreach (Phase key in phaseParents.Keys)
         {
             phaseParents[key].SetActive(key == phase);
@@ -67,6 +66,9 @@ public class GameManager : Singleton<GameManager>
                 break;
             case Phase.Shop:
                 ShopPhaseManager.Instance.BeginShopPhase(dayshifts[currentDay + 1]);
+                break;
+            case Phase.End:
+                EndScreenController.Instance.SetScreen(win ? EndScreenController.Screen.Win : EndScreenController.Screen.Lose);
                 break;
         }
     }
