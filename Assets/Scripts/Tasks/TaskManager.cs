@@ -7,12 +7,11 @@ public class TaskManager : Singleton<TaskManager>
 {
     [SerializeField]
     private int maxTasks;
-    [SerializeField]
-    [ReadOnly]
-    private List<Task> currentTasks = new List<Task>();
 
     public event System.Action<List<Task>> CurrentTasksChanged;
     public List<Task> CurrentTasks => currentTasks;
+
+    private List<Task> currentTasks = new List<Task>();
 
     private void Start()
     {

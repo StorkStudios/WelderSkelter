@@ -6,8 +6,9 @@ public class UIIngredient : MonoBehaviour
     [SerializeField]
     private Image image;
 
-    public void SetSprite(Sprite sprite)
+    public void SetSprite(Sprite sprite, Color color)
     {
         image.sprite = sprite;
+        image.color = color;
     }
 }

@@ -13,9 +13,11 @@ public class UIItem : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI cost;
 
+    public bool isBought = false;
+
     private Item item;
 
-    public event System.Action<Item> BuyClicked;
+    public event System.Action<UIItem, Item> BuyClicked;
 
     private void Awake()
     {
@@ -26,13 +28,13 @@ public class UIItem : MonoBehaviour
     {
         if (item != null)
         {
-            buyButton.interactable = MoneyManager.Instance.Money >= item.Cost;
+            buyButton.interactable = !isBought && MoneyManager.Instance.Money >= item.Cost;
         }
     }
 
     private void OnButtonClick()
     {
-        BuyClicked?.Invoke(item);
+        BuyClicked?.Invoke(this, item);
     }
 
     public void SetItem(Item item)

@@ -31,4 +31,9 @@ public class MoneyManager : Singleton<MoneyManager>
     {
         money.Value += amount;
     }
+
+    public void DeductMoney(int amount)
+    {
+        money.Value -= amount;
+    }
 }

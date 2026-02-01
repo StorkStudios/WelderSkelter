@@ -47,7 +47,7 @@ public class UITask : MonoBehaviour
         }
         foreach (WeldingPartData part in task.RequiredParts)
         {
-            Instantiate(ingredientPrefab.gameObject, ingredientsParent).GetComponent<UIIngredient>().SetSprite(part.UISprite);
+            Instantiate(ingredientPrefab.gameObject, ingredientsParent).GetComponent<UIIngredient>().SetSprite(part.UISprite, task.Color);
         }
 
         money.gameObject.SetActive(false);
