@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Stats_MovementSpeed
   m_EditorClassIdentifier: 
   title: -25% Item Speed
+  color: {r: 0, g: 0, b: 0, a: 0}
   rarity: {fileID: 11400000, guid: 9896bf38fd23f424e8cbf21c675c5e11, type: 2}
-  upgrade: {fileID: 0}
+  upgrade: {fileID: 11400000, guid: 3f26a10216b3986ec824a80678ea8d84, type: 2}
   cost: 2500
