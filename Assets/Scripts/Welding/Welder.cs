@@ -14,7 +14,7 @@ public class Welder : Singleton<Welder>
 
     [SerializeField]
     [NotNull]
-    private SpriteRenderer welderSpriteRenderer;
+    private GameObject welderParticles;
 
     private WeldingCanvasUtils weldingCanvasUtils;
     private Vector2 lastWeldPosition;
@@ -33,6 +33,8 @@ public class Welder : Singleton<Welder>
         weldingCanvasUtils = GetComponent<WeldingCanvasUtils>();
 
         WorkPhaseManager.Instance.WorkPhasePreStartEvent += OnBeforeWorkPhaseStart;
+
+        welderParticles.SetActive(false);
     }
 
     private void OnBeforeWorkPhaseStart()
@@ -88,15 +90,15 @@ public class Welder : Singleton<Welder>
 
     private void OnWeldStart()
     {
-        welderSpriteRenderer.color = Color.blue;
         isWelding = true;
         lastWeldPosition = transform.position;
         WeldOnPoint(lastWeldPosition);
+        welderParticles.SetActive(true);
     }
 
     private void OnWeldStop()
     {
-        welderSpriteRenderer.color = Color.yellow;
         isWelding = false;
+        welderParticles.SetActive(false);
     }
 }

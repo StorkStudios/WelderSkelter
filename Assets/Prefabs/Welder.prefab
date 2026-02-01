@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0f9741c48d4251d293c75bc7f81fa8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  welderSpriteRenderer: {fileID: 8994786599302160455}
+  welderParticles: {fileID: 7458573174777699968}
 --- !u!114 &5585480337774110908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,5 +176,10 @@ PrefabInstance:
 --- !u!4 &1509083107416426608 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7987545941212662716, guid: 1548258eea25dde4087f7b1aee898e9e, type: 3}
+  m_PrefabInstance: {fileID: 8802322449468310476}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7458573174777699968 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2137535715798457676, guid: 1548258eea25dde4087f7b1aee898e9e, type: 3}
   m_PrefabInstance: {fileID: 8802322449468310476}
   m_PrefabAsset: {fileID: 0}
