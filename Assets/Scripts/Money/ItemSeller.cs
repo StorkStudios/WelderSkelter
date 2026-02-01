@@ -10,7 +10,6 @@ public class ItemSeller : Singleton<ItemSeller>
 {
     public class ItemSellerModifiers
     {
-        // Placeholder for future modifiers
     }
 
     [SerializeField]

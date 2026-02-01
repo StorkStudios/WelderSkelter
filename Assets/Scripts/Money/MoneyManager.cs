@@ -8,7 +8,7 @@ public class MoneyManager : Singleton<MoneyManager>
 {
     public class MoneyManagerModifiers
     {
-        // Placeholder for future modifiers
+        public float scrapSellMoneyMultipler = 1;
     }
 
     public event ObservableVariable<int>.ValueChangedDelegate MoneyChanged
@@ -30,14 +30,16 @@ public class MoneyManager : Singleton<MoneyManager>
     private void OnItemSold(Dictionary<WeldingPartData, int> dictionary)
     {
         int componentsSum = dictionary.Aggregate(0, (current, key) => current + key.Value);
+        int amount;
         if (dictionary.Values.Any(v => v > 1))
         {
-            AddMoney((componentsSum - 1) * 10);   
+            amount = (componentsSum - 1) * 10;
         }
         else
         {
-           AddMoney(componentsSum * (componentsSum - 1) * 10);    
+            amount = componentsSum * (componentsSum - 1) * 10;
         }
+        AddMoney((int)(amount * PlayerUpgrades.Instance.GetModifier<MoneyManagerModifiers>().scrapSellMoneyMultipler));
     }
 
     public void AddMoney(int amount)
