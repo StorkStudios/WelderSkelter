@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Item_Jelly
   m_EditorClassIdentifier: 
   title: 'ITEM: Jelly'
+  color: {r: 0, g: 0, b: 0, a: 0}
   rarity: {fileID: 11400000, guid: 3a9dae79d3fd7a041b3105e30f2f4184, type: 2}
-  upgrade: {fileID: 0}
+  upgrade: {fileID: 11400000, guid: 3f26a10216b3986ec824a80678ea8d84, type: 2}
   cost: 5000
