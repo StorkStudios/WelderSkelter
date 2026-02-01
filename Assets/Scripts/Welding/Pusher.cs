@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using UnityEngine;
 
-[RequireComponent(typeof(WeldingCanvasUtils))]
 public class Pusher : MonoBehaviour
 {
     [SerializeField]
@@ -34,10 +35,14 @@ public class Pusher : MonoBehaviour
     [SerializeField]
     private Vector2 randomPushForceRange;
 
+    [SerializeField]
+    private GameObject itemsLimitErrorMessage;
+
     public class PusherModifier
     {
         public float DelayBetweenItemGroups = 3f;
         public int PushersCount = 1;
+        public int MaxItems = 2;
     }
 
     private PusherModifier modifier;
@@ -45,7 +50,7 @@ public class Pusher : MonoBehaviour
     private int selectedSlot = 1;
     private GameObject[] itemsOnSlots = new GameObject[3];
 
-    private WeldingCanvasUtils canvasUtils;
+    private int itemsCount = 0;
 
     private void Start()
     {
@@ -54,9 +59,14 @@ public class Pusher : MonoBehaviour
 
         PlayerInputManager.Instance.PusherMoveEvent += OnPusherMove;
 
-        canvasUtils = GetComponent<WeldingCanvasUtils>();
-
         UpdatePusherPosition();
+
+        ItemSeller.Instance.ItemSold += OnItemSold;
+    }
+
+    private void OnItemSold(Dictionary<WeldingPartData, int> dictionary)
+    {
+        itemsCount -= dictionary.Aggregate(0, (current, key) => current + key.Value);
     }
 
     private void OnPusherMove(float value)
@@ -97,14 +107,29 @@ public class Pusher : MonoBehaviour
     {
         while(true)
         {
-            Debug.Log("Spawn items");
-            yield return SpawnItems();
-            Debug.Log("Wait for selection");
-            yield return new WaitForSeconds(modifier.DelayBetweenItemGroups);
-            Debug.Log("PushItem");
-            yield return PushItem();
-            Debug.Log("Remove items");
-            yield return RemoveItems();
+            if (itemsCount < modifier.MaxItems)
+            {
+                if (itemsLimitErrorMessage != null && itemsLimitErrorMessage.activeSelf)
+                {
+                    itemsLimitErrorMessage.SetActive(false);
+                }
+                Debug.Log("Spawn items");
+                yield return SpawnItems();
+                Debug.Log("Wait for selection");
+                yield return new WaitForSeconds(modifier.DelayBetweenItemGroups);
+                Debug.Log("PushItem");
+                yield return PushItem();
+                Debug.Log("Remove items");
+                yield return RemoveItems();
+            }
+            else
+            {
+                if (itemsLimitErrorMessage != null && !itemsLimitErrorMessage.activeSelf)
+                {
+                    itemsLimitErrorMessage.SetActive(true);
+                }
+                yield return new WaitForEndOfFrame();
+            }
         }
     }
 
@@ -124,6 +149,7 @@ public class Pusher : MonoBehaviour
         float randX = UnityEngine.Random.Range(-randomPushForceRange.x, randomPushForceRange.x);
         float randY = UnityEngine.Random.Range(-randomPushForceRange.y, randomPushForceRange.y);
         rb.AddForce(basePushForce + new Vector2(randX, randY), ForceMode2D.Impulse);
+        itemsCount++;
     }
 
     private IEnumerator RemoveItems()
