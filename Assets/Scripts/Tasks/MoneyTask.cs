@@ -5,7 +5,7 @@ public class MoneyTask : Task
 {
     public class MoneyTaskModifier
     {
-        public float questIncomeModifier;
+        public float questIncomeModifier = 1;
     }
 
     [SerializeField]
