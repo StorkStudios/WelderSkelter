@@ -308,9 +308,9 @@ MonoBehaviour:
         item: 3
       Value: {fileID: 131519170}
   dayshifts:
-  - moneyToCollect: 1000
+  - moneyToCollect: 600
     dayLength: 120
-  - moneyToCollect: 2000
+  - moneyToCollect: 1600
     dayLength: 140
   - moneyToCollect: 3000
     dayLength: 160
@@ -1528,7 +1528,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: 0}
+  m_AnchoredPosition: {x: 0.000061035156, y: 0}
   m_SizeDelta: {x: 954, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &401351105
@@ -6563,7 +6563,7 @@ MonoBehaviour:
   gridPriority: 0
   rows: 2
   columns: 2
-  cellSize: {x: 215.58026, y: 252.41867}
+  cellSize: {x: 215.48831, y: 252.31259}
   spacing: {x: 34, y: 34}
   fitX: 1
   fitY: 1
@@ -7065,8 +7065,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 73639071}
   m_HandleRect: {fileID: 73639070}
   m_Direction: 0
-  m_Value: 1
-  m_Size: 0.50007606
+  m_Value: 0
+  m_Size: 0.50007594
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
