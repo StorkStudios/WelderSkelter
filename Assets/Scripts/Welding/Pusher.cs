@@ -36,6 +36,14 @@ public class Pusher : MonoBehaviour
     [SerializeField]
     private GameObject itemsLimitErrorMessage;
 
+    [SerializeField]
+    private AudioClip pusherMoveSound;
+    [SerializeField]
+    private AudioClip pusherPushSound;
+    [SerializeField]
+    private AudioSource pusherAudioSource;
+
+
     public class PusherModifier
     {
         public float DelayBetweenItemGroups = 1.25f;
@@ -76,6 +84,7 @@ public class Pusher : MonoBehaviour
             {
                 selectedSlot++;
                 UpdatePusherPosition();
+                pusherAudioSource.PlayOneShot(pusherMoveSound);
             }
         }
         else
@@ -84,6 +93,7 @@ public class Pusher : MonoBehaviour
             {
                 selectedSlot--;
                 UpdatePusherPosition();
+                pusherAudioSource.PlayOneShot(pusherMoveSound);
             }
         }
     }
@@ -130,6 +140,7 @@ public class Pusher : MonoBehaviour
     private IEnumerator PushItem()
     {
         pusherAnimator.SetTrigger("PushTrigger");
+        pusherAudioSource.PlayOneShot(pusherPushSound);
         Vector3 spawnPositionForSlot = SpawnLocationAfterBelt.position;
         spawnPositionForSlot.x = slots[selectedSlot].position.x;
         yield return new WaitForSeconds(0.25f);
