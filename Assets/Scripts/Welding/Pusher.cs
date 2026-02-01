@@ -143,6 +143,7 @@ public class Pusher : MonoBehaviour
         float randY = UnityEngine.Random.Range(-randomPushForceRange.y, randomPushForceRange.y);
         rb.AddForce(basePushForce + new Vector2(randX, randY), ForceMode2D.Impulse);
         itemsCount++;
+        itemsOnSlots[selectedSlot].GetComponent<WeldingPart>().OnPush();
     }
 
     private IEnumerator RemoveItems()

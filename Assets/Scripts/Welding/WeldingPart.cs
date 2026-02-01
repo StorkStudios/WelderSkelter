@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -5,6 +6,11 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class WeldingPart : MonoBehaviour
 {
+    public class WeldingPartModifier
+    {
+        public float PartSpeedModifierWithMaskOn = 1;
+    }
+
     private WeldingPartData data;
     private Dictionary<WeldingPartData, int> components;
     public Dictionary<WeldingPartData, int> Components => components;
@@ -13,6 +19,7 @@ public class WeldingPart : MonoBehaviour
     private Dictionary<WeldingPart, int> collidingParts = new Dictionary<WeldingPart, int>();
     private Rigidbody2D rb;
     public bool WeldedThisFrame = false;
+    private WeldingPartModifier modifier;
 
     public string Summary => components.Keys.Aggregate("", (current, key) => current + $"{key} x{components[key]}, ");
 
@@ -34,6 +41,20 @@ public class WeldingPart : MonoBehaviour
         {
             trigger.OnTriggerEnterEvent += OnWeldTriggerEnter;
             trigger.OnTriggerExitEvent += OnWeldTriggerExit;
+        }
+        modifier = PlayerUpgrades.Instance.GetModifier<WeldingPartModifier>();
+        WeldingMask.Instance.MaskOn.ValueChanged += OnMaskOnChanged;
+    }
+
+    private void OnMaskOnChanged(bool _, bool newValue)
+    {
+        if (newValue)
+        {
+            rb.linearVelocity *= modifier.PartSpeedModifierWithMaskOn;
+        }
+        else
+        {
+            rb.linearVelocity /= modifier.PartSpeedModifierWithMaskOn;
         }
     }
 
@@ -78,6 +99,11 @@ public class WeldingPart : MonoBehaviour
             collidingParts[otherPart] = 1;
             //Debug.Log($"{name}: entered weld trigger with {d.name}");
         }
+    }
+
+    public void OnPush()
+    {
+        OnMaskOnChanged(false, WeldingMask.Instance.MaskOn.Value);
     }
 
     public void WeldWith(WeldingPart otherPart)
@@ -145,6 +171,10 @@ public class WeldingPart : MonoBehaviour
         {
             trigger.OnTriggerEnterEvent -= OnWeldTriggerEnter;
             trigger.OnTriggerExitEvent -= OnWeldTriggerExit;
+        }
+        if (WeldingMask.IsInstanced)
+        {   
+            WeldingMask.Instance.MaskOn.ValueChanged -= OnMaskOnChanged;
         }
     }
 }
