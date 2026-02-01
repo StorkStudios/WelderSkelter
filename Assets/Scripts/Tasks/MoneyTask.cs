@@ -10,6 +10,6 @@ public class MoneyTask : Task
 
     public override void Complete()
     {
-        throw new System.NotImplementedException();
+        MoneyManager.Instance.AddMoney(money);
     }
 }

@@ -18,7 +18,7 @@ public class MoneyManager : Singleton<MoneyManager>
 
     private void Start()
     {
-        ItemSeller.Instance.ItemSoldEvent += OnItemSold;
+        ItemSeller.Instance.ItemSold += OnItemSold;
     }
 
     private void OnItemSold(Dictionary<WeldingPartData, int> dictionary)

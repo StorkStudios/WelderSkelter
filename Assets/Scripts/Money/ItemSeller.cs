@@ -18,7 +18,7 @@ public class ItemSeller : Singleton<ItemSeller>
 
     private WeldingCanvasUtils weldingCanvasUtils;
 
-    public Action<Dictionary<WeldingPartData, int>> ItemSoldEvent;
+    public event Action<Dictionary<WeldingPartData, int>> ItemSold;
 
     private void Start()
     {
@@ -42,7 +42,7 @@ public class ItemSeller : Singleton<ItemSeller>
             WeldingPart weldingPart = itemToSell.GetComponentInParent<WeldingPart>();
             if (weldingPart != null && (weldingPart.Components.Count > 1 || weldingPart.Components.First().Value > 1))
             {
-                ItemSoldEvent?.Invoke(weldingPart.Components);
+                ItemSold?.Invoke(weldingPart.Components);
                 Destroy(weldingPart.gameObject);
             }
         }

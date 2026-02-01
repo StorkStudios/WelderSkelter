@@ -14,6 +14,23 @@ public class TaskManager : Singleton<TaskManager>
     public event System.Action<List<Task>> CurrentTasksChanged;
     public List<Task> CurrentTasks => currentTasks;
 
+    private void Start()
+    {
+        ItemSeller.Instance.ItemSold += OnItemSold;
+    }
+
+    private void OnItemSold(Dictionary<WeldingPartData, int> itemParts)
+    {
+        foreach (Task task in currentTasks)
+        {
+            if (itemParts.Keys.All(key => itemParts[key] == task.RequiredParts.Where(part => part == key).Count()))
+            {
+                CompleteTask(task);
+                return;
+            }
+        }
+    }
+
     public void Restart()
     {
         currentTasks.Clear();
@@ -24,7 +41,7 @@ public class TaskManager : Singleton<TaskManager>
         CurrentTasksChanged?.Invoke(currentTasks);
     }
 
-    public void CompleteTask(Task task)
+    private void CompleteTask(Task task)
     {
         currentTasks[currentTasks.IndexOf(task)] = TaskDatabase.Instance.GetNewTask();
         task.Complete();
