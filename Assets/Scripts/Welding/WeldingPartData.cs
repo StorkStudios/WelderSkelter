@@ -11,9 +11,10 @@ public class WeldingPartData : ScriptableObject
     public GameObject Prefab => prefab;
     public Sprite UISprite => uiSprite;
 
-    public GameObject Instantiate(Vector2 position, Quaternion rotation)
+    public GameObject Instantiate(Vector2 position, Quaternion rotation, Transform parent)
     {
         GameObject instance = Instantiate(prefab, position, rotation);
+        instance.transform.parent = parent;
         instance.GetComponent<WeldingPart>().Data = this;
         return instance;
     }

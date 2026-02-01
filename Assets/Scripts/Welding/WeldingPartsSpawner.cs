@@ -32,7 +32,7 @@ public class WeldingPartsSpawner : MonoBehaviour
 
     private void SpawnRandomPart()
     {
-        GameObject part = weldingPartDataList[Random.Range(0, weldingPartDataList.Count)].Instantiate(transform.position, Quaternion.identity);
+        GameObject part = weldingPartDataList[Random.Range(0, weldingPartDataList.Count)].Instantiate(transform.position, Quaternion.identity, transform);
         Rigidbody2D partRb = part.GetComponent<Rigidbody2D>();
         partRb.AddForce(Random.insideUnitCircle * 5f, ForceMode2D.Impulse);
     }
