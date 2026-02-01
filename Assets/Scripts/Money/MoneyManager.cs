@@ -36,6 +36,8 @@ public class MoneyManager : Singleton<MoneyManager>
         ItemSeller.Instance.ItemSold += OnItemSold;
 
         audioSource = GetComponent<AudioSource>();
+
+        WorkPhaseManager.Instance.WorkPhasePreStartEvent += () => money.Value = 0;
     }
 
     private void OnItemSold(Dictionary<WeldingPartData, int> dictionary)
