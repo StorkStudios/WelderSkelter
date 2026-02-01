@@ -121,12 +121,86 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Skull_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: -46, y: -302}
+        - {x: 29, y: -273}
+        - {x: 112, y: -229}
+        - {x: 141, y: -211}
+        - {x: 177, y: -91}
+        - {x: 238, y: 29}
+        - {x: 282, y: 131}
+        - {x: 287, y: 145}
+        - {x: 287, y: 175}
+        - {x: 263, y: 197}
+        - {x: 186, y: 300}
+        - {x: 133, y: 338}
+        - {x: 30, y: 377}
+        - {x: -31, y: 377}
+        - {x: -82, y: 366}
+        - {x: -166, y: 322}
+        - {x: -247, y: 254}
+        - {x: -279, y: 190}
+        - {x: -285, y: 145}
+        - {x: -345, y: 129}
+        - {x: -345, y: 47}
+        - {x: -331, y: -4}
+        - {x: -195, y: -99}
+        - {x: -189, y: -281}
+        - {x: -165, y: -303}
+        - {x: -65, y: -303}
+      physicsShape:
+      - - {x: -33, y: -296}
+        - {x: 29, y: -270}
+        - {x: 73, y: -250}
+        - {x: 138, y: -214}
+        - {x: 143, y: -202}
+        - {x: 231, y: 27}
+        - {x: 267, y: 117}
+        - {x: 287, y: 143}
+        - {x: 287, y: 192}
+        - {x: 203, y: 276}
+        - {x: 159, y: 319}
+        - {x: 51, y: 372}
+        - {x: 29, y: 377}
+        - {x: -36, y: 377}
+        - {x: -85, y: 367}
+        - {x: -194, y: 305}
+        - {x: -261, y: 229}
+        - {x: -345, y: 140}
+        - {x: -345, y: 39}
+        - {x: -319, y: 8}
+        - {x: -299, y: -14}
+        - {x: -263, y: -57}
+        - {x: -197, y: -86}
+        - {x: -192, y: -277}
+        - {x: -167, y: -303}
+        - {x: -99, y: -303}
+      tessellationDetail: 0.05
+      bones: []
+      spriteID: f4a9e2d45a7da6949b53b70d34031d9f
+      internalID: -79531352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5908863e8181fb844a7db48fdb4205d2
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +209,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Skull_0: -79531352
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

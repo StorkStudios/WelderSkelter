@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1036167a7f86b9488f9638288d439ab, type: 3}
-  m_Name: TaskSkill3itJumppadHelmetHelmet
+  m_Name: TaskSkill3itSkullHelmetRedbullech
   m_EditorClassIdentifier: 
-  title: POLYGLASS REINFORCED EYES
-  color: {r: 0.5254902, g: 0.6901961, b: 0.36862746, a: 1}
+  title: FOCUS BOOSTING LENSES
+  color: {r: 0.41941082, g: 0.5324806, b: 0.6132076, a: 1}
   requiredParts:
-  - {fileID: 11400000, guid: c5df3e0e63a75131ab227a91679e6a0a, type: 2}
+  - {fileID: 11400000, guid: ed76120e00c76f54c9004529d02491d4, type: 2}
   - {fileID: 11400000, guid: 3a09b90a13be8c2488d2121684df4405, type: 2}
-  - {fileID: 11400000, guid: 3a09b90a13be8c2488d2121684df4405, type: 2}
+  - {fileID: 11400000, guid: ae88542a4fd5e404c9cc14b239bc1a90, type: 2}
   item: {fileID: 11400000, guid: 9de1ac6b7ba84f246b9a113a7fc8d1bf, type: 2}

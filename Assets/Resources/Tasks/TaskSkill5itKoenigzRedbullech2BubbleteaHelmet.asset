@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1036167a7f86b9488f9638288d439ab, type: 3}
-  m_Name: TaskSkill5itKoenigzKoenigzRedbullechBubbleteaHelmet
+  m_Name: TaskSkill5itKoenigzRedbullech2BubbleteaHelmet
   m_EditorClassIdentifier: 
   title: HIGHLY EXPLOSIVE JUICE
   color: {r: 0.62352943, g: 0.41568628, b: 0.29803923, a: 1}
