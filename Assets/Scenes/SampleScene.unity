@@ -3325,11 +3325,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_NormalColor: {r: 1, g: 0.9463948, b: 0, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.95701075, b: 0.216981, a: 1}
+    m_PressedColor: {r: 0.5320754, g: 0.5028634, b: 0, a: 1}
+    m_SelectedColor: {r: 0.78113204, g: 0.7382464, b: 0, a: 1}
+    m_DisabledColor: {r: 0.5773585, g: 0.5666529, b: 0.3823638, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -3368,7 +3368,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 216d78885991daf4a99bc2605478499a, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3377,7 +3377,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 4
 --- !u!222 &1442827743
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3588,14 +3588,6 @@ PrefabInstance:
     - target: {fileID: 660850395823134248, guid: a1e2492a40371454da2a1b3046993825, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4187848886932126049, guid: a1e2492a40371454da2a1b3046993825, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.1801111
-      objectReference: {fileID: 0}
-    - target: {fileID: 4187848886932126049, guid: a1e2492a40371454da2a1b3046993825, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.4247471
       objectReference: {fileID: 0}
     - target: {fileID: 6151893246541574965, guid: a1e2492a40371454da2a1b3046993825, type: 3}
       propertyPath: m_Name
