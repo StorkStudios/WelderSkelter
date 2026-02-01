@@ -17,7 +17,7 @@ public class UIShopMoney : MonoBehaviour
     private void OnMoneyChanged(int oldValue, int newValue)
     {
         money.text = $"{newValue}zł";
-        Instantiate(effectPrefab.gameObject, transform.position, Quaternion.identity)
+        Instantiate(effectPrefab.gameObject, transform)
             .GetComponent<UIMoneyChangeEffect>().StartAnimation(newValue - oldValue);
     }
 }

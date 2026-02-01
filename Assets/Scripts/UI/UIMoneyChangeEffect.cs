@@ -22,7 +22,7 @@ public class UIMoneyChangeEffect : MonoBehaviour
     public void StartAnimation(int moneyDelta)
     {
         bool onPlus = moneyDelta >= 0;
-        text.text = $"{(onPlus ? '-' : '+')}{Mathf.Abs(moneyDelta)}";
+        text.text = $"{(onPlus ? '+' : '-')}{Mathf.Abs(moneyDelta)}zł";
         text.color = onPlus ? plusColor : minusColor;
 
         group.DOFade(0, fadeDuration).SetDelay(animationDuration - fadeDuration);

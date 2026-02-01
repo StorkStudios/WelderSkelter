@@ -64,10 +64,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 6227682640365145285}
-  group: {fileID: 0}
+  group: {fileID: 141753751515068481}
   minusColor: {r: 1, g: 0.05299718, b: 0, a: 1}
   plusColor: {r: 0, g: 1, b: 0.008959055, a: 1}
-  animationDuration: 1.5
+  animationDuration: 1
   fadeDuration: 0.2
   distance: 100
 --- !u!222 &7695805215685735289
