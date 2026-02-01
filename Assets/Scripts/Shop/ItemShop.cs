@@ -24,7 +24,8 @@ public class ItemShop : Singleton<ItemShop>
             Instantiate(itemPrefab.gameObject, randomParent).GetComponent<UIItem>().BuyClicked += OnBuyClicked;
         }
 
-        while (randomParent.childCount > maxRandomItems)
+        int childrenToDestroy = randomParent.childCount - maxRandomItems;
+        for (int c = 0; c < childrenToDestroy; c++)
         {
             Destroy(randomParent.GetChild(randomParent.childCount - 1).gameObject);
         }
@@ -34,11 +35,12 @@ public class ItemShop : Singleton<ItemShop>
             Instantiate(itemPrefab.gameObject, taskParent).GetComponent<UIItem>().BuyClicked += OnBuyClicked;
         }
 
-        while (taskParent.childCount > taskItems.Count)
+        childrenToDestroy = taskParent.childCount - taskItems.Count;
+        for (int c = 0; c < childrenToDestroy; c++)
         {
             Destroy(taskParent.GetChild(taskParent.childCount - 1).gameObject);
         }
-
+        
         int i = 0;
         foreach (Item item in ItemDatabase.Instance.GenerateRandomItems(maxRandomItems))
         {

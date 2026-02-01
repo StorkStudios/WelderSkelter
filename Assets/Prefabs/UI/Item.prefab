@@ -750,8 +750,8 @@ MonoBehaviour:
   title: {fileID: 651100300229762532}
   description: {fileID: 3479152464577395634}
   cost: {fileID: 3442326865405223444}
-  boughtOverlay: {fileID: 0}
-  targetAlpha: 0
+  boughtOverlay: {fileID: 1839436576109186171}
+  targetAlpha: 0.9
   isBought: 0
 --- !u!1 &7344787867190816927
 GameObject:
