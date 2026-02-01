@@ -9,13 +9,12 @@ public class WeldingPartsSpawner : Singleton<WeldingPartsSpawner>
 
     private List<WeldingPartData> weldingPartDataList;
 
-    private void Start()
-    {
-        weldingPartDataList = new List<WeldingPartData>(Resources.LoadAll<WeldingPartData>("WeldingParts"));
-    }
-
     public GameObject SpawnRandomPart()
     {
+        if (weldingPartDataList == null)
+        {
+            weldingPartDataList = new List<WeldingPartData>(Resources.LoadAll<WeldingPartData>("WeldingParts"));
+        }
         return weldingPartDataList[Random.Range(0, weldingPartDataList.Count)].Instantiate(transform.position, Quaternion.identity, transform);
     }
 }
