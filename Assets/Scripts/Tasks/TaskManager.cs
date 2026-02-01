@@ -23,7 +23,8 @@ public class TaskManager : Singleton<TaskManager>
     {
         foreach (Task task in currentTasks)
         {
-            if (itemParts.Keys.All(key => itemParts[key] == task.RequiredParts.Where(part => part == key).Count()))
+            if (task.RequiredParts.Distinct().Count() == itemParts.Keys.Count &&
+                itemParts.Keys.All(key => { return itemParts[key] == task.RequiredParts.Where(part => part == key).Count(); }))
             {
                 CompleteTask(task);
                 return;
