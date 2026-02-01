@@ -16,6 +16,7 @@ public class PlayerInputManager : Singleton<PlayerInputManager>
     public event System.Action ItemSellEvent;
     public event System.Action ToggleMaskEvent;
     public event System.Action<Vector2> MouseMoveOnWeldCanvasEvent;
+    public event System.Action<float> PusherMoveEvent;
 
 
     protected override void Awake()
@@ -59,6 +60,14 @@ public class PlayerInputManager : Singleton<PlayerInputManager>
         if (context.performed)
         {
             ToggleMaskEvent?.Invoke();
+        }
+    }
+
+    public void OnPusherMove(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            PusherMoveEvent?.Invoke(context.ReadValue<float>());
         }
     }
 
