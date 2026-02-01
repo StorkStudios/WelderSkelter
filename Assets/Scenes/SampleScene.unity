@@ -124,6 +124,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 660850395823134248, guid: a1e2492a40371454da2a1b3046993825, type: 3}
   m_PrefabInstance: {fileID: 985691093}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &20746626 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8349454855052564455, guid: 83393098d6c4dcf3ea69f9bc16770984, type: 3}
+  m_PrefabInstance: {fileID: 2714992880990111994}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &56664326
 GameObject:
   m_ObjectHideFlags: 0
@@ -3713,6 +3718,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3995279903516018787, guid: 65431561702cb0cdf829c1ca5f0e632f, type: 3}
+      propertyPath: SpawnLocationInLevel
+      value: 
+      objectReference: {fileID: 20746626}
+    - target: {fileID: 3995279903516018787, guid: 65431561702cb0cdf829c1ca5f0e632f, type: 3}
+      propertyPath: SpawnLocationOn2DScene
+      value: 
+      objectReference: {fileID: 20746626}
     - target: {fileID: 4113152287552858072, guid: 65431561702cb0cdf829c1ca5f0e632f, type: 3}
       propertyPath: m_CastShadows
       value: 0
@@ -3773,6 +3786,10 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9181816776966940310, guid: 65431561702cb0cdf829c1ca5f0e632f, type: 3}
+      propertyPath: weldingCamera
+      value: 
+      objectReference: {fileID: 2714992880990111996}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5559,18 +5576,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: 2DScene
       objectReference: {fileID: 0}
-    - target: {fileID: 3368447195289523817, guid: 83393098d6c4dcf3ea69f9bc16770984, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5898369441128970750, guid: 83393098d6c4dcf3ea69f9bc16770984, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5934323225305757072, guid: 83393098d6c4dcf3ea69f9bc16770984, type: 3}
-      propertyPath: m_RenderPostProcessing
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6826643092270939660, guid: 83393098d6c4dcf3ea69f9bc16770984, type: 3}
       propertyPath: m_LocalPosition.x
       value: 50
@@ -5611,25 +5616,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8989575912184210822, guid: 83393098d6c4dcf3ea69f9bc16770984, type: 3}
-      propertyPath: m_ClearFlags
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8989575912184210822, guid: 83393098d6c4dcf3ea69f9bc16770984, type: 3}
-      propertyPath: m_BackGroundColor.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8989575912184210822, guid: 83393098d6c4dcf3ea69f9bc16770984, type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8989575912184210822, guid: 83393098d6c4dcf3ea69f9bc16770984, type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8989575912184210822, guid: 83393098d6c4dcf3ea69f9bc16770984, type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0
+    - target: {fileID: 8349454855052564455, guid: 83393098d6c4dcf3ea69f9bc16770984, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.98
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5639,6 +5628,11 @@ PrefabInstance:
 --- !u!4 &2714992880990111995 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6826643092270939660, guid: 83393098d6c4dcf3ea69f9bc16770984, type: 3}
+  m_PrefabInstance: {fileID: 2714992880990111994}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &2714992880990111996 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8989575912184210822, guid: 83393098d6c4dcf3ea69f9bc16770984, type: 3}
   m_PrefabInstance: {fileID: 2714992880990111994}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807

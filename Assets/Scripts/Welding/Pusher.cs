@@ -2,14 +2,16 @@ using System;
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
-using StorkStudios.CoreNest;
 
+[RequireComponent(typeof(WeldingCanvasUtils))]
 public class Pusher : MonoBehaviour
 {
     [SerializeField]
     private Transform SpawnLocationOnPusher;
     [SerializeField]
-    private Transform SpawnLocationInLevel;
+    private Transform SpawnLocationAfterBelt;
+    [SerializeField]
+    private Transform SpawnLocationOn2DScene;
     [SerializeField]
     private Transform WasteLocation;
 
@@ -27,6 +29,11 @@ public class Pusher : MonoBehaviour
     [SerializeField]
     private Animator pusherAnimator;
 
+    [SerializeField]
+    private Vector2 basePushForce;
+    [SerializeField]
+    private Vector2 randomPushForceRange;
+
     public class PusherModifier
     {
         public float DelayBetweenItemGroups = 3f;
@@ -38,12 +45,16 @@ public class Pusher : MonoBehaviour
     private int selectedSlot = 1;
     private GameObject[] itemsOnSlots = new GameObject[3];
 
+    private WeldingCanvasUtils canvasUtils;
+
     private void Start()
     {
         WorkPhaseManager.Instance.WorkPhasePreStartEvent += OnBeforeWorkPhaseStart;
         WorkPhaseManager.Instance.WorkPhaseEnded += OnWorkPhaseEnded;
 
         PlayerInputManager.Instance.PusherMoveEvent += OnPusherMove;
+
+        canvasUtils = GetComponent<WeldingCanvasUtils>();
 
         UpdatePusherPosition();
     }
@@ -91,25 +102,39 @@ public class Pusher : MonoBehaviour
             Debug.Log("Wait for selection");
             yield return new WaitForSeconds(modifier.DelayBetweenItemGroups);
             Debug.Log("PushItem");
-            PushItem();
+            yield return PushItem();
             Debug.Log("Remove items");
             RemoveItems();
         }
     }
 
-    private void PushItem()
+    private IEnumerator PushItem()
     {
-        Vector3 spawnPositionForSlot = SpawnLocationInLevel.position;
+        pusherAnimator.SetTrigger("PushTrigger");
+        Vector3 spawnPositionForSlot = SpawnLocationAfterBelt.position;
         spawnPositionForSlot.x = slots[selectedSlot].position.x;
-        itemsOnSlots[selectedSlot].transform.position = spawnPositionForSlot;
-        itemsOnSlots[selectedSlot].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        yield return new WaitForSeconds(0.25f);
+        itemsOnSlots[selectedSlot].transform.DOMove(spawnPositionForSlot, 0.25f);
+        yield return new WaitForSeconds(0.25f);
+        Vector3 spawnPositionOn2DScene = SpawnLocationOn2DScene.position;
+        spawnPositionOn2DScene.x -= slots[1].position.x - slots[selectedSlot].position.x;
+        itemsOnSlots[selectedSlot].transform.position = spawnPositionOn2DScene;
+        Rigidbody2D rb = itemsOnSlots[selectedSlot].GetComponent<Rigidbody2D>();
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        float randX = UnityEngine.Random.Range(-randomPushForceRange.x, randomPushForceRange.x);
+        float randY = UnityEngine.Random.Range(-randomPushForceRange.y, randomPushForceRange.y);
+        rb.AddForce(basePushForce + new Vector2(randX, randY), ForceMode2D.Impulse);
     }
 
     private void RemoveItems()
     {
-        RemoveItem(0);
-        RemoveItem(1);
-        RemoveItem(2);
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (i != selectedSlot)
+            {
+                RemoveItem(i);
+            }
+        }
     }
 
     private IEnumerator SpawnItems()
