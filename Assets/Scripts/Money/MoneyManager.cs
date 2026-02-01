@@ -9,6 +9,7 @@ public class MoneyManager : Singleton<MoneyManager>
     public class MoneyManagerModifiers
     {
         public float scrapSellMoneyMultipler = 1;
+        public float allIncomeMultipler = 1;
     }
 
     public event ObservableVariable<int>.ValueChangedDelegate MoneyChanged
@@ -44,7 +45,7 @@ public class MoneyManager : Singleton<MoneyManager>
 
     public void AddMoney(int amount)
     {
-        money.Value += amount;
+        money.Value += (int)(amount * PlayerUpgrades.Instance.GetModifier<MoneyManagerModifiers>().allIncomeMultipler);
     }
 
     public void DeductMoney(int amount)
