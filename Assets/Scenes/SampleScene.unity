@@ -5965,6 +5965,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2055985377}
     m_Modifications:
+    - target: {fileID: 1405523160137064801, guid: 39e37fc6dfd600d41a950df876efe74d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2168890519282643583, guid: 39e37fc6dfd600d41a950df876efe74d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780585596641980880, guid: 39e37fc6dfd600d41a950df876efe74d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4762819343339381366, guid: 39e37fc6dfd600d41a950df876efe74d, type: 3}
       propertyPath: m_Name
       value: Room
@@ -6007,6 +6019,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5283635343225665740, guid: 39e37fc6dfd600d41a950df876efe74d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595484756529697934, guid: 39e37fc6dfd600d41a950df876efe74d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120201044288893787, guid: 39e37fc6dfd600d41a950df876efe74d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596408848784408330, guid: 39e37fc6dfd600d41a950df876efe74d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209023510899964440, guid: 39e37fc6dfd600d41a950df876efe74d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8242917641686983948, guid: 39e37fc6dfd600d41a950df876efe74d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398078270478030368, guid: 39e37fc6dfd600d41a950df876efe74d, type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
