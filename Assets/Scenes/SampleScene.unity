@@ -2601,9 +2601,37 @@ MonoBehaviour:
     m_ActionId: 3526ac5a-2c09-447e-94ab-97fa148b8353
     m_ActionName: 'Player/Weld[/Mouse/leftButton]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 850060058}
+        m_TargetAssemblyTypeName: PlayerInputManager, Assembly-CSharp
+        m_MethodName: OnMaskToggle
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 571f181d-67af-4f0e-86dd-5de200263938
     m_ActionName: 'Player/ToggleMask[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 850060058}
+        m_TargetAssemblyTypeName: PlayerInputManager, Assembly-CSharp
+        m_MethodName: OnPusherMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6103eef6-5185-49e0-a561-e73a4b5a92fd
+    m_ActionName: 'Player/MovePusher[/Keyboard/a,/Keyboard/d]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: 
@@ -3649,11 +3677,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3713082809575077154, guid: 65431561702cb0cdf829c1ca5f0e632f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.32
+      value: 7.93
       objectReference: {fileID: 0}
     - target: {fileID: 3713082809575077154, guid: 65431561702cb0cdf829c1ca5f0e632f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.75
+      value: 3.72
       objectReference: {fileID: 0}
     - target: {fileID: 3713082809575077154, guid: 65431561702cb0cdf829c1ca5f0e632f, type: 3}
       propertyPath: m_LocalRotation.w

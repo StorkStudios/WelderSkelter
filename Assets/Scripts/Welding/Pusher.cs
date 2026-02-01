@@ -21,6 +21,12 @@ public class Pusher : MonoBehaviour
     [SerializeField]
     private Transform[] slots;
 
+    [SerializeField]
+    private Transform pusher;
+
+    [SerializeField]
+    private Animator pusherAnimator;
+
     public class PusherModifier
     {
         public float DelayBetweenItemGroups = 3f;
@@ -36,6 +42,38 @@ public class Pusher : MonoBehaviour
     {
         WorkPhaseManager.Instance.WorkPhasePreStartEvent += OnBeforeWorkPhaseStart;
         WorkPhaseManager.Instance.WorkPhaseEnded += OnWorkPhaseEnded;
+
+        PlayerInputManager.Instance.PusherMoveEvent += OnPusherMove;
+
+        UpdatePusherPosition();
+    }
+
+    private void OnPusherMove(float value)
+    {
+        //Additional pusher is on the left
+        if (value > 0)
+        {
+            if (selectedSlot < slots.Length - 1)
+            {
+                selectedSlot++;
+                UpdatePusherPosition();
+            }
+        }
+        else
+        {
+            if (selectedSlot > modifier.PushersCount - 1)
+            {
+                selectedSlot--;
+                UpdatePusherPosition();
+            }
+        }
+    }
+
+    private void UpdatePusherPosition()
+    {
+        Vector3 newPosition = pusher.position;
+        newPosition.x = slots[selectedSlot].position.x;
+        pusher.position = newPosition;
     }
 
     private void OnWorkPhaseEnded(bool _)
@@ -61,7 +99,9 @@ public class Pusher : MonoBehaviour
 
     private void PushItem()
     {
-        itemsOnSlots[selectedSlot].transform.position = SpawnLocationInLevel.position;
+        Vector3 spawnPositionForSlot = SpawnLocationInLevel.position;
+        spawnPositionForSlot.x = slots[selectedSlot].position.x;
+        itemsOnSlots[selectedSlot].transform.position = spawnPositionForSlot;
         itemsOnSlots[selectedSlot].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
     }
 
