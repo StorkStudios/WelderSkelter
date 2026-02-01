@@ -37,6 +37,9 @@ public class FlexibleGridLayout : LayoutGroup
     [SerializeField]
     [HideInInspector]
     private bool resizeWidthToFit;
+    [SerializeField]
+    [HideInInspector]
+    private float minSize;
 
     public enum GridPriority
     {
@@ -92,7 +95,9 @@ public class FlexibleGridLayout : LayoutGroup
 
         if (resizeWidthToFit)
         {
-            rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, columns * (cellSize.x + spacing.x) - spacing.x + padding.right + padding.left);
+            float width = columns * (cellSize.x + spacing.x) - spacing.x + padding.right + padding.left;
+            width = Mathf.Max(minSize, width);
+            rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, width);
         }
     }
 
@@ -252,6 +257,10 @@ public class FlexibleGridLayout : LayoutGroup
                 flexibleGridLayout.aspectRatio = EditorGUILayout.Toggle("Aspect Ratio", flexibleGridLayout.aspectRatio);
             }
             flexibleGridLayout.resizeWidthToFit = EditorGUILayout.Toggle("Resize width to fit", flexibleGridLayout.resizeWidthToFit);
+            if (flexibleGridLayout.resizeWidthToFit)
+            {
+                flexibleGridLayout.minSize = EditorGUILayout.FloatField("Min size", flexibleGridLayout.minSize);
+            }
 
             if (EditorGUI.EndChangeCheck())
             {
