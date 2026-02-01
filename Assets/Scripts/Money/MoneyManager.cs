@@ -30,7 +30,14 @@ public class MoneyManager : Singleton<MoneyManager>
     private void OnItemSold(Dictionary<WeldingPartData, int> dictionary)
     {
         int componentsSum = dictionary.Aggregate(0, (current, key) => current + key.Value);
-        AddMoney(componentsSum * (componentsSum - 1) * 10);
+        if (dictionary.Values.Any(v => v > 1))
+        {
+            AddMoney((componentsSum - 1) * 10);   
+        }
+        else
+        {
+           AddMoney(componentsSum * (componentsSum - 1) * 10);    
+        }
     }
 
     public void AddMoney(int amount)
