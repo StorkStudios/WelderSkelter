@@ -45,10 +45,6 @@ public class EyesightManager : Singleton<EyesightManager>
             Color color = itemsImage.color;
             color.a = Eyesight.Value;
             itemsImage.color = color;
-            if (Eyesight.Value <= 0)
-            {
-                Debug.Log("Blind sisiphus");
-            }
         }
     }
 }
