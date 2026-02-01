@@ -27,7 +27,7 @@ public class ItemShop : Singleton<ItemShop>
         int childrenToDestroy = randomParent.childCount - maxRandomItems;
         for (int c = 0; c < childrenToDestroy; c++)
         {
-            Destroy(randomParent.GetChild(randomParent.childCount - 1).gameObject);
+            Destroy(randomParent.GetChild(randomParent.childCount - 1 - c).gameObject);
         }
 
         while (taskParent.childCount < taskItems.Count)
@@ -38,7 +38,7 @@ public class ItemShop : Singleton<ItemShop>
         childrenToDestroy = taskParent.childCount - taskItems.Count;
         for (int c = 0; c < childrenToDestroy; c++)
         {
-            Destroy(taskParent.GetChild(taskParent.childCount - 1).gameObject);
+            Destroy(taskParent.GetChild(taskParent.childCount - 1 - c).gameObject);
         }
         
         int i = 0;
