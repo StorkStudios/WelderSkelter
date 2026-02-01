@@ -1874,6 +1874,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   money: {fileID: 566263605}
+  effectPrefab: {fileID: 1846559059384481120, guid: 42ef669cfdd902946bb042a5f5429709, type: 3}
 --- !u!222 &566263607
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2469,6 +2470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   money: {fileID: 942723200}
+  effectPrefab: {fileID: 1846559059384481120, guid: 42ef669cfdd902946bb042a5f5429709, type: 3}
 --- !u!1 &850060055
 GameObject:
   m_ObjectHideFlags: 0

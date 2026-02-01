@@ -11,6 +11,12 @@ public class MoneyManager : Singleton<MoneyManager>
         // Placeholder for future modifiers
     }
 
+    public event ObservableVariable<int>.ValueChangedDelegate MoneyChanged
+    {
+        add => money.ValueChanged += value;
+        remove => money.ValueChanged -= value;
+    }
+
     [SerializeField]
     [ReadOnly]
     private ObservableVariable<int> money = new ObservableVariable<int>(0);
