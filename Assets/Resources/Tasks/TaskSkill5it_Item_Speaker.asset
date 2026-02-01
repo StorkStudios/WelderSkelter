@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1036167a7f86b9488f9638288d439ab, type: 3}
+  m_Name: TaskSkill5it_Item_Speaker
+  m_EditorClassIdentifier: 
+  title: SOUND IN A VACUUM FORMULA
+  color: {r: 0.62352943, g: 0.41568628, b: 0.29803923, a: 1}
+  requiredParts:
+  - {fileID: 11400000, guid: d74089dc075763a4fa617c71c17859ff, type: 2}
+  - {fileID: 11400000, guid: 3a09b90a13be8c2488d2121684df4405, type: 2}
+  - {fileID: 11400000, guid: c5df3e0e63a75131ab227a91679e6a0a, type: 2}
+  - {fileID: 11400000, guid: c5df3e0e63a75131ab227a91679e6a0a, type: 2}
+  - {fileID: 11400000, guid: 98a876b76346b7546b3496e6d2cc4113, type: 2}
+  item: {fileID: 11400000, guid: 6616d038ce54d6746a16c3486ea090a1, type: 2}

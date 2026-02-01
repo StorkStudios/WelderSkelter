@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1036167a7f86b9488f9638288d439ab, type: 3}
+  m_Name: TaskSkill3it_Mask_ConveyorSpeed
+  m_EditorClassIdentifier: 
+  title: OPTIMIZING TRANSMISSION
+  color: {r: 0.41941082, g: 0.5324806, b: 0.6132076, a: 1}
+  requiredParts:
+  - {fileID: 11400000, guid: 3a09b90a13be8c2488d2121684df4405, type: 2}
+  - {fileID: 11400000, guid: d74089dc075763a4fa617c71c17859ff, type: 2}
+  - {fileID: 11400000, guid: c5df3e0e63a75131ab227a91679e6a0a, type: 2}
+  item: {fileID: 11400000, guid: e55ad30723e1a1c468acfe30340efb7f, type: 2}

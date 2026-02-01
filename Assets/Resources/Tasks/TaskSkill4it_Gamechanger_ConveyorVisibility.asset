@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1036167a7f86b9488f9638288d439ab, type: 3}
-  m_Name: TaskSkill3it_Mask_ItemSpeed
+  m_Name: TaskSkill4it_Gamechanger_ConveyorVisibility
   m_EditorClassIdentifier: 
-  title: FOCUS BOOSTING LENSES
-  color: {r: 0.41941082, g: 0.5324806, b: 0.6132076, a: 1}
+  title: TELEPATHIC VISION
+  color: {r: 0.5803922, g: 0.29803923, b: 0.62352943, a: 1}
   requiredParts:
-  - {fileID: 11400000, guid: ed76120e00c76f54c9004529d02491d4, type: 2}
-  - {fileID: 11400000, guid: 3a09b90a13be8c2488d2121684df4405, type: 2}
+  - {fileID: 11400000, guid: 1e0bcb00233d96f4b9ec9dfaf5d8c17b, type: 2}
+  - {fileID: 11400000, guid: 1e0bcb00233d96f4b9ec9dfaf5d8c17b, type: 2}
+  - {fileID: 11400000, guid: d74089dc075763a4fa617c71c17859ff, type: 2}
   - {fileID: 11400000, guid: ae88542a4fd5e404c9cc14b239bc1a90, type: 2}
-  item: {fileID: 11400000, guid: 65be701ec1dd9894faadb84c3dcffea1, type: 2}
+  item: {fileID: 11400000, guid: 2ec3856c698882b44bcfb2f376dd287a, type: 2}

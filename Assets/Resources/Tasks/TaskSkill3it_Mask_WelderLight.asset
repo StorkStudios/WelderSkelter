@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1036167a7f86b9488f9638288d439ab, type: 3}
+  m_Name: TaskSkill3it_Mask_WelderLight
+  m_EditorClassIdentifier: 
+  title: NEW FUEL MIX
+  color: {r: 0.41941082, g: 0.5324806, b: 0.6132076, a: 1}
+  requiredParts:
+  - {fileID: 11400000, guid: ae88542a4fd5e404c9cc14b239bc1a90, type: 2}
+  - {fileID: 11400000, guid: 028d00f18e29e38c09003110718d8c42, type: 2}
+  - {fileID: 11400000, guid: ca9be91c0b363554e8e9946821ce8f79, type: 2}
+  item: {fileID: 11400000, guid: 52003b997b804e24eaa5c9d69f0609b0, type: 2}
