@@ -19,7 +19,14 @@ public class UITask : MonoBehaviour
     [SerializeField]
     private RectTransform ingredientsParent;
 
+    public event System.Action<Task> Discarded;
+
     private Task task;
+
+    public void Discard()
+    {
+        Discarded?.Invoke(task);
+    }
 
     public void SetTask(Task task)
     {

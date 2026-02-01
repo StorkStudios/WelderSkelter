@@ -47,4 +47,10 @@ public class TaskManager : Singleton<TaskManager>
         task.Complete();
         CurrentTasksChanged?.Invoke(currentTasks);
     }
+
+    public void DiscardTask(Task task)
+    {
+        currentTasks[currentTasks.IndexOf(task)] = TaskDatabase.Instance.GetNewTask();
+        CurrentTasksChanged?.Invoke(currentTasks);
+    }
 }
