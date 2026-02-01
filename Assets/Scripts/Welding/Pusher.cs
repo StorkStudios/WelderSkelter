@@ -104,7 +104,7 @@ public class Pusher : MonoBehaviour
             Debug.Log("PushItem");
             yield return PushItem();
             Debug.Log("Remove items");
-            RemoveItems();
+            yield return RemoveItems();
         }
     }
 
@@ -126,13 +126,13 @@ public class Pusher : MonoBehaviour
         rb.AddForce(basePushForce + new Vector2(randX, randY), ForceMode2D.Impulse);
     }
 
-    private void RemoveItems()
+    private IEnumerator RemoveItems()
     {
-        for (int i = 0; i < slots.Length; i++)
+        for (int i = slots.Length - 1; i >= 0; i--)
         {
             if (i != selectedSlot)
             {
-                RemoveItem(i);
+                yield return RemoveItem(i);
             }
         }
     }
@@ -147,12 +147,11 @@ public class Pusher : MonoBehaviour
         yield return new WaitForSeconds(delayBetweenItems * modifier.DelayBetweenItemGroups);
     }
 
-    private void RemoveItem(int slot)
+    private IEnumerator RemoveItem(int slot)
     {
-        //float distance = (slots[slot].position - WasteLocation.position).magnitude;
-        //itemsOnSlots[slot].transform.DOMove(WasteLocation.position, modifier.DelayBetweenItems * (distance / baseItemSpeed));
-        Destroy(itemsOnSlots[slot]);
-        itemsOnSlots[slot] = null;
+        float distance = (slots[slot].position - WasteLocation.position).magnitude;
+        yield return itemsOnSlots[slot].transform.DOMove(WasteLocation.position, modifier.DelayBetweenItemGroups * (distance / baseItemSpeed)).WaitForCompletion();
+        itemsOnSlots[slot].transform.DOScale(0, 0.25f).OnComplete(() => Destroy(itemsOnSlots[slot]));
     }
 
     private void SpawnItem(int slot)
