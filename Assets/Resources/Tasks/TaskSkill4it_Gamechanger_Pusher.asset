@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1036167a7f86b9488f9638288d439ab, type: 3}
   m_Name: TaskSkill4it_Gamechanger_Pusher
   m_EditorClassIdentifier: 
-  title: HELPFUL MUTANT
+  title: SLIMY PUSHING LICHEN
   color: {r: 0.5803922, g: 0.29803923, b: 0.62352943, a: 1}
   requiredParts:
   - {fileID: 11400000, guid: c5df3e0e63a75131ab227a91679e6a0a, type: 2}
