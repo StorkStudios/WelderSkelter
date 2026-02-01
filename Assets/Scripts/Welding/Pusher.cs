@@ -60,8 +60,6 @@ public class Pusher : MonoBehaviour
         UpdatePusherPosition();
 
         ItemSeller.Instance.ItemSold += OnItemSold;
-
-        OnBeforeWorkPhaseStart();
     }
 
     private void OnItemSold(Dictionary<WeldingPartData, int> dictionary)

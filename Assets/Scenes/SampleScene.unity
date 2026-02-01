@@ -6531,7 +6531,7 @@ MonoBehaviour:
   gridPriority: 0
   rows: 2
   columns: 2
-  cellSize: {x: 181.47668, y: 213.07126}
+  cellSize: {x: 215.58026, y: 252.41867}
   spacing: {x: 34, y: 34}
   fitX: 1
   fitY: 1
@@ -7115,9 +7115,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxRandomItems: 3
-  itemPrefab: {fileID: 0}
-  randomParent: {fileID: 0}
-  taskParent: {fileID: 0}
+  itemPrefab: {fileID: 5183709704037880422, guid: a1e2492a40371454da2a1b3046993825, type: 3}
+  randomParent: {fileID: 1864734392}
+  taskParent: {fileID: 401351104}
 --- !u!1001 &2714992880990111994
 PrefabInstance:
   m_ObjectHideFlags: 0
