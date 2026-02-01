@@ -21,7 +21,7 @@ public class Welder : Singleton<Welder>
     private bool isWelding;
     public bool IsWelding => isWelding;
 
-    private WelderModifiers welderModifiers; //TODO: Handle upgrades
+    private WelderModifiers welderModifiers;
     private float weldingSampleDistance = 0.1f;
 
     private void Start()
@@ -30,9 +30,14 @@ public class Welder : Singleton<Welder>
         PlayerInputManager.Instance.WeldStartEvent += OnWeldStart;
         PlayerInputManager.Instance.WeldStopEvent += OnWeldStop;
 
-        welderModifiers = new WelderModifiers();
-
         weldingCanvasUtils = GetComponent<WeldingCanvasUtils>();
+
+        WorkPhaseManager.Instance.WorkPhasePreStartEvent += OnBeforeWorkPhaseStart;
+    }
+
+    private void OnBeforeWorkPhaseStart()
+    {
+        welderModifiers = PlayerUpgrades.Instance.GetModifier<WelderModifiers>();
     }
 
     private void Update()

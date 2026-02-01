@@ -11,6 +11,7 @@ public class WorkPhaseManager : Singleton<WorkPhaseManager>
     public float DayTimer { get; private set; } = 0;
 
     public event System.Action<bool> WorkPhaseEnded;
+    public event System.Action WorkPhasePreStartEvent;
 
     private bool active = false;
 
@@ -20,7 +21,8 @@ public class WorkPhaseManager : Singleton<WorkPhaseManager>
 
         active = true;
         DayTimer = 0;
-
+        
+        WorkPhasePreStartEvent?.Invoke();
         TaskManager.Instance.Restart();
     }
 

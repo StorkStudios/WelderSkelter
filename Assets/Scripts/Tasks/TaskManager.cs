@@ -16,6 +16,7 @@ public class TaskManager : Singleton<TaskManager>
     private void Start()
     {
         ItemSeller.Instance.ItemSold += OnItemSold;
+        WorkPhaseManager.Instance.WorkPhasePreStartEvent += Restart;
     }
 
     private void OnItemSold(Dictionary<WeldingPartData, int> itemParts)
