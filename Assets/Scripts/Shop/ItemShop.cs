@@ -7,12 +7,9 @@ public class ItemShop : Singleton<ItemShop>
 {
     [SerializeField]
     private int maxRandomItems;
-    [SerializeField]
-    private List<Item> repeatableItems;
-    [SerializeField]
-    private SerializedSet<Item> uniqueItems;
 
     private List<Item> taskItems = new List<Item>();
+    private List<Item> purchaseHistory = new List<Item>();
 
     public void AddTaskItem(Item taskItem)
     {
@@ -24,27 +21,13 @@ public class ItemShop : Singleton<ItemShop>
         return taskItems.Contains(item);
     }
 
-    public ShopContents GenerateShopContents()
+    public bool IsInPurchaseHistory(Item item)
     {
-        List<Item> randomItems = new List<Item>();
-        IEnumerable<Item> allItems = repeatableItems.Concat(uniqueItems.Select(e => e.Item));
-        for (int i = 0; i < maxRandomItems; i++)
-        {
-            Item item = allItems.GetRandomElementWeighted(e => e.Rarity.RarityWeight);
-            randomItems.Add(item);
-            allItems = allItems.Where(e => e != item);
-        }
-        ShopContents contents = new ShopContents()
-        {
-            randomItems = randomItems,
-            taskItems = taskItems,
-        };
-        taskItems = new List<Item>();
-        return contents;
+        return purchaseHistory.Contains(item);
     }
 
     private void OnItemBought(Item item)
     {
-        uniqueItems.Remove(item);
+        purchaseHistory.Add(item);
     }
 }

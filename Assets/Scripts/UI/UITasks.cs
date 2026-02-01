@@ -9,9 +9,11 @@ public class UITasks : Singleton<UITasks>
     [SerializeField]
     private RectTransform taskParent;
 
-    private void Start()
+    protected override void Awake()
     {
         TaskManager.Instance.CurrentTasksChanged += OnCurrentTasksChanged;
+
+        base.Awake();
     }
 
     private void OnCurrentTasksChanged(List<Task> currentTasks)

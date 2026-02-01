@@ -16,16 +16,6 @@ public class MoneyManager : Singleton<MoneyManager>
     private ObservableVariable<int> money = new ObservableVariable<int>(0);
     public int Money => money.Value;
 
-    [SerializeField]
-    [ReadOnly]
-    private int currentLevel = 0;
-    public int CurrentLevel => currentLevel;
-
-    [SerializeField]
-    private List<int> moneyRequiredPerLevel;
-
-    public Action<int> levelFinishedEvent;
-
     private void Start()
     {
         ItemSeller.Instance.ItemSoldEvent += OnItemSold;
@@ -40,9 +30,5 @@ public class MoneyManager : Singleton<MoneyManager>
     public void AddMoney(int amount)
     {
         money.Value += amount;
-        //if (money >= moneyRequiredPerLevel[currentLevel])
-        {
-            //next level
-        }
     }
 }

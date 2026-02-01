@@ -8,37 +8,25 @@ public class TaskManager : Singleton<TaskManager>
     [SerializeField]
     private int maxTasks;
     [SerializeField]
-    private List<MoneyTask> moneyTasks;
-    [SerializeField]
-    private List<UpgradeTask> upgradeTasks;
-
-    public event System.Action<List<Task>> CurrentTasksChanged;
-
+    [ReadOnly]
     private List<Task> currentTasks = new List<Task>();
 
+    public event System.Action<List<Task>> CurrentTasksChanged;
     public List<Task> CurrentTasks => currentTasks;
 
-    private void Initialize()
+    public void Restart()
     {
         currentTasks.Clear();
         for (int i = 0; i < maxTasks; i++)
         {
-            currentTasks.Add(GetNewTask());
+            currentTasks.Add(TaskDatabase.Instance.GetNewTask());
         }
         CurrentTasksChanged?.Invoke(currentTasks);
     }
 
-    private Task GetNewTask()
-    {
-        IEnumerable<Task> allTasks = upgradeTasks.Where(e => !ItemShop.Instance.HasTaskItem(e.Item) && !PlayerUpgrades.Instance.HasUpgrade(e.Item.Upgrade));
-        allTasks = allTasks.Concat(moneyTasks);
-        allTasks = allTasks.Where(e => !currentTasks.Contains(e));
-        return allTasks.GetRandomElement();
-    }
-
     public void CompleteTask(Task task)
     {
-        currentTasks[currentTasks.IndexOf(task)] = GetNewTask();
+        currentTasks[currentTasks.IndexOf(task)] = TaskDatabase.Instance.GetNewTask();
         task.Complete();
         CurrentTasksChanged?.Invoke(currentTasks);
     }
