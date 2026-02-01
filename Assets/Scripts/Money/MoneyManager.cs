@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 
+[RequireComponent(typeof(AudioSource))]
 public class MoneyManager : Singleton<MoneyManager>
 {
     public class MoneyManagerModifiers
@@ -19,13 +20,22 @@ public class MoneyManager : Singleton<MoneyManager>
     }
 
     [SerializeField]
+    private AudioClip smallMoneySound;
+    [SerializeField]
+    private AudioClip bigMoneySound;
+
+    [SerializeField]
     [ReadOnly]
     private ObservableVariable<int> money = new ObservableVariable<int>(0);
     public int Money => money.Value;
 
+    private AudioSource audioSource;
+
     private void Start()
     {
         ItemSeller.Instance.ItemSold += OnItemSold;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnItemSold(Dictionary<WeldingPartData, int> dictionary)
@@ -45,7 +55,16 @@ public class MoneyManager : Singleton<MoneyManager>
 
     public void AddMoney(int amount)
     {
-        money.Value += (int)(amount * PlayerUpgrades.Instance.GetModifier<MoneyManagerModifiers>().allIncomeMultipler);
+        int modifiedAmount = (int)(amount * PlayerUpgrades.Instance.GetModifier<MoneyManagerModifiers>().allIncomeMultipler);
+        if (modifiedAmount > 200)
+        {
+            audioSource.PlayOneShot(bigMoneySound);
+        }
+        else
+        {
+            audioSource.PlayOneShot(smallMoneySound);
+        }
+        money.Value += modifiedAmount;
     }
 
     public void DeductMoney(int amount)
