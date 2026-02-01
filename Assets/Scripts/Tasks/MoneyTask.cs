@@ -3,6 +3,11 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Tasks/Money Task")]
 public class MoneyTask : Task
 {
+    public class MoneyTaskModifier
+    {
+        public float questIncomeModifier;
+    }
+
     [SerializeField]
     private int money;
 
@@ -10,6 +15,7 @@ public class MoneyTask : Task
 
     public override void Complete()
     {
-        MoneyManager.Instance.AddMoney(money);
+        MoneyTaskModifier modifier = PlayerUpgrades.Instance.GetModifier<MoneyTaskModifier>();
+        MoneyManager.Instance.AddMoney((int)(money * modifier.questIncomeModifier));
     }
 }
