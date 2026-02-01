@@ -32,7 +32,7 @@ public class MoneyManager : Singleton<MoneyManager>
     {
         int componentsSum = dictionary.Aggregate(0, (current, key) => current + key.Value);
         int amount;
-        if (dictionary.Values.Any(v => v > 1))
+        if (dictionary.Values.Count() > 1)
         {
             amount = (componentsSum - 1) * 10;
         }
