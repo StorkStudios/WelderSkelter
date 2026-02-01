@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Pusher : MonoBehaviour
@@ -19,8 +18,6 @@ public class Pusher : MonoBehaviour
 
     [SerializeField]
     private float baseItemSpeed = 15f;
-    [SerializeField]
-    private float delayBetweenItems = 0.5f;
 
     [SerializeField]
     private Transform[] slots;
