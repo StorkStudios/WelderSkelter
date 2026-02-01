@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerUpgrades : Singleton<PlayerUpgrades>
 {
+    [SerializeField]
     private List<Upgrade> upgrades = new List<Upgrade>();
 
     public bool HasUpgrade(Upgrade upgrade)

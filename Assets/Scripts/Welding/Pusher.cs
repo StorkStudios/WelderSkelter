@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Pusher : MonoBehaviour
@@ -40,7 +41,7 @@ public class Pusher : MonoBehaviour
 
     public class PusherModifier
     {
-        public float DelayBetweenItemGroups = 3f;
+        public float DelayBetweenItemGroups = 1.25f;
         public int PushersCount = 1;
         public int MaxItems = 20;
     }
@@ -135,8 +136,7 @@ public class Pusher : MonoBehaviour
         Vector3 spawnPositionForSlot = SpawnLocationAfterBelt.position;
         spawnPositionForSlot.x = slots[selectedSlot].position.x;
         yield return new WaitForSeconds(0.25f);
-        itemsOnSlots[selectedSlot].transform.DOMove(spawnPositionForSlot, 0.25f);
-        yield return new WaitForSeconds(0.25f);
+        yield return itemsOnSlots[selectedSlot].transform.DOMove(spawnPositionForSlot, 0.25f).WaitForCompletion();
         Vector3 spawnPositionOn2DScene = SpawnLocationOn2DScene.position;
         spawnPositionOn2DScene.x -= slots[1].position.x - slots[selectedSlot].position.x;
         itemsOnSlots[selectedSlot].transform.position = spawnPositionOn2DScene;
@@ -161,29 +161,27 @@ public class Pusher : MonoBehaviour
 
     private IEnumerator SpawnItems()
     {
-        SpawnItem(2);
-        yield return new WaitForSeconds(delayBetweenItems * modifier.DelayBetweenItemGroups);
-        SpawnItem(1);
-        yield return new WaitForSeconds(delayBetweenItems * modifier.DelayBetweenItemGroups);
-        SpawnItem(0);
-        yield return new WaitForSeconds(delayBetweenItems * modifier.DelayBetweenItemGroups);
+        yield return SpawnItem(2);
+        yield return SpawnItem(1);
+        yield return SpawnItem(0);
     }
 
     private IEnumerator RemoveItem(int slot)
     {
-        float distance = (slots[slot].position - WasteLocation.position).magnitude;
-        yield return itemsOnSlots[slot].transform.DOMove(WasteLocation.position, modifier.DelayBetweenItemGroups * (distance / baseItemSpeed)).WaitForCompletion();
-        itemsOnSlots[slot].transform.DOScale(0, 0.25f).OnComplete(() => Destroy(itemsOnSlots[slot]));
+        GameObject item = itemsOnSlots[slot];
+        float distance = (item.transform.position - WasteLocation.position).magnitude;
+        yield return item.transform.DOMove(WasteLocation.position, modifier.DelayBetweenItemGroups * (distance / baseItemSpeed)).WaitForCompletion();
+        item.transform.DOScale(0, 0.25f).OnComplete(() => Destroy(item));
     }
 
-    private void SpawnItem(int slot)
+    private IEnumerator SpawnItem(int slot)
     {
         GameObject part = WeldingPartsSpawner.Instance.SpawnRandomPart();
         part.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
         part.transform.position = SpawnLocationOnPusher.position;
         float distance = (slots[slot].position - transform.position).magnitude;
-        part.transform.DOMove(slots[slot].position, modifier.DelayBetweenItemGroups * (distance / baseItemSpeed));
         itemsOnSlots[slot] = part;
+        yield return part.transform.DOMove(slots[slot].position, modifier.DelayBetweenItemGroups * (distance / baseItemSpeed)).WaitForCompletion();
     }
 
     private void OnBeforeWorkPhaseStart()

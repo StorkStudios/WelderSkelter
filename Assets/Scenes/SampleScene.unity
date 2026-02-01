@@ -270,6 +270,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b4997883eb311f4984d7d576d28278d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgrades:
+  - {fileID: 11400000, guid: 3f26a10216b3986ec824a80678ea8d84, type: 2}
+  - {fileID: 11400000, guid: 3f26a10216b3986ec824a80678ea8d84, type: 2}
+  - {fileID: 11400000, guid: 3f26a10216b3986ec824a80678ea8d84, type: 2}
 --- !u!1 &73639069
 GameObject:
   m_ObjectHideFlags: 0
@@ -3719,6 +3723,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3995279903516018787, guid: 65431561702cb0cdf829c1ca5f0e632f, type: 3}
+      propertyPath: baseItemSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3995279903516018787, guid: 65431561702cb0cdf829c1ca5f0e632f, type: 3}
       propertyPath: SpawnLocationInLevel
       value: 
       objectReference: {fileID: 20746626}
@@ -5075,7 +5083,7 @@ MonoBehaviour:
   gridPriority: 0
   rows: 2
   columns: 2
-  cellSize: {x: 215.58026, y: 252.41867}
+  cellSize: {x: 215.57234, y: 252.40958}
   spacing: {x: 34, y: 34}
   fitX: 1
   fitY: 1
