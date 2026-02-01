@@ -263,7 +263,7 @@ MonoBehaviour:
         item: 1
       Value: {fileID: 2095291653}
   dayshifts:
-  - moneyToCollect: 2000
+  - moneyToCollect: 20000
     dayLength: 180
   currentDay: 0
 --- !u!114 &56847460
@@ -3765,7 +3765,7 @@ MonoBehaviour:
   gridPriority: 0
   rows: 2
   columns: 2
-  cellSize: {x: 215.58026, y: 252.41867}
+  cellSize: {x: 215.48831, y: 252.31259}
   spacing: {x: 34, y: 34}
   fitX: 1
   fitY: 1
@@ -4057,7 +4057,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 73639070}
   m_Direction: 0
   m_Value: 0.5
-  m_Size: 0.63003665
+  m_Size: 0.2857143
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

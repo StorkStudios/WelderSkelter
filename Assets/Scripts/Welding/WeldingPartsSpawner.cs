@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class WeldingPartsSpawner : MonoBehaviour
 {
+    [SerializeField]
+    private float itemSpawnInterval;
+
     private List<WeldingPartData> weldingPartDataList;
 
     private void Start()
@@ -15,16 +18,14 @@ public class WeldingPartsSpawner : MonoBehaviour
 
     private void SpawnInitialParts()
     {
-        SpawnRandomPart();
-        SpawnRandomPart();
-        SpawnRandomPart();
+
     }
 
     private IEnumerator SpawnItemsCoroutine()
     {
         while(true)
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(itemSpawnInterval);
             SpawnRandomPart();
         }
     }

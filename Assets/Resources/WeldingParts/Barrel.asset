@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 602a1c90b2582ea46894a204081eea0d, type: 3}
-  m_Name: Gamechanger_Pusher
+  m_Script: {fileID: 11500000, guid: 6ff58dc7e9ce795e8b76a7deb45ed5a0, type: 3}
+  m_Name: Barrel
   m_EditorClassIdentifier: 
-  title: +1 Pusher
-  rarity: {fileID: 11400000, guid: 85dec07ebbf27124eb75056f6eff97a5, type: 2}
-  upgrade: {fileID: 0}
-  cost: 0
+  prefab: {fileID: 7182373759241056894, guid: e7dca58bea2a9d545bf25756635cc9d4, type: 3}
+  uiSprite: {fileID: 932640626, guid: b824024b1f83f2845a8883fc4bb0af8b, type: 3}

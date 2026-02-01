@@ -200,6 +200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8322191568569224308}
   - component: {fileID: 7344006910803781310}
+  - component: {fileID: 7800403770184367911}
   m_Layer: 7
   m_Name: RedBullech
   m_TagString: Untagged
@@ -281,3 +282,15 @@ PolygonCollider2D:
       - {x: -0.59999996, y: -3.6699998}
       - {x: 1.0799999, y: -3.6699998}
   m_UseDelaunayMesh: 0
+--- !u!114 &7800403770184367911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6988242268390503064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f30422dbb103274e9ddfbe7302c677a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

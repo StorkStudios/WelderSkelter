@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 602a1c90b2582ea46894a204081eea0d, type: 3}
-  m_Name: Gamechanger_Pusher
+  m_Script: {fileID: 11500000, guid: 3c206fca0d329fb459eac5f5916e30b3, type: 3}
+  m_Name: Item_ItemRarity
   m_EditorClassIdentifier: 
-  title: +1 Pusher
-  rarity: {fileID: 11400000, guid: 85dec07ebbf27124eb75056f6eff97a5, type: 2}
-  upgrade: {fileID: 0}
-  cost: 0
+  rarityWeight: 2

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Stats_EyeDamage
   m_EditorClassIdentifier: 
   title: -50% Eye Damage
-  rarity: {fileID: 11400000, guid: 3a9dae79d3fd7a041b3105e30f2f4184, type: 2}
+  rarity: {fileID: 11400000, guid: 9896bf38fd23f424e8cbf21c675c5e11, type: 2}
   upgrade: {fileID: 0}
   cost: 0
