@@ -27,8 +27,16 @@ public class UITasks : Singleton<UITasks>
         foreach (RectTransform child in taskParent)
         {
             Task task = i < currentTasks.Count ? currentTasks[i] : null;
-            child.GetComponent<UITask>().SetTask(task);
+            UITask uiTask = child.GetComponent<UITask>();
+            uiTask.Discarded -= OnDiscarded;
+            uiTask.Discarded += OnDiscarded;
+            uiTask.SetTask(task);
             i++;
         }
+    }
+
+    private void OnDiscarded(Task task)
+    {
+        TaskManager.Instance.DiscardTask(task);
     }
 }
