@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 602a1c90b2582ea46894a204081eea0d, type: 3}
-  m_Name: Item_Bomb
+  m_Name: Mask_WelderLight
   m_EditorClassIdentifier: 
-  title: 'ITEM: Bomb'
-  rarity: {fileID: 11400000, guid: 3a9dae79d3fd7a041b3105e30f2f4184, type: 2}
+  title: 'MASK: +100% Welder Light'
+  rarity: {fileID: 11400000, guid: b98e1b5f87c33ee4c9bc594f271de9d4, type: 2}
   upgrade: {fileID: 0}
-  cost: 5000
+  cost: 3500

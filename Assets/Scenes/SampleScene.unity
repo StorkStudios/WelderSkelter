@@ -263,7 +263,7 @@ MonoBehaviour:
         item: 1
       Value: {fileID: 2095291653}
   dayshifts:
-  - moneyToCollect: 20000
+  - moneyToCollect: 10000
     dayLength: 180
   currentDay: 0
 --- !u!114 &56847460

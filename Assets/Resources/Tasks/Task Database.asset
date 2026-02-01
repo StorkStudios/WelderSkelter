@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: Task Database
   m_EditorClassIdentifier: 
   moneyTasks:
+  - {fileID: 11400000, guid: 2991ce7eebc4a2c4b965d4cc93474199, type: 2}
   - {fileID: 11400000, guid: 3ae99ac0b1ec4b5478b78efc1bf35df9, type: 2}
   - {fileID: 11400000, guid: 016f68e64961a274596f691f43e236db, type: 2}
+  - {fileID: 11400000, guid: 5ce66f338d6c103478b2074cb6f4512f, type: 2}
+  - {fileID: 11400000, guid: 201a61c12dda35c4a98d733b3ccee937, type: 2}
   - {fileID: 11400000, guid: b7ada2dcd47ab5c418698ee7be9c028e, type: 2}
   - {fileID: 11400000, guid: 53d8ddc0b9d460b4688e6410263cfe17, type: 2}
   - {fileID: 11400000, guid: 6357fa780067026429d2acf25569bc9b, type: 2}
@@ -25,6 +28,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f78e202c360f5744c9f02967e2375445, type: 2}
   - {fileID: 11400000, guid: 44093f9a9f146354b85f8b225656f88b, type: 2}
   - {fileID: 11400000, guid: 55754e38d240c4246b8c2f9859beb34d, type: 2}
+  - {fileID: 11400000, guid: d7a80149d2471b442b514e2f62fdcad4, type: 2}
   upgradeTasks:
   - {fileID: 11400000, guid: 6eba1936e0fdd5f4faaff96af04ab503, type: 2}
   - {fileID: 11400000, guid: 943c3136f201e3d45bb6d65e740bf2a4, type: 2}

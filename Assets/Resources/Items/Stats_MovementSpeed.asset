@@ -15,4 +15,4 @@ MonoBehaviour:
   title: -25% Item Speed
   rarity: {fileID: 11400000, guid: 9896bf38fd23f424e8cbf21c675c5e11, type: 2}
   upgrade: {fileID: 0}
-  cost: 0
+  cost: 2500

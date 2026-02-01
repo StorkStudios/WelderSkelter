@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f436fa28cc4bc0245a05854302d36fce, type: 3}
-  m_Name: TaskMoney3it_Arm2Jumppad
+  m_Name: TaskMoney2it_HatSkull
   m_EditorClassIdentifier: 
-  title: CRAB
+  title: DEAD SLINGER
   color: {r: 0.69803923, g: 0.5764706, b: 0.23529412, a: 1}
   requiredParts:
-  - {fileID: 11400000, guid: 028d00f18e29e38c09003110718d8c42, type: 2}
-  - {fileID: 11400000, guid: 028d00f18e29e38c09003110718d8c42, type: 2}
-  - {fileID: 11400000, guid: c5df3e0e63a75131ab227a91679e6a0a, type: 2}
-  money: 700
+  - {fileID: 11400000, guid: 1e0bcb00233d96f4b9ec9dfaf5d8c17b, type: 2}
+  - {fileID: 11400000, guid: ed76120e00c76f54c9004529d02491d4, type: 2}
+  money: 400

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f436fa28cc4bc0245a05854302d36fce, type: 3}
   m_Name: TaskMoney2it_SkullBubbletea
   m_EditorClassIdentifier: 
-  title: HALOWEEN SPECIAL EVENT
+  title: HAPPY MEAL
   color: {r: 0.69803923, g: 0.5764706, b: 0.23529412, a: 1}
   requiredParts:
-  - {fileID: 11400000, guid: ed76120e00c76f54c9004529d02491d4, type: 2}
+  - {fileID: 11400000, guid: d74089dc075763a4fa617c71c17859ff, type: 2}
   - {fileID: 11400000, guid: ca9be91c0b363554e8e9946821ce8f79, type: 2}
   money: 400

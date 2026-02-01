@@ -15,4 +15,4 @@ MonoBehaviour:
   title: Add Gravity
   rarity: {fileID: 11400000, guid: 85dec07ebbf27124eb75056f6eff97a5, type: 2}
   upgrade: {fileID: 0}
-  cost: 0
+  cost: 5000
