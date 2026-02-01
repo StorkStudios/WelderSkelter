@@ -42,7 +42,7 @@ public class Pusher : MonoBehaviour
     {
         public float DelayBetweenItemGroups = 3f;
         public int PushersCount = 1;
-        public int MaxItems = 2;
+        public int MaxItems = 20;
     }
 
     private PusherModifier modifier;
@@ -113,13 +113,9 @@ public class Pusher : MonoBehaviour
                 {
                     itemsLimitErrorMessage.SetActive(false);
                 }
-                Debug.Log("Spawn items");
                 yield return SpawnItems();
-                Debug.Log("Wait for selection");
                 yield return new WaitForSeconds(modifier.DelayBetweenItemGroups);
-                Debug.Log("PushItem");
                 yield return PushItem();
-                Debug.Log("Remove items");
                 yield return RemoveItems();
             }
             else
