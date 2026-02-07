@@ -57,6 +57,11 @@ public class MoneyManager : Singleton<MoneyManager>
 
     public void AddMoney(int amount)
     {
+        if (amount <= 0)
+        {
+            return;
+        }
+
         int modifiedAmount = (int)(amount * PlayerUpgrades.Instance.GetModifier<MoneyManagerModifiers>().allIncomeMultipler);
         if (modifiedAmount > 200)
         {

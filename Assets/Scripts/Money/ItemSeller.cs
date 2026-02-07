@@ -39,7 +39,7 @@ public class ItemSeller : Singleton<ItemSeller>
         if (itemToSell != null)
         {
             WeldingPart weldingPart = itemToSell.GetComponentInParent<WeldingPart>();
-            if (weldingPart != null && (weldingPart.Components.Count > 1 || weldingPart.Components.First().Value > 1))
+            if (weldingPart != null && (weldingPart.Components.Count >= 1 || weldingPart.Components.First().Value >= 1))
             {
                 ItemSold?.Invoke(weldingPart.Components);
                 Destroy(weldingPart.gameObject);
