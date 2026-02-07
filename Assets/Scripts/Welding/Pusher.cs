@@ -196,6 +196,7 @@ public class Pusher : MonoBehaviour
     private void OnBeforeWorkPhaseStart()
     {
         modifier = PlayerUpgrades.Instance.GetModifier<PusherModifier>();
+        itemsCount = 0;
         if (spawnCoroutine == null)
         {
             spawnCoroutine = StartCoroutine(SpawnItemsCoroutine());

@@ -20,14 +20,32 @@ public class EyesightManager : Singleton<EyesightManager>
     [SerializeField]
     private Volume volume;
 
+    [SerializeField]
+    private Gradient eyesightGradient;
+
     private EyesightModifier modifier;
 
     public ObservableVariable<float> Eyesight = new ObservableVariable<float>(1);
+
+    protected override void Awake()
+    {
+        Eyesight.ValueChanged += OnEyesightChanged;
+        base.Awake();
+    }
 
     private void Start()
     {
         WorkPhaseManager.Instance.WorkPhasePreStartEvent += PreWorkPhaseStart;
         PreWorkPhaseStart();
+    }
+
+    private void OnEyesightChanged(float oldValue, float newValue)
+    {
+        volume.weight = 1 - newValue;
+        /*Color color = Color.white * newValue;
+        color.a = 1;*/
+        Color color = eyesightGradient.Evaluate(1 - newValue);
+        itemsImage.color = color;
     }
 
     private void PreWorkPhaseStart()
@@ -41,10 +59,6 @@ public class EyesightManager : Singleton<EyesightManager>
         if (Welder.Instance.IsWelding && !WeldingMask.Instance.MaskOn.Value)
         {
             Eyesight.Value -= eyesightReductionPerSecond * Time.deltaTime * modifier.eyesightDamageReduction;
-            volume.weight = 1 - Eyesight.Value;
-            Color color = itemsImage.color;
-            color.a = Eyesight.Value;
-            itemsImage.color = color;
         }
     }
 }
