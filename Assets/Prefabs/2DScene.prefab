@@ -479,6 +479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSpawnInterval: 3
+  mikePrefab: {fileID: 3606156731893342439, guid: 963030d48dd09d04e9010dda2e49f72b, type: 3}
 --- !u!1 &3514038034106102748
 GameObject:
   m_ObjectHideFlags: 0

@@ -45,7 +45,6 @@ public class Pusher : MonoBehaviour
     [SerializeField]
     private AudioSource pusherAudioSource;
 
-
     public class PusherModifier
     {
         public float maskOnItemDelayMultiplier = 1;
@@ -53,6 +52,7 @@ public class Pusher : MonoBehaviour
         public int PushersCount = 1;
         public int MaxItems = 20;
         public float initialSpeedMultiplier = 1;
+        public int mikesCount = 0;
 
         public float GetItemDelayMultiplier()
         {
@@ -118,6 +118,22 @@ public class Pusher : MonoBehaviour
     {
         StopCoroutine(spawnCoroutine);
         spawnCoroutine = null;
+    }
+
+    private void SpawnMikes()
+    {
+        Vector3 spawnPositionOn2DScene = SpawnLocationOn2DScene.position;
+
+        for (int i = 0; i < modifier.mikesCount; i++)
+        {
+            GameObject mike = WeldingPartsSpawner.Instance.SpawnMike();
+            Rigidbody2D rb = mike.GetComponent<Rigidbody2D>();
+            rb.position = spawnPositionOn2DScene;
+            rb.bodyType = RigidbodyType2D.Dynamic;
+            float randX = UnityEngine.Random.Range(-randomPushForceRange.x, randomPushForceRange.x);
+            float randY = UnityEngine.Random.Range(-randomPushForceRange.y, randomPushForceRange.y);
+            rb.AddForce((basePushForce + new Vector2(randX, randY)) * modifier.initialSpeedMultiplier, ForceMode2D.Impulse);
+        }
     }
 
     private IEnumerator SpawnItemsCoroutine()
@@ -210,5 +226,7 @@ public class Pusher : MonoBehaviour
         {
             spawnCoroutine = StartCoroutine(SpawnItemsCoroutine());
         }
+
+        SpawnMikes();
     }
 }
