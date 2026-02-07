@@ -80,10 +80,13 @@ public class FlexibleGridLayout : LayoutGroup
         }
         constraintCellSizeIfNeeded();
 
-        for (int i = 0; i < rectChildren.Count; i++)
+        int lastCount = gridPriority == GridPriority.FixedColumns || gridPriority == GridPriority.Rows ? rectChildren.Count % rows : rectChildren.Count % columns;
+        float lastBlech = gridPriority == GridPriority.FixedColumns || gridPriority == GridPriority.Rows ? (float)lastCount / rows : (float)lastCount / columns;
+
+        for (int i = 0; i < rectChildren.Count - lastCount; i++)
         {
-            int rowPosition = gridPriority == GridPriority.FixedColumns || gridPriority == GridPriority.Rows ? i / columns : i % rows;
-            int columnPosition = gridPriority == GridPriority.FixedColumns || gridPriority == GridPriority.Rows ? i % columns : i / rows;
+            int rowPosition = gridPriority == GridPriority.FixedColumns || gridPriority == GridPriority.Rows ? i % rows : i / columns;
+            int columnPosition = gridPriority == GridPriority.FixedColumns || gridPriority == GridPriority.Rows ? i / rows : i % columns;
 
             RectTransform item = rectChildren[i];
             float xPos = xPosByChildAlignment(cellSize.x, columnPosition);
@@ -91,6 +94,35 @@ public class FlexibleGridLayout : LayoutGroup
 
             SetChildAlongAxis(item, 0, xPos, cellSize.x);
             SetChildAlongAxis(item, 1, yPos, cellSize.y);
+        }
+
+        for (int i = rectChildren.Count - lastCount; i < rectChildren.Count; i++)
+        {
+            int rowPosition = gridPriority == GridPriority.FixedColumns || gridPriority == GridPriority.Rows ? i % rows : i / columns;
+            int columnPosition = gridPriority == GridPriority.FixedColumns || gridPriority == GridPriority.Rows ? i / rows : i % columns;
+
+            var cache = (rows, columns);
+
+            RectTransform item = rectChildren[i];
+            if (gridPriority == GridPriority.FixedColumns || gridPriority == GridPriority.Rows)
+            {
+                columns = lastCount;
+            }
+            else
+            {
+                rows = lastCount;
+            }
+
+            float xAxis = (gridPriority == GridPriority.FixedColumns || gridPriority == GridPriority.Rows ? 1 : lastBlech);
+            float yAxis = (gridPriority == GridPriority.FixedColumns || gridPriority == GridPriority.Rows ? lastBlech : 1);
+
+            float xPos = xPosByChildAlignment(cellSize.x / xAxis, columnPosition);
+            float yPos = yPosByChildAlignment(cellSize.y / yAxis, rowPosition);
+
+            (rows, columns) = cache;
+
+            SetChildAlongAxis(item, 0, xPos, cellSize.x / xAxis);
+            SetChildAlongAxis(item, 1, yPos, cellSize.y / yAxis);
         }
 
         if (resizeWidthToFit)
