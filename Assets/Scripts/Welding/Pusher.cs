@@ -49,12 +49,14 @@ public class Pusher : MonoBehaviour
     public class PusherModifier
     {
         public float maskOnItemDelayMultiplier = 1;
+        public float itemDelayMultiplier = 1;
         public int PushersCount = 1;
         public int MaxItems = 20;
+        public float initialSpeedMultiplier = 1;
 
         public float GetItemDelayMultiplier()
         {
-            return WeldingMask.Instance.MaskOn.Value ? maskOnItemDelayMultiplier : 1;
+            return itemDelayMultiplier * (WeldingMask.Instance.MaskOn.Value ? maskOnItemDelayMultiplier : 1);
         }
     }
 
@@ -159,7 +161,7 @@ public class Pusher : MonoBehaviour
         rb.bodyType = RigidbodyType2D.Dynamic;
         float randX = UnityEngine.Random.Range(-randomPushForceRange.x, randomPushForceRange.x);
         float randY = UnityEngine.Random.Range(-randomPushForceRange.y, randomPushForceRange.y);
-        rb.AddForce(basePushForce + new Vector2(randX, randY), ForceMode2D.Impulse);
+        rb.AddForce((basePushForce + new Vector2(randX, randY)) * modifier.initialSpeedMultiplier, ForceMode2D.Impulse);
         itemsCount++;
         itemsOnSlots[selectedSlot].GetComponent<WeldingPart>().OnPush();
     }

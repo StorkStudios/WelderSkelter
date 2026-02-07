@@ -8,7 +8,7 @@ public class EyesightManager : Singleton<EyesightManager>
 {
     public class EyesightModifier
     {
-        public float eyesightDamageReduction = 1;
+        public float eyesightDamageMultiplier = 1;
     }
 
     [SerializeField]
@@ -58,7 +58,7 @@ public class EyesightManager : Singleton<EyesightManager>
     {
         if (Welder.Instance.IsWelding && !WeldingMask.Instance.MaskOn.Value)
         {
-            Eyesight.Value -= eyesightReductionPerSecond * Time.deltaTime * modifier.eyesightDamageReduction;
+            Eyesight.Value -= eyesightReductionPerSecond * Time.deltaTime * modifier.eyesightDamageMultiplier;
         }
     }
 }
