@@ -30,9 +30,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 55754e38d240c4246b8c2f9859beb34d, type: 2}
   - {fileID: 11400000, guid: d7a80149d2471b442b514e2f62fdcad4, type: 2}
   upgradeTasks:
-  - {fileID: 11400000, guid: 6eba1936e0fdd5f4faaff96af04ab503, type: 2}
+  - {fileID: 11400000, guid: c1676d730ac7c4349897a074d553a280, type: 2}
+  - {fileID: 11400000, guid: ebb3d169e092cdd419eeb335601f4e78, type: 2}
+  - {fileID: 11400000, guid: 3500a0502ba3cb848a723c9d0a9c2007, type: 2}
+  - {fileID: 11400000, guid: c00c8944df3827d48a0f8d6c53f01090, type: 2}
+  - {fileID: 11400000, guid: 15c70c25c91e29c438485bc82bf58b9b, type: 2}
   - {fileID: 11400000, guid: 943c3136f201e3d45bb6d65e740bf2a4, type: 2}
+  - {fileID: 11400000, guid: 6eba1936e0fdd5f4faaff96af04ab503, type: 2}
+  - {fileID: 11400000, guid: 963490bf0a0ff284391a9943fdb54551, type: 2}
+  - {fileID: 11400000, guid: aeb8580136e0f5a4a9ba00e27b66d951, type: 2}
   - {fileID: 11400000, guid: 2207b485934164e44b344fef518d7125, type: 2}
   - {fileID: 11400000, guid: ccfec5321b8c71b4f960389011d0559d, type: 2}
-  - {fileID: 11400000, guid: 3500a0502ba3cb848a723c9d0a9c2007, type: 2}
-  - {fileID: 11400000, guid: 963490bf0a0ff284391a9943fdb54551, type: 2}

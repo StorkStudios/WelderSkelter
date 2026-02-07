@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed1d1cdf090623ae884dcd53d84eb978, type: 3}
-  m_Name: ItemSpeedWithMaskOnUpgrade
+  m_Script: {fileID: 11500000, guid: 75834c12b89acdb4e993d2cd89730234, type: 3}
+  m_Name: WelderLightRadiusUpgrade
   m_EditorClassIdentifier: 
-  description: Item Move Speed -40% when mask is on
-  speedChangeValue: 0.6
+  description: Welder Light Radius +100%
+  scaleMultiplier: 2

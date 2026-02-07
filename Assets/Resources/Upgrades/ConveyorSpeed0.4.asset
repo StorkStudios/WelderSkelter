@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 169286a4841215129a11d69cd57154e2, type: 3}
   m_Name: ConveyorSpeed0.4
   m_EditorClassIdentifier: 
-  description: Increases speed of disposing new items by 40%
-  timeReduction: 0.2857
+  description: Increases speed of disposing new items by 60%
+  timeReduction: 0.375

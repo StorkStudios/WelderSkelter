@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TaskSkill3it_Mask_MovementSpeed
   m_EditorClassIdentifier: 
   title: FOCUS BOOSTING LENSES
-  color: {r: 0.5254902, g: 0.6901961, b: 0.36862746, a: 1}
+  color: {r: 0.41960785, g: 0.53333336, b: 0.6117647, a: 1}
   requiredParts:
   - {fileID: 11400000, guid: ed76120e00c76f54c9004529d02491d4, type: 2}
   - {fileID: 11400000, guid: 3a09b90a13be8c2488d2121684df4405, type: 2}

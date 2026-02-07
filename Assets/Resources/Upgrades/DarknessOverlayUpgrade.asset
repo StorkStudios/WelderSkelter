@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed1d1cdf090623ae884dcd53d84eb978, type: 3}
-  m_Name: ItemSpeedWithMaskOnUpgrade
+  m_Script: {fileID: 11500000, guid: 56224b1488e3f4a4ea6d5c206e02c38e, type: 3}
+  m_Name: DarknessOverlayUpgrade
   m_EditorClassIdentifier: 
-  description: Item Move Speed -40% when mask is on
-  speedChangeValue: 0.6
+  description: Reduce darkness with mask on by 15%
+  darknesMultiplier: 0.85
