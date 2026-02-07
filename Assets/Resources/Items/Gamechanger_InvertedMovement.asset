@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 602a1c90b2582ea46894a204081eea0d, type: 3}
   m_Name: Gamechanger_InvertedMovement
   m_EditorClassIdentifier: 
-  title: Revert Items Speed
+  title: Invert Items Speed
   color: {r: 0.5803922, g: 0.29803923, b: 0.62352943, a: 1}
   rarity: {fileID: 11400000, guid: 85dec07ebbf27124eb75056f6eff97a5, type: 2}
-  upgrade: {fileID: 11400000, guid: 3f26a10216b3986ec824a80678ea8d84, type: 2}
+  upgrade: {fileID: 11400000, guid: df8bf17f6de677c40b263c07d1d1bc22, type: 2}
   cost: 1500
