@@ -9,12 +9,19 @@ public class Welder : Singleton<Welder>
 {
     public class WelderModifiers
     {
-        public float radius = 0.1f;
+        public float maskOnRadiusMultiplier = 1;
+
+        public float GetRadiusMultiplier()
+        {
+            return WeldingMask.Instance.MaskOn.Value ? maskOnRadiusMultiplier : 1;
+        }
     }
 
     [SerializeField]
     [NotNull]
     private GameObject welderParticles;
+    [SerializeField]
+    private float radius = 0.1f;
 
     private WeldingCanvasUtils weldingCanvasUtils;
     private Vector2 lastWeldPosition;
@@ -65,7 +72,8 @@ public class Welder : Singleton<Welder>
 
     private void WeldOnPoint(Vector2 point)
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(point, welderModifiers.radius);
+        float welderRadius = radius * welderModifiers.GetRadiusMultiplier();
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(point, welderRadius);
         HashSet<WeldingPart> weldedParts = colliders.Select(c => c.GetComponentInParent<WeldingPart>()).Where(wp => wp != null).ToHashSet();
 
         for (int i = 0; i < weldedParts.Count - 1; i++)

@@ -8,7 +8,7 @@ public class WeldingPart : MonoBehaviour
 {
     public class WeldingPartModifier
     {
-        public float PartSpeedModifierWithMaskOn = 1;
+        public float maskOnMoveSpeedMultiplier = 1;
     }
 
     private WeldingPartData data;
@@ -43,6 +43,7 @@ public class WeldingPart : MonoBehaviour
             trigger.OnTriggerExitEvent += OnWeldTriggerExit;
         }
         modifier = PlayerUpgrades.Instance.GetModifier<WeldingPartModifier>();
+        OnMaskOnChanged(false, WeldingMask.Instance.MaskOn.Value);
         WeldingMask.Instance.MaskOn.ValueChanged += OnMaskOnChanged;
         WorkPhaseManager.Instance.WorkPhaseEnded += (_) =>
         {
@@ -53,15 +54,17 @@ public class WeldingPart : MonoBehaviour
         };
     }
 
-    private void OnMaskOnChanged(bool _, bool newValue)
+    private void OnMaskOnChanged(bool oldValue, bool newValue)
     {
         if (newValue)
         {
-            rb.linearVelocity *= modifier.PartSpeedModifierWithMaskOn;
+            rb.linearVelocity *= modifier.maskOnMoveSpeedMultiplier;
+            rb.angularVelocity *= modifier.maskOnMoveSpeedMultiplier;
         }
-        else
+        else if (oldValue != newValue)
         {
-            rb.linearVelocity /= modifier.PartSpeedModifierWithMaskOn;
+            rb.linearVelocity /= modifier.maskOnMoveSpeedMultiplier;
+            rb.angularVelocity /= modifier.maskOnMoveSpeedMultiplier;
         }
     }
 

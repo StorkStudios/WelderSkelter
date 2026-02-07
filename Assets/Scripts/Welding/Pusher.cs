@@ -18,6 +18,8 @@ public class Pusher : MonoBehaviour
 
     [SerializeField]
     private float baseItemSpeed = 15f;
+    [SerializeField]
+    private float delayBetweenItemGroups = 1.25f;
 
     [SerializeField]
     private Transform[] slots;
@@ -46,9 +48,14 @@ public class Pusher : MonoBehaviour
 
     public class PusherModifier
     {
-        public float DelayBetweenItemGroups = 1.25f;
+        public float maskOnItemDelayMultiplier = 1;
         public int PushersCount = 1;
         public int MaxItems = 20;
+
+        public float GetItemDelayMultiplier()
+        {
+            return WeldingMask.Instance.MaskOn.Value ? maskOnItemDelayMultiplier : 1;
+        }
     }
 
     private PusherModifier modifier;
@@ -122,7 +129,7 @@ public class Pusher : MonoBehaviour
                     itemsLimitErrorMessage.SetActive(false);
                 }
                 yield return SpawnItems();
-                yield return new WaitForSeconds(modifier.DelayBetweenItemGroups);
+                yield return new WaitForSeconds(delayBetweenItemGroups * modifier.GetItemDelayMultiplier());
                 yield return PushItem();
                 yield return RemoveItems();
             }
@@ -179,7 +186,7 @@ public class Pusher : MonoBehaviour
     {
         GameObject item = itemsOnSlots[slot];
         float distance = (item.transform.position - WasteLocation.position).magnitude;
-        yield return item.transform.DOMove(WasteLocation.position, modifier.DelayBetweenItemGroups * (distance / baseItemSpeed)).WaitForCompletion();
+        yield return item.transform.DOMove(WasteLocation.position, delayBetweenItemGroups * modifier.GetItemDelayMultiplier() * (distance / baseItemSpeed)).WaitForCompletion();
         item.transform.DOScale(0, 0.25f).OnComplete(() => Destroy(item));
     }
 
@@ -190,7 +197,7 @@ public class Pusher : MonoBehaviour
         part.transform.position = SpawnLocationOnPusher.position;
         float distance = (slots[slot].position - transform.position).magnitude;
         itemsOnSlots[slot] = part;
-        yield return part.transform.DOMove(slots[slot].position, modifier.DelayBetweenItemGroups * (distance / baseItemSpeed)).WaitForCompletion();
+        yield return part.transform.DOMove(slots[slot].position, delayBetweenItemGroups * modifier.GetItemDelayMultiplier() * (distance / baseItemSpeed)).WaitForCompletion();
     }
 
     private void OnBeforeWorkPhaseStart()
