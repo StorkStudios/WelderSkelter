@@ -15,9 +15,9 @@ MonoBehaviour:
   title: MUTANT SOLDIER
   color: {r: 0.69803923, g: 0.5764706, b: 0.23529412, a: 1}
   requiredParts:
-  - {fileID: 11400000, guid: 9325f2a774b4fec4c9d1904e5a9e4b57, type: 2}
-  - {fileID: 11400000, guid: 9325f2a774b4fec4c9d1904e5a9e4b57, type: 2}
-  - {fileID: 11400000, guid: 9325f2a774b4fec4c9d1904e5a9e4b57, type: 2}
-  - {fileID: 11400000, guid: 9325f2a774b4fec4c9d1904e5a9e4b57, type: 2}
   - {fileID: 11400000, guid: 98a876b76346b7546b3496e6d2cc4113, type: 2}
+  - {fileID: 11400000, guid: c5df3e0e63a75131ab227a91679e6a0a, type: 2}
+  - {fileID: 11400000, guid: ca9be91c0b363554e8e9946821ce8f79, type: 2}
+  - {fileID: 11400000, guid: ae88542a4fd5e404c9cc14b239bc1a90, type: 2}
+  - {fileID: 11400000, guid: 028d00f18e29e38c09003110718d8c42, type: 2}
   money: 1600
