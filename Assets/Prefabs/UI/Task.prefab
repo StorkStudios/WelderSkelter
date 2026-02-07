@@ -703,21 +703,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
+    m_Left: 5
+    m_Right: 5
+    m_Top: 5
+    m_Bottom: 5
   m_ChildAlignment: 4
   allowOutOfBounds: 0
   gridPriority: 1
-  rows: 1
-  columns: 2
-  cellSize: {x: 50, y: 50}
-  spacing: {x: 10, y: 10}
-  fitX: 0
-  fitY: 0
+  rows: 2
+  columns: 3
+  cellSize: {x: 74.33686, y: 79.427635}
+  spacing: {x: 5, y: 5}
+  fitX: 1
+  fitY: 1
   aspectRatio: 0
   resizeWidthToFit: 0
+  minSize: 0
 --- !u!1 &8710952326301207491
 GameObject:
   m_ObjectHideFlags: 0
