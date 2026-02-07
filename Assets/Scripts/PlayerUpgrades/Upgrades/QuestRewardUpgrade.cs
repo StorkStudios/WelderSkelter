@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "QuestRewardUpgrade", menuName = "Scriptable Objects/QuestRewardUpgrade")]
+[CreateAssetMenu(fileName = "QuestRewardUpgrade", menuName = "Upgrades/QuestRewardUpgrade")]
 public class QuestRewardUpgrade : Upgrade, IUpgrade<MoneyTask.MoneyTaskModifier>
 {
     [SerializeField]

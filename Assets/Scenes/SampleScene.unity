@@ -1602,6 +1602,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 4.5000153
       objectReference: {fileID: 0}
+    - target: {fileID: 5934341090496635345, guid: 8096e8cab73df404bac0c6942abef63d, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6258648988365491374, guid: 8096e8cab73df404bac0c6942abef63d, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.5

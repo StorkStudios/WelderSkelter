@@ -6,6 +6,12 @@ using UnityEngine.InputSystem;
 
 public class WeldingMask : Singleton<WeldingMask>
 {
+    public class WeldingMaskModifier
+    {
+        public float darknessAlpha = 1;
+        public float darknessScale = 1;
+    }
+
     [SerializeField]
     [ReadOnly]
     private ObservableVariable<bool> maskOn = new ObservableVariable<bool>(false);
@@ -19,9 +25,11 @@ public class WeldingMask : Singleton<WeldingMask>
     [SerializeField]
     private Transform mask;
     [SerializeField]
-    private GameObject maskShadow;
+    private CanvasGroup maskShadow;
 
     private bool moveMaskShadow = false;
+
+    private WeldingMaskModifier modifier;
 
     private void Start()
     {
@@ -43,7 +51,11 @@ public class WeldingMask : Singleton<WeldingMask>
     {
         maskOn.Value = false;
         mask.position = maskOffPosition.position;
-        maskShadow.SetActive(false);
+        maskShadow.gameObject.SetActive(false);
+        modifier = PlayerUpgrades.Instance.GetModifier<WeldingMaskModifier>();
+
+        maskShadow.alpha = modifier.darknessAlpha;
+        maskShadow.transform.localScale = new Vector3(modifier.darknessScale, modifier.darknessScale, 1);
     }
 
     private void OnMaskToggled()
@@ -51,7 +63,7 @@ public class WeldingMask : Singleton<WeldingMask>
         maskOn.Value = !maskOn.Value;
         if (maskOn.Value)
         {
-            maskShadow.SetActive(true);
+            maskShadow.gameObject.SetActive(true);
             maskShadow.transform.position = maskOffPosition.position;
             mask.DOMove(maskOnPosition.position, 0.1f).OnComplete(() =>
             {
@@ -60,7 +72,7 @@ public class WeldingMask : Singleton<WeldingMask>
         }
         else
         {
-            maskShadow.SetActive(false);
+            maskShadow.gameObject.SetActive(false);
             maskShadow.transform.position = maskOffPosition.position;
             mask.DOMove(maskOffPosition.position, 0.1f).OnComplete(() =>
             {

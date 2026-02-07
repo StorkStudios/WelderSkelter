@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ItemSpeedUpgrade", menuName = "Scriptable Objects/ItemSpeedUpgrade")]
+[CreateAssetMenu(fileName = "ItemSpeedUpgrade", menuName = "Upgrades/ItemSpeedUpgrade")]
 public class ItemSpeedUpgrade : Upgrade, IUpgrade<WeldingPart.WeldingPartModifier>
 {
     [SerializeField]

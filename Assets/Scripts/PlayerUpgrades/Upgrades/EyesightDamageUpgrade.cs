@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "EyesightDamageUpgrade", menuName = "Scriptable Objects/EyesightDamageUpgrade")]
+[CreateAssetMenu(fileName = "EyesightDamageUpgrade", menuName = "Upgrades/EyesightDamageUpgrade")]
 public class EyesightDamageUpgrade : Upgrade, IUpgrade<EyesightManager.EyesightModifier>
 {
     [SerializeField]

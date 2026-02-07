@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "AllIncomeUpgrade", menuName = "Scriptable Objects/AllIncomeUpgrade")]
+[CreateAssetMenu(fileName = "AllIncomeUpgrade", menuName = "Upgrades/AllIncomeUpgrade")]
 public class AllIncomeUpgrade : Upgrade, IUpgrade<MoneyManager.MoneyManagerModifiers>
 {
     [SerializeField]

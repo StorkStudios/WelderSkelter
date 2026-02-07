@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "WeldingRadiusUpgrade", menuName = "Scriptable Objects/WeldingRadiusUpgrade")]
+[CreateAssetMenu(fileName = "WeldingRadiusUpgrade", menuName = "Upgrades/WeldingRadiusUpgrade")]
 public class WeldingRadiusUpgrade : Upgrade, IUpgrade<Welder.WelderModifiers>
 {
     [SerializeField]

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewItemIntervalUpgrade", menuName = "Scriptable Objects/NewItemIntervalUpgrade")]
+[CreateAssetMenu(fileName = "NewItemIntervalUpgrade", menuName = "Upgrades/NewItemIntervalUpgrade")]
 public class NewItemIntervalUpgrade : Upgrade, IUpgrade<Pusher.PusherModifier>
 {
     [SerializeField]
