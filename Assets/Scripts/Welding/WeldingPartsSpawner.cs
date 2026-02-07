@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class WeldingPartsSpawner : Singleton<WeldingPartsSpawner>
 {
+    public class Modifiers
+    {
+        public float scaleMultiplier = 1;
+    }
+
     [SerializeField]
     private float itemSpawnInterval;
     [SerializeField]
@@ -14,11 +19,17 @@ public class WeldingPartsSpawner : Singleton<WeldingPartsSpawner>
     public GameObject SpawnRandomPart()
     {
         weldingPartDataList ??= new List<WeldingPartData>(Resources.LoadAll<WeldingPartData>("WeldingParts"));
-        return weldingPartDataList[Random.Range(0, weldingPartDataList.Count)].Instantiate(transform.position, Quaternion.identity, transform);
+        GameObject gameObject = weldingPartDataList[Random.Range(0, weldingPartDataList.Count)].Instantiate(transform.position, Quaternion.identity, transform);
+        Modifiers modifiers = PlayerUpgrades.Instance.GetModifier<Modifiers>();
+        gameObject.transform.localScale *= modifiers.scaleMultiplier;
+        return gameObject;
     }
 
     public GameObject SpawnMike()
     {
-        return Instantiate(mikePrefab, transform.position, Quaternion.identity, transform);
+        GameObject gameObject = Instantiate(mikePrefab, transform.position, Quaternion.identity, transform);
+        Modifiers modifiers = PlayerUpgrades.Instance.GetModifier<Modifiers>();
+        gameObject.transform.localScale *= modifiers.scaleMultiplier;
+        return gameObject;
     }
 }

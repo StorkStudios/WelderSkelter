@@ -21,6 +21,8 @@ public class Pusher : Singleton<Pusher>
     private float baseItemSpeed = 15f;
     [SerializeField]
     private float delayBetweenItemGroups = 1.25f;
+    [SerializeField]
+    private int maxItems = 20;
 
     [SerializeField]
     private Transform[] slots;
@@ -51,7 +53,7 @@ public class Pusher : Singleton<Pusher>
         public float maskOnItemDelayMultiplier = 1;
         public float itemDelayMultiplier = 1;
         public int PushersCount = 1;
-        public int MaxItems = 20;
+        public float itemCapacityMultiplier = 1;
         public float initialSpeedMultiplier = 1;
         public int mikesCount = 0;
         public float pushYForceMultiplier = 1;
@@ -146,7 +148,7 @@ public class Pusher : Singleton<Pusher>
     {
         while(true)
         {
-            if (itemsCount < modifier.MaxItems)
+            if (itemsCount < maxItems * modifier.itemCapacityMultiplier)
             {
                 if (itemsLimitErrorMessage != null && itemsLimitErrorMessage.activeSelf)
                 {
