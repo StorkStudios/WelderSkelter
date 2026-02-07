@@ -54,6 +54,7 @@ public class Pusher : Singleton<Pusher>
         public int MaxItems = 20;
         public float initialSpeedMultiplier = 1;
         public int mikesCount = 0;
+        public float pushYForceMultiplier = 1;
 
         public float GetItemDelayMultiplier()
         {
@@ -135,7 +136,9 @@ public class Pusher : Singleton<Pusher>
             rb.bodyType = RigidbodyType2D.Dynamic;
             float randX = UnityEngine.Random.Range(-randomPushForceRange.x, randomPushForceRange.x);
             float randY = UnityEngine.Random.Range(-randomPushForceRange.y, randomPushForceRange.y);
-            rb.AddForce((basePushForce + new Vector2(randX, randY)) * modifier.initialSpeedMultiplier, ForceMode2D.Impulse);
+            Vector2 pushForce = (basePushForce + new Vector2(randX, randY)) * modifier.initialSpeedMultiplier;
+            pushForce.y *= modifier.pushYForceMultiplier;
+            rb.AddForce(pushForce, ForceMode2D.Impulse);
         }
     }
 
