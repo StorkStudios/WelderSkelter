@@ -9,6 +9,7 @@ public class TaskManager : Singleton<TaskManager>
     private int maxTasks;
 
     public event System.Action<List<Task>> CurrentTasksChanged;
+    public event System.Action<Task> TaskCompleted;
     public List<Task> CurrentTasks => currentTasks;
 
     private List<Task> currentTasks = new List<Task>();
@@ -46,6 +47,7 @@ public class TaskManager : Singleton<TaskManager>
     {
         currentTasks[currentTasks.IndexOf(task)] = TaskDatabase.Instance.GetNewTask();
         task.Complete();
+        TaskCompleted?.Invoke(task);
         CurrentTasksChanged?.Invoke(currentTasks);
     }
 

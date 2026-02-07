@@ -9,8 +9,11 @@ public class EyesightManager : Singleton<EyesightManager>
     public class EyesightModifier
     {
         public float eyesightDamageMultiplier = 1;
+        public float missingHealthPercentageHeal = 0;
     }
 
+    [SerializeField]
+    private float maxEyesight = 1;
     [SerializeField]
     float eyesightReductionPerSecond = 0.1f;
 
@@ -22,6 +25,8 @@ public class EyesightManager : Singleton<EyesightManager>
 
     [SerializeField]
     private Gradient eyesightGradient;
+
+    public float MaxEyesight => maxEyesight;
 
     private EyesightModifier modifier;
 
@@ -36,7 +41,13 @@ public class EyesightManager : Singleton<EyesightManager>
     private void Start()
     {
         WorkPhaseManager.Instance.WorkPhasePreStartEvent += PreWorkPhaseStart;
+        TaskManager.Instance.TaskCompleted += OnTaskCompleted;
         PreWorkPhaseStart();
+    }
+
+    private void OnTaskCompleted(Task _)
+    {
+        Eyesight.Value += Mathf.Clamp01(Eyesight.Value + (MaxEyesight - Eyesight.Value) * modifier.missingHealthPercentageHeal);
     }
 
     private void OnEyesightChanged(float oldValue, float newValue)
@@ -51,7 +62,7 @@ public class EyesightManager : Singleton<EyesightManager>
     private void PreWorkPhaseStart()
     {
         modifier = PlayerUpgrades.Instance.GetModifier<EyesightModifier>();
-        Eyesight.Value = 1;
+        Eyesight.Value = MaxEyesight;
     }
 
     private void Update()
