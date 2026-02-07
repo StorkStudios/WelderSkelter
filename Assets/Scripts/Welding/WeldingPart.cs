@@ -9,6 +9,7 @@ public class WeldingPart : MonoBehaviour
     public class WeldingPartModifier
     {
         public float maskOnMoveSpeedMultiplier = 1;
+        public float lpmMoveSpeedMultiplier = 1;
     }
 
     private WeldingPartData data;
@@ -45,6 +46,8 @@ public class WeldingPart : MonoBehaviour
         modifier = PlayerUpgrades.Instance.GetModifier<WeldingPartModifier>();
         OnMaskOnChanged(false, WeldingMask.Instance.MaskOn.Value);
         WeldingMask.Instance.MaskOn.ValueChanged += OnMaskOnChanged;
+        PlayerInputManager.Instance.WeldStartEvent += OnWeldStart;
+        PlayerInputManager.Instance.WeldStopEvent += OnWeldStop;
         WorkPhaseManager.Instance.WorkPhaseEnded += (_) =>
         {
             if (this != null && gameObject != null)
@@ -52,6 +55,18 @@ public class WeldingPart : MonoBehaviour
                 Destroy(gameObject);
             }
         };
+    }
+
+    private void OnWeldStart()
+    {
+        rb.linearVelocity *= modifier.lpmMoveSpeedMultiplier;
+        rb.angularVelocity *= modifier.lpmMoveSpeedMultiplier;
+    }
+
+    private void OnWeldStop()
+    {
+        rb.linearVelocity /= modifier.lpmMoveSpeedMultiplier;
+        rb.angularVelocity /= modifier.lpmMoveSpeedMultiplier;
     }
 
     private void OnMaskOnChanged(bool oldValue, bool newValue)
@@ -185,6 +200,11 @@ public class WeldingPart : MonoBehaviour
         if (WeldingMask.IsInstanced)
         {   
             WeldingMask.Instance.MaskOn.ValueChanged -= OnMaskOnChanged;
+        }
+        if (PlayerInputManager.IsInstanced)
+        {
+            PlayerInputManager.Instance.WeldStartEvent -= OnWeldStart;
+            PlayerInputManager.Instance.WeldStopEvent -= OnWeldStop;
         }
     }
 }
