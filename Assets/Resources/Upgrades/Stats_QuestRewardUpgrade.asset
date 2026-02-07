@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Stats_QuestRewardUpgrade
   m_EditorClassIdentifier: 
   description: Quest Money Income +25%
-  upgradeValue: 0.25
+  questIncomeMultiplier: 0.25
