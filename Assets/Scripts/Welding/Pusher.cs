@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
+using StorkStudios.CoreNest;
 using UnityEngine;
 
-public class Pusher : MonoBehaviour
+public class Pusher : Singleton<Pusher>
 {
     [SerializeField]
     private Transform SpawnLocationOnPusher;
@@ -59,6 +60,8 @@ public class Pusher : MonoBehaviour
             return itemDelayMultiplier * (WeldingMask.Instance.MaskOn.Value ? maskOnItemDelayMultiplier : 1);
         }
     }
+
+    public int ItemsCount => itemsCount;
 
     private PusherModifier modifier;
     private Coroutine spawnCoroutine;
