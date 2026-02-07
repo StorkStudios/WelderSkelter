@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8d948529b885b340916ad52173887b3, type: 3}
-  m_Name: Gamechanger_LessItemsMoreMoneyUpgrade
+  m_Script: {fileID: 11500000, guid: fe5d9cbd50047cd47af8978f948a70bf, type: 3}
+  m_Name: Gamechanger_GravityUpgrade
   m_EditorClassIdentifier: 
-  description: Money Income +100%, but -10% for each Item in Welding Area
-  incomeMultiplier: 2
-  perItemIncomeMultiplier: 0.9
+  description: Add Gravity to Welding Area
+  gravityScaleIncrement: 1
