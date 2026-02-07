@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 169286a4841215129a11d69cd57154e2, type: 3}
-  m_Name: ConveyorSpeed0.4
+  m_Script: {fileID: 11500000, guid: ea47e91c4d0c153408ed15f87c74014b, type: 3}
+  m_Name: NewItemIntervalMaskUpgrade
   m_EditorClassIdentifier: 
-  description: Increases speed of disposing new items by 60%
-  timeReduction: 0.375
+  description: New Item Spawn Speed +60%
+  newItemIntervalMultiplier: 0.625

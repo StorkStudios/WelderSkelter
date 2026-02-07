@@ -15,5 +15,5 @@ MonoBehaviour:
   title: 'MASK: -30% Item Speed'
   color: {r: 0.41960785, g: 0.53333336, b: 0.6117647, a: 1}
   rarity: {fileID: 11400000, guid: b98e1b5f87c33ee4c9bc594f271de9d4, type: 2}
-  upgrade: {fileID: 11400000, guid: fc274e3b5d5f7343eaea27b0c689a4d4, type: 2}
+  upgrade: {fileID: 11400000, guid: 665f54aa85ae03a4a9e35509d61096e9, type: 2}
   cost: 500

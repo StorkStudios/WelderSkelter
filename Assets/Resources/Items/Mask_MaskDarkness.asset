@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 602a1c90b2582ea46894a204081eea0d, type: 3}
   m_Name: Mask_MaskDarkness
   m_EditorClassIdentifier: 
-  title: 'MASK: -15% Darkness'
+  title: 'MASK: Less Darkness'
   color: {r: 0.41960785, g: 0.53333336, b: 0.6117647, a: 1}
   rarity: {fileID: 11400000, guid: b98e1b5f87c33ee4c9bc594f271de9d4, type: 2}
   upgrade: {fileID: 11400000, guid: 164af733b1951984faf8281a4a56021c, type: 2}

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56224b1488e3f4a4ea6d5c206e02c38e, type: 3}
   m_Name: DarknessOverlayUpgrade
   m_EditorClassIdentifier: 
-  description: Reduce darkness with mask on by 15%
-  darknesMultiplier: 0.85
+  description: Reduce darkness with mask on
+  darknesMultiplier: 0.99
