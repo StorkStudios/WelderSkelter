@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d948529b885b340916ad52173887b3, type: 3}
+  m_Name: Gamechanger_LessItemsMoreMoneyUpgrade
+  m_EditorClassIdentifier: 
+  description: Mney Income +100%, but -10% for each Item in Welding Area
+  incomeMultiplier: 2
+  perItemIncomeMultiplierIncrement: 0.9

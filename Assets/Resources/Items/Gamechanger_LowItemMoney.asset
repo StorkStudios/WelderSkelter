@@ -15,5 +15,5 @@ MonoBehaviour:
   title: Money for Low Cargo
   color: {r: 0.5803922, g: 0.29803923, b: 0.62352943, a: 1}
   rarity: {fileID: 11400000, guid: 85dec07ebbf27124eb75056f6eff97a5, type: 2}
-  upgrade: {fileID: 11400000, guid: 3f26a10216b3986ec824a80678ea8d84, type: 2}
+  upgrade: {fileID: 11400000, guid: 6e061437036f2b241b4f12bcd90c33c0, type: 2}
   cost: 1500
