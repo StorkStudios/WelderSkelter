@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Stats_AllIncomeUpgrade
   m_EditorClassIdentifier: 
   description: Money Income Mult +10%
-  incomeMultiplier: 0.1
+  incomeMultiplier: 1.1

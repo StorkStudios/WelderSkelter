@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Stats_ScrapSellMoneyUpgrade
   m_EditorClassIdentifier: 
   description: Scrap Money Income +25%
-  scrapIncomeMultiplier: 0.25
+  scrapIncomeMultiplier: 1.25
