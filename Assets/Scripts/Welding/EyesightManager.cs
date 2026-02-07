@@ -47,7 +47,7 @@ public class EyesightManager : Singleton<EyesightManager>
 
     private void OnTaskCompleted(Task _)
     {
-        Eyesight.Value += Mathf.Clamp01(Eyesight.Value + (MaxEyesight - Eyesight.Value) * modifier.missingHealthPercentageHeal);
+        Eyesight.Value = Mathf.Clamp01(Eyesight.Value + (MaxEyesight - Eyesight.Value) * modifier.missingHealthPercentageHeal);
     }
 
     private void OnEyesightChanged(float oldValue, float newValue)
