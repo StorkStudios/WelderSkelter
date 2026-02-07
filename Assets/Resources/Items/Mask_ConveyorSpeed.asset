@@ -15,5 +15,5 @@ MonoBehaviour:
   title: 'MASK: +50% Conveyor Speed'
   color: {r: 0.41960785, g: 0.53333336, b: 0.6117647, a: 1}
   rarity: {fileID: 11400000, guid: b98e1b5f87c33ee4c9bc594f271de9d4, type: 2}
-  upgrade: {fileID: 11400000, guid: caf41c89b1bef1443859ad9058050f4b, type: 2}
-  cost: 500
+  upgrade: {fileID: 11400000, guid: c4aa658ebd8807549a29516e124c3d4d, type: 2}
+  cost: 750

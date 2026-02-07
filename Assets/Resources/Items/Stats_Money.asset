@@ -16,4 +16,4 @@ MonoBehaviour:
   color: {r: 0.5254902, g: 0.6901961, b: 0.36862746, a: 1}
   rarity: {fileID: 11400000, guid: 9896bf38fd23f424e8cbf21c675c5e11, type: 2}
   upgrade: {fileID: 11400000, guid: 15eaa9321df43ec91b91a9b58a1b70ae, type: 2}
-  cost: 500
+  cost: 750

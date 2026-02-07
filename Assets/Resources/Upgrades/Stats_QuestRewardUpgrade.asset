@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 634e82c4039c26b44ab8d407bf84fb49, type: 3}
-  m_Name: ItemMoveSpeedUpgrade
+  m_Script: {fileID: 11500000, guid: ea2e30a202772e1ea9e37e91cdd401d0, type: 3}
+  m_Name: Stats_QuestRewardUpgrade
   m_EditorClassIdentifier: 
-  description: Item Move Speed -40% when mask is on
-  moveSpeedMultiplier: 0.6
+  description: Quest Money Income +25%
+  upgradeValue: 0.25

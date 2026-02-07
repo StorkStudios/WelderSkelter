@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Gamechanger_UpgradedWelder
   m_EditorClassIdentifier: 
   title: Upgrade Welder
-  color: {r: 0.5254902, g: 0.6901961, b: 0.36862746, a: 1}
+  color: {r: 0.5803922, g: 0.29803923, b: 0.62352943, a: 1}
   rarity: {fileID: 11400000, guid: 85dec07ebbf27124eb75056f6eff97a5, type: 2}
   upgrade: {fileID: 11400000, guid: 3f26a10216b3986ec824a80678ea8d84, type: 2}
-  cost: 500
+  cost: 1500

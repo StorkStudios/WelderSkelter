@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c242fc6a42bc3d15a3918ca4c587247, type: 3}
-  m_Name: AllIncomeUpgrade
+  m_Script: {fileID: 11500000, guid: ea47e91c4d0c153408ed15f87c74014b, type: 3}
+  m_Name: Mask_NewItemIntervalUpgrade
   m_EditorClassIdentifier: 
-  description: Money Income Mult +10%
-  upgradeValue: 0.1
+  description: New Item Spawn Speed +60% when mask is on
+  newItemIntervalMultiplier: 0.625

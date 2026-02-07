@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 602a1c90b2582ea46894a204081eea0d, type: 3}
   m_Name: Mask_WelderLight
   m_EditorClassIdentifier: 
-  title: 'MASK: +100% Welder Light'
+  title: 'MASK: +50% Welder Light'
   color: {r: 0.41960785, g: 0.53333336, b: 0.6117647, a: 1}
   rarity: {fileID: 11400000, guid: b98e1b5f87c33ee4c9bc594f271de9d4, type: 2}
   upgrade: {fileID: 11400000, guid: d94fccf279c01be4e873471a47818a54, type: 2}
-  cost: 500
+  cost: 750
