@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Mask_WeldingRadiusUpgrade
   m_EditorClassIdentifier: 
   description: Welding Point Radius +100% when mask is on
-  incrementValue: 2
+  radiusMultiplier: 2

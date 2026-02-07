@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eda13f64a6c59241b8911c30e8c175e, type: 3}
   m_Name: Stats_ItemMoveSpeedUpgrade
   m_EditorClassIdentifier: 
-  description: Item Move Speed -40%
+  description: Item Move Speed -25%
   moveSpeedMultiplier: 0.75

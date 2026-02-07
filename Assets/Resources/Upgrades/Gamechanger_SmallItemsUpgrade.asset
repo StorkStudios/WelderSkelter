@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef0c2d5fbe8397e46a6b3bef901c517f, type: 3}
-  m_Name: Stats_NewItemIntervalUpgrade
+  m_Script: {fileID: 11500000, guid: 7fdb033a615a3474c8bbb23fbadb6717, type: 3}
+  m_Name: Gamechanger_SmallItemsUpgrade
   m_EditorClassIdentifier: 
-  description: New Item Spawn Speed +30%
-  newItemIntervalMultiplier: 0.77
+  description: Item Size -40%, Welding Area Capacity +125%
+  scaleMultiplier: 0.6
+  itemCapacityMultiplier: 1.25
