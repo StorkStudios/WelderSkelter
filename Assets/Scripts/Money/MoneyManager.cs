@@ -11,7 +11,7 @@ public class MoneyManager : Singleton<MoneyManager>
     {
         public float scrapSellMoneyMultipler = 1;
         public float allIncomeMultipler = 1;
-        public float perItemIncomeMultiplier = 0;
+        public float perItemIncomeMultiplier = 1;
     }
 
     public event ObservableVariable<int>.ValueChangedDelegate MoneyChanged

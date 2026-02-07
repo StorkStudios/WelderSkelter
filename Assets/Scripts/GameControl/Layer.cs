@@ -11,7 +11,6 @@ namespace StorkStudios.CoreNest
 		UI = 5,
 		Welding = 6,
 		WeldingTriggers = 7,
-		Mike = 8,
 	}
 	
 	public static class LayerExtensions

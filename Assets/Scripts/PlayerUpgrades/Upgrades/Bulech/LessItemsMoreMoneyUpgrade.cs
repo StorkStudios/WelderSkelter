@@ -8,12 +8,12 @@ namespace BulechUpgrades
         [SerializeField]
         private float incomeMultiplier;
         [SerializeField]
-        private float perItemIncomeMultiplierIncrement;
+        private float perItemIncomeMultiplier;
 
         public void ApplyModifier(MoneyManager.MoneyManagerModifiers modifier)
         {
             modifier.allIncomeMultipler *= incomeMultiplier;
-            modifier.perItemIncomeMultiplier += perItemIncomeMultiplierIncrement;
+            modifier.perItemIncomeMultiplier *= perItemIncomeMultiplier;
         }
     }
 }
