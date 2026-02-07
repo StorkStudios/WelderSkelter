@@ -61,13 +61,13 @@ public class UITask : MonoBehaviour
         upgrade.gameObject.SetActive(false);
         switch (task)
         {
-            case MoneyTask moneyTask:
-                money.text = $"{moneyTask.Money}zł";
-                money.gameObject.SetActive(true);
-                break;
             case UpgradeTask upgradeTask:
                 upgrade.text = upgradeTask.Item.Title;
                 upgrade.gameObject.SetActive(true);
+                break;
+            case MoneyTask moneyTask:
+                money.text = $"{moneyTask.Money}zł";
+                money.gameObject.SetActive(true);
                 break;
         }
     }

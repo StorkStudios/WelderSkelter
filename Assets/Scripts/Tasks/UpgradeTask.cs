@@ -2,7 +2,7 @@ using StorkStudios.CoreNest;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Tasks/Upgrade Task")]
-public class UpgradeTask : Task
+public class UpgradeTask : MoneyTask
 {
     [SerializeField]
     [EditObjectInInspector]
@@ -12,6 +12,7 @@ public class UpgradeTask : Task
 
     public override void Complete()
     {
+        base.Complete();
         ItemShop.Instance.AddTaskItem(item);
     }
 }
