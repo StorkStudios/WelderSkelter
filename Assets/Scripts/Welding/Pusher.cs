@@ -182,7 +182,7 @@ public class Pusher : Singleton<Pusher>
         float randY = UnityEngine.Random.Range(-randomPushForceRange.y, randomPushForceRange.y);
         rb.AddForce((basePushForce + new Vector2(randX, randY)) * modifier.initialSpeedMultiplier, ForceMode2D.Impulse);
         itemsCount++;
-        itemsOnSlots[selectedSlot].GetComponent<WeldingPart>().OnPush();
+        itemsOnSlots[selectedSlot].GetComponent<WeldingPart>().OnPush(modifier.initialSpeedMultiplier);
     }
 
     private IEnumerator RemoveItems()

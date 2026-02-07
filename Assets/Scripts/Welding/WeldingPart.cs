@@ -10,6 +10,7 @@ public class WeldingPart : MonoBehaviour
     {
         public float maskOnMoveSpeedMultiplier = 1;
         public float lpmMoveSpeedMultiplier = 1;
+        public float gravityScale = 0;
     }
 
     private WeldingPartData data;
@@ -44,6 +45,7 @@ public class WeldingPart : MonoBehaviour
             trigger.OnTriggerExitEvent += OnWeldTriggerExit;
         }
         modifier = PlayerUpgrades.Instance.GetModifier<WeldingPartModifier>();
+        rb.gravityScale = modifier.gravityScale;
         OnMaskOnChanged(false, WeldingMask.Instance.MaskOn.Value);
         WeldingMask.Instance.MaskOn.ValueChanged += OnMaskOnChanged;
         PlayerInputManager.Instance.WeldStartEvent += OnWeldStart;
@@ -61,12 +63,14 @@ public class WeldingPart : MonoBehaviour
     {
         rb.linearVelocity *= modifier.lpmMoveSpeedMultiplier;
         rb.angularVelocity *= modifier.lpmMoveSpeedMultiplier;
+        rb.gravityScale *= modifier.lpmMoveSpeedMultiplier;
     }
 
     private void OnWeldStop()
     {
         rb.linearVelocity /= modifier.lpmMoveSpeedMultiplier;
         rb.angularVelocity /= modifier.lpmMoveSpeedMultiplier;
+        rb.gravityScale /= modifier.lpmMoveSpeedMultiplier;
     }
 
     private void OnMaskOnChanged(bool oldValue, bool newValue)
@@ -75,11 +79,13 @@ public class WeldingPart : MonoBehaviour
         {
             rb.linearVelocity *= modifier.maskOnMoveSpeedMultiplier;
             rb.angularVelocity *= modifier.maskOnMoveSpeedMultiplier;
+            rb.gravityScale *= modifier.maskOnMoveSpeedMultiplier;
         }
         else if (oldValue != newValue)
         {
             rb.linearVelocity /= modifier.maskOnMoveSpeedMultiplier;
             rb.angularVelocity /= modifier.maskOnMoveSpeedMultiplier;
+            rb.gravityScale /= modifier.maskOnMoveSpeedMultiplier;
         }
     }
 
@@ -126,8 +132,9 @@ public class WeldingPart : MonoBehaviour
         }
     }
 
-    public void OnPush()
+    public void OnPush(float gravityMultiplier)
     {
+        rb.gravityScale *= gravityMultiplier;
         OnMaskOnChanged(false, WeldingMask.Instance.MaskOn.Value);
     }
 

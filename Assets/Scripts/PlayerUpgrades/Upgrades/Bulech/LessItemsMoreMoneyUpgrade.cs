@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace BulechUpgrades
 {
-    [CreateAssetMenu(fileName = "LessItemsMoreMoneyUpgrade", menuName = "Scriptable Objects/LessItemsMoreMoneyUpgrade")]
+    [CreateAssetMenu(fileName = "LessItemsMoreMoneyUpgrade", menuName = "Upgrades/Bulech/LessItemsMoreMoneyUpgrade")]
     public class LessItemsMoreMoneyUpgrade : Upgrade, IUpgrade<MoneyManager.MoneyManagerModifiers>
     {
         [SerializeField]
