@@ -19,4 +19,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 028d00f18e29e38c09003110718d8c42, type: 2}
   - {fileID: 11400000, guid: 028d00f18e29e38c09003110718d8c42, type: 2}
   - {fileID: 11400000, guid: 3a09b90a13be8c2488d2121684df4405, type: 2}
+  money: 400
   item: {fileID: 11400000, guid: 989a14bd7976a86468b1357ead7a9e51, type: 2}
