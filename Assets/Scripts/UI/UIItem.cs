@@ -58,5 +58,6 @@ public class UIItem : MonoBehaviour
         background.color = item.Color;
         description.text = item.Upgrade.Description;
         cost.text = $"{item.Cost}zł";
+        isBought = false;
     }
 }

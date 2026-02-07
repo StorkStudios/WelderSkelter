@@ -17,6 +17,12 @@ public class ItemShop : Singleton<ItemShop>
     private List<Item> taskItems = new List<Item>();
     private List<Item> purchaseHistory = new List<Item>();
 
+    protected override void Awake()
+    {
+        WorkPhaseManager.Instance.WorkPhasePreStartEvent += () => taskItems.Clear();
+        base.Awake();
+    }
+
     public void ShowShop()
     {
         while (randomParent.childCount < maxRandomItems)
