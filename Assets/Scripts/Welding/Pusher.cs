@@ -146,6 +146,9 @@ public class Pusher : Singleton<Pusher>
 
     private IEnumerator SpawnItemsCoroutine()
     {
+        //wait for everything to initialize
+        yield return null;
+
         while(true)
         {
             if (itemsCount < maxItems * modifier.itemCapacityMultiplier)
@@ -203,9 +206,11 @@ public class Pusher : Singleton<Pusher>
 
     private IEnumerator SpawnItems()
     {
-        yield return SpawnItem(2);
-        yield return SpawnItem(1);
-        yield return SpawnItem(0);
+        int taskPartIndex = UnityEngine.Random.Range(0, slots.Length);
+        for (int i = slots.Length - 1; i >= 0; i--)
+        {
+            yield return SpawnItem(i, i == taskPartIndex);
+        }
     }
 
     private IEnumerator RemoveItem(int slot)
@@ -216,9 +221,9 @@ public class Pusher : Singleton<Pusher>
         item.transform.DOScale(0, 0.25f).OnComplete(() => Destroy(item));
     }
 
-    private IEnumerator SpawnItem(int slot)
+    private IEnumerator SpawnItem(int slot, bool spawnTaskItem)
     {
-        GameObject part = WeldingPartsSpawner.Instance.SpawnRandomPart();
+        GameObject part = spawnTaskItem ? WeldingPartsSpawner.Instance.SpawnRandomTaskPart() : WeldingPartsSpawner.Instance.SpawnRandomPart();
         part.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
         part.transform.position = SpawnLocationOnPusher.position;
         float distance = (slots[slot].position - transform.position).magnitude;
