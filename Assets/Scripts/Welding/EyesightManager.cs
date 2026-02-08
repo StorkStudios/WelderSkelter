@@ -10,6 +10,7 @@ public class EyesightManager : Singleton<EyesightManager>
     {
         public float eyesightDamageMultiplier = 1;
         public float missingHealthPercentageHeal = 0;
+        public float maxHealthPercentageHeal = 0;
     }
 
     [SerializeField]
@@ -70,6 +71,10 @@ public class EyesightManager : Singleton<EyesightManager>
         if (Welder.Instance.IsWelding && !WeldingMask.Instance.MaskOn.Value)
         {
             Eyesight.Value -= eyesightReductionPerSecond * Time.deltaTime * modifier.eyesightDamageMultiplier;
+        }
+        if (WeldingMask.Instance.MaskOn.Value)
+        {
+            Eyesight.Value = Mathf.Clamp01(Eyesight.Value + MaxEyesight * modifier.maxHealthPercentageHeal * Time.deltaTime);
         }
     }
 }
