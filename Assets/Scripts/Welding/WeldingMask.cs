@@ -31,6 +31,9 @@ public class WeldingMask : Singleton<WeldingMask>
 
     private WeldingMaskModifier modifier;
 
+    public float MaskOnTimestamp { get; private set; } = float.PositiveInfinity;
+    public float MaskOffTimestamp { get; private set; } = float.NegativeInfinity;
+
     private void Start()
     {
         PlayerInputManager.Instance.ToggleMaskEvent += OnMaskToggled;
@@ -56,6 +59,9 @@ public class WeldingMask : Singleton<WeldingMask>
 
         maskShadow.alpha = modifier.darknessAlpha;
         maskShadow.transform.localScale = new Vector3(modifier.darknessScale, modifier.darknessScale, 1);
+
+        MaskOnTimestamp = float.PositiveInfinity;
+        MaskOffTimestamp = float.NegativeInfinity;
     }
 
     private void OnMaskToggled()
@@ -63,6 +69,7 @@ public class WeldingMask : Singleton<WeldingMask>
         maskOn.Value = !maskOn.Value;
         if (maskOn.Value)
         {
+            MaskOnTimestamp = Time.time;
             maskShadow.gameObject.SetActive(true);
             maskShadow.transform.position = maskOffPosition.position;
             mask.DOMove(maskOnPosition.position, 0.1f).OnComplete(() =>
@@ -72,6 +79,7 @@ public class WeldingMask : Singleton<WeldingMask>
         }
         else
         {
+            MaskOffTimestamp = Time.time;
             maskShadow.gameObject.SetActive(false);
             maskShadow.transform.position = maskOffPosition.position;
             mask.DOMove(maskOffPosition.position, 0.1f).OnComplete(() =>

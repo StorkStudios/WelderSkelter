@@ -15,9 +15,10 @@ public class EyesightManager : Singleton<EyesightManager>
         public float maxHealthPercentageHeal = 0;
         public List<(float duration, float damageMultiplier)> maskOffTemporaryDamageMultipliers = new List<(float duration, float damageMultiplier)>();
 
-        public float GetCurrentDamageMultiplier(float maskOffTimestamp)
+        public float GetCurrentDamageMultiplier()
         {
-            float temporaryMultiplier = maskOffTemporaryDamageMultipliers.Where(e => maskOffTimestamp + e.duration < Time.time).Aggregate(1f, (current, e) => current * e.damageMultiplier);
+            float maskOffTimestamp = WeldingMask.Instance.MaskOffTimestamp;
+            float temporaryMultiplier = maskOffTemporaryDamageMultipliers.Where(e => maskOffTimestamp + e.duration > Time.time).Aggregate(1f, (current, e) => current * e.damageMultiplier);
             return eyesightDamageMultiplier * temporaryMultiplier;
         }
     }
@@ -42,8 +43,6 @@ public class EyesightManager : Singleton<EyesightManager>
 
     public ObservableVariable<float> Eyesight = new ObservableVariable<float>(1);
 
-    private float maskOffTimestamp = float.PositiveInfinity;
-
     protected override void Awake()
     {
         Eyesight.ValueChanged += OnEyesightChanged;
@@ -54,16 +53,7 @@ public class EyesightManager : Singleton<EyesightManager>
     {
         WorkPhaseManager.Instance.WorkPhasePreStartEvent += PreWorkPhaseStart;
         TaskManager.Instance.TaskCompleted += OnTaskCompleted;
-        WeldingMask.Instance.MaskOn.ValueChanged += OnMaskChanged;
         PreWorkPhaseStart();
-    }
-
-    private void OnMaskChanged(bool oldValue, bool newValue)
-    {
-        if (!newValue)
-        {
-            maskOffTimestamp = Time.time;
-        }
     }
 
     private void OnTaskCompleted(Task _)
@@ -82,7 +72,6 @@ public class EyesightManager : Singleton<EyesightManager>
 
     private void PreWorkPhaseStart()
     {
-        maskOffTimestamp = float.PositiveInfinity;
         modifier = PlayerUpgrades.Instance.GetModifier<EyesightModifier>();
         Eyesight.Value = MaxEyesight;
     }
@@ -91,7 +80,7 @@ public class EyesightManager : Singleton<EyesightManager>
     {
         if (Welder.Instance.IsWelding && !WeldingMask.Instance.MaskOn.Value)
         {
-            Eyesight.Value -= eyesightReductionPerSecond * Time.deltaTime * modifier.GetCurrentDamageMultiplier(maskOffTimestamp);
+            Eyesight.Value -= eyesightReductionPerSecond * Time.deltaTime * modifier.GetCurrentDamageMultiplier();
         }
         if (WeldingMask.Instance.MaskOn.Value)
         {
