@@ -28,10 +28,7 @@ public class Pusher : Singleton<Pusher>
     private Transform[] slots;
 
     [SerializeField]
-    private Transform pusher;
-
-    [SerializeField]
-    private Animator pusherAnimator;
+    private PusherManager pusher;
 
     [SerializeField]
     private Vector2 basePushForce;
@@ -52,7 +49,7 @@ public class Pusher : Singleton<Pusher>
     {
         public float maskOnItemDelayMultiplier = 1;
         public float itemDelayMultiplier = 1;
-        public int PushersCount = 1;
+        public int pushersCount = 1;
         public float itemCapacityMultiplier = 1;
         public float initialSpeedMultiplier = 1;
         public int mikesCount = 0;
@@ -73,6 +70,10 @@ public class Pusher : Singleton<Pusher>
 
     private int itemsCount = 0;
 
+    private bool lockMovement = false;
+
+    private Tween movementTween = null;
+
     private void Start()
     {
         WorkPhaseManager.Instance.WorkPhasePreStartEvent += OnBeforeWorkPhaseStart;
@@ -80,7 +81,7 @@ public class Pusher : Singleton<Pusher>
 
         PlayerInputManager.Instance.PusherMoveEvent += OnPusherMove;
 
-        UpdatePusherPosition();
+        UpdatePusherPosition(true);
 
         ItemSeller.Instance.ItemSold += OnItemSold;
     }
@@ -92,32 +93,47 @@ public class Pusher : Singleton<Pusher>
 
     private void OnPusherMove(float value)
     {
+        if (lockMovement)
+        {
+            return;
+        }
+
         //Additional pusher is on the left
         if (value > 0)
         {
             if (selectedSlot < slots.Length - 1)
             {
                 selectedSlot++;
-                UpdatePusherPosition();
+                UpdatePusherPosition(false);
                 pusherAudioSource.PlayOneShot(pusherMoveSound);
             }
         }
         else
         {
-            if (selectedSlot > modifier.PushersCount - 1)
+            if (selectedSlot > modifier.pushersCount - 1)
             {
                 selectedSlot--;
-                UpdatePusherPosition();
+                UpdatePusherPosition(false);
                 pusherAudioSource.PlayOneShot(pusherMoveSound);
             }
         }
     }
 
-    private void UpdatePusherPosition()
+    private void UpdatePusherPosition(bool instant)
     {
-        Vector3 newPosition = pusher.position;
-        newPosition.x = slots[selectedSlot].position.x;
-        pusher.position = newPosition;
+        if (instant)
+        {
+            Vector3 newPosition = pusher.transform.position;
+            newPosition.x = slots[selectedSlot].position.x;
+            pusher.transform.position = newPosition;
+            return;
+        }
+
+        if (movementTween != null)
+        {
+            movementTween.Kill();
+        }
+        movementTween = pusher.transform.DOMoveX(slots[selectedSlot].position.x, 0.15f).OnComplete(() => movementTween = null);
     }
 
     private void OnWorkPhaseEnded(bool _)
@@ -175,29 +191,41 @@ public class Pusher : Singleton<Pusher>
 
     private IEnumerator PushItem()
     {
-        pusherAnimator.SetTrigger("PushTrigger");
+        pusher.StartPushAnimation();
         pusherAudioSource.PlayOneShot(pusherPushSound);
-        Vector3 spawnPositionForSlot = SpawnLocationAfterBelt.position;
-        spawnPositionForSlot.x = slots[selectedSlot].position.x;
         yield return new WaitForSeconds(0.25f);
-        yield return itemsOnSlots[selectedSlot].transform.DOMove(spawnPositionForSlot, 0.25f).WaitForCompletion();
-        Vector3 spawnPositionOn2DScene = SpawnLocationOn2DScene.position;
-        spawnPositionOn2DScene.x -= slots[1].position.x - slots[selectedSlot].position.x;
-        itemsOnSlots[selectedSlot].transform.position = spawnPositionOn2DScene;
-        Rigidbody2D rb = itemsOnSlots[selectedSlot].GetComponent<Rigidbody2D>();
-        rb.bodyType = RigidbodyType2D.Dynamic;
-        float randX = UnityEngine.Random.Range(-randomPushForceRange.x, randomPushForceRange.x);
-        float randY = UnityEngine.Random.Range(-randomPushForceRange.y, randomPushForceRange.y);
-        rb.AddForce((basePushForce + new Vector2(randX, randY)) * modifier.initialSpeedMultiplier, ForceMode2D.Impulse);
-        itemsCount++;
-        itemsOnSlots[selectedSlot].GetComponent<WeldingPart>().OnPush(modifier.initialSpeedMultiplier);
+
+        lockMovement = true;
+
+        Sequence sequence = DOTween.Sequence();
+        for (int i = selectedSlot; i > selectedSlot - modifier.pushersCount; i--)
+        {
+            sequence.Join(itemsOnSlots[i].transform.DOMoveY(SpawnLocationAfterBelt.position.y, 0.25f));
+        }
+        yield return sequence.WaitForCompletion();
+
+        for (int i = selectedSlot; i > selectedSlot - modifier.pushersCount; i--)
+        {
+            Vector3 spawnPositionOn2DScene = SpawnLocationOn2DScene.position;
+            spawnPositionOn2DScene.x -= slots[1].position.x - slots[i].position.x;
+            itemsOnSlots[i].transform.position = spawnPositionOn2DScene;
+            Rigidbody2D rb = itemsOnSlots[i].GetComponent<Rigidbody2D>();
+            rb.bodyType = RigidbodyType2D.Dynamic;
+            float randX = UnityEngine.Random.Range(-randomPushForceRange.x, randomPushForceRange.x);
+            float randY = UnityEngine.Random.Range(-randomPushForceRange.y, randomPushForceRange.y);
+            rb.AddForce((basePushForce + new Vector2(randX, randY)) * modifier.initialSpeedMultiplier, ForceMode2D.Impulse);
+            itemsCount++;
+            itemsOnSlots[selectedSlot].GetComponent<WeldingPart>().OnPush(modifier.initialSpeedMultiplier);
+        }
+
+        lockMovement = false;
     }
 
     private IEnumerator RemoveItems()
     {
         for (int i = slots.Length - 1; i >= 0; i--)
         {
-            if (i != selectedSlot)
+            if (i <= selectedSlot - modifier.pushersCount || selectedSlot < i)
             {
                 yield return RemoveItem(i);
             }
@@ -235,6 +263,8 @@ public class Pusher : Singleton<Pusher>
     {
         modifier = PlayerUpgrades.Instance.GetModifier<PusherModifier>();
         itemsCount = 0;
+        lockMovement = false;
+        pusher.Restart(modifier.pushersCount, Mathf.Abs(slots[0].position.x - slots[1].position.x));
         if (spawnCoroutine == null)
         {
             spawnCoroutine = StartCoroutine(SpawnItemsCoroutine());
