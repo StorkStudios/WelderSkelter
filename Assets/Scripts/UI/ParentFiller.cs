@@ -10,6 +10,8 @@ public class ParentFiller : UIBehaviour, ILayoutSelfController
     [SerializeField]
     private RectTransform otherChild;
 
+    private DrivenRectTransformTracker tracker;
+
     private RectTransform rectTransform => transform as RectTransform;
 
     protected override void OnEnable()
@@ -20,6 +22,7 @@ public class ParentFiller : UIBehaviour, ILayoutSelfController
 
     protected override void OnDisable()
     {
+        tracker.Clear();
         LayoutRebuilder.MarkLayoutForRebuild(rectTransform);
         base.OnDisable();
     }
@@ -37,6 +40,8 @@ public class ParentFiller : UIBehaviour, ILayoutSelfController
 
     private void Update()
     {
+        tracker.Clear();
+
         if (otherChild == null)
         {
             return;
@@ -46,10 +51,8 @@ public class ParentFiller : UIBehaviour, ILayoutSelfController
         float childHeight = otherChild.rect.height;
 
         float height = parentRect.height - childHeight;
-
-        Vector2 sizeDelta = rectTransform.sizeDelta;
-        sizeDelta.y = height - parentRect.size.y * (rectTransform.anchorMax.y - rectTransform.anchorMin.y);
-        rectTransform.sizeDelta = sizeDelta;
+        tracker.Add(this, rectTransform, DrivenTransformProperties.SizeDeltaY);
+        rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, Mathf.Max(0, height - parentRect.size.y * (rectTransform.anchorMax.y - rectTransform.anchorMin.y)));
     }
 
     public void SetLayoutHorizontal() { }
