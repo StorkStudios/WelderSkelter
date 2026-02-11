@@ -1290,6 +1290,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 710692605652171388, guid: 8096e8cab73df404bac0c6942abef63d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 180.00006
+      objectReference: {fileID: 0}
     - target: {fileID: 795610298196159629, guid: 8096e8cab73df404bac0c6942abef63d, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1408,6 +1412,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2550898848937022121, guid: 8096e8cab73df404bac0c6942abef63d, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2713312832535462079, guid: 8096e8cab73df404bac0c6942abef63d, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2743787573397836056, guid: 8096e8cab73df404bac0c6942abef63d, type: 3}
@@ -1600,7 +1608,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5697415193709749860, guid: 8096e8cab73df404bac0c6942abef63d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 4.5000153
+      value: 4.5000305
       objectReference: {fileID: 0}
     - target: {fileID: 5934341090496635345, guid: 8096e8cab73df404bac0c6942abef63d, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -1769,6 +1777,10 @@ PrefabInstance:
     - target: {fileID: 8270796767907021437, guid: 8096e8cab73df404bac0c6942abef63d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8486543747106579325, guid: 8096e8cab73df404bac0c6942abef63d, type: 3}
+      propertyPath: m_AspectRatio
+      value: NaN
       objectReference: {fileID: 0}
     - target: {fileID: 8737767374803673820, guid: 8096e8cab73df404bac0c6942abef63d, type: 3}
       propertyPath: m_AnchoredPosition.x
