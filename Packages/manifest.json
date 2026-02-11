@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.coffee.softmask-for-ugui": "https://github.com/mob-sakai/SoftMaskForUGUI.git?path=Packages/src",
     "com.storkstudios.corenest": "https://github.com/StorkStudios/CoreNest.git",
     "com.unity.ai.navigation": "2.0.10",
     "com.unity.collab-proxy": "2.11.3",

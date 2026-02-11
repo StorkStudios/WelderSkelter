@@ -1,4 +1,3 @@
-using System;
 using DG.Tweening;
 using StorkStudios.CoreNest;
 using UnityEngine;
@@ -10,6 +9,7 @@ public class WeldingMask : Singleton<WeldingMask>
     {
         public float darknessAlpha = 1;
         public float darknessScale = 1;
+        public bool showConveyor = false;
     }
 
     [SerializeField]
@@ -26,6 +26,8 @@ public class WeldingMask : Singleton<WeldingMask>
     private Transform mask;
     [SerializeField]
     private CanvasGroup maskShadow;
+    [SerializeField]
+    private GameObject conveyorMask;
 
     private bool moveMaskShadow = false;
 
@@ -59,6 +61,8 @@ public class WeldingMask : Singleton<WeldingMask>
 
         maskShadow.alpha = modifier.darknessAlpha;
         maskShadow.transform.localScale = new Vector3(modifier.darknessScale, modifier.darknessScale, 1);
+
+        conveyorMask.SetActive(modifier.showConveyor);
 
         MaskOnTimestamp = float.PositiveInfinity;
         MaskOffTimestamp = float.NegativeInfinity;
