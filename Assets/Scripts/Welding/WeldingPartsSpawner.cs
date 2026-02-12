@@ -36,7 +36,7 @@ public class WeldingPartsSpawner : Singleton<WeldingPartsSpawner>
 
     public GameObject SpawnMike()
     {
-        GameObject gameObject = Instantiate(mikePrefab, transform.position, Quaternion.identity, transform);
+        GameObject gameObject = Instantiate(mikePrefab, (Vector2)transform.position, Quaternion.identity, transform);
         ApplyModifiers(gameObject);
         return gameObject;
     }
