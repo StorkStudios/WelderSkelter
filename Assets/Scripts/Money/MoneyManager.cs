@@ -43,16 +43,7 @@ public class MoneyManager : Singleton<MoneyManager>
 
     private void OnItemSold(Dictionary<WeldingPartData, int> dictionary)
     {
-        int componentsSum = dictionary.Aggregate(0, (current, key) => current + key.Value);
-        int amount;
-        if (dictionary.Values.Count() > 1)
-        {
-            amount = (componentsSum - 1) * 10;
-        }
-        else
-        {
-            amount = componentsSum * (componentsSum - 1) * 10;
-        }
+        int amount = ItemSeller.Instance.CalculateItemPrice(dictionary);
         AddMoney((int)(amount * PlayerUpgrades.Instance.GetModifier<MoneyManagerModifiers>().scrapSellMoneyMultipler));
     }
 

@@ -144,6 +144,7 @@ GameObject:
   - component: {fileID: 1443241970218256598}
   - component: {fileID: 6645122306352001168}
   - component: {fileID: 1219854913117732007}
+  - component: {fileID: -5765038264473195478}
   - component: {fileID: 2785594912258988706}
   m_Layer: 6
   m_Name: BubbleTea
@@ -288,7 +289,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.24, y: 10.24}
+    oldSize: {x: 3.46, y: 6.37}
     newSize: {x: 10.24, y: 10.24}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -349,6 +350,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WeldedThisFrame: 0
+--- !u!114 &-5765038264473195478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7794043304452594257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d2a93fd8e87d1f44b6746b4ea479fae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: ca9be91c0b363554e8e9946821ce8f79, type: 2}
 --- !u!82 &2785594912258988706
 AudioSource:
   m_ObjectHideFlags: 0
