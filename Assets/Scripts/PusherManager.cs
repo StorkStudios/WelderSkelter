@@ -13,7 +13,7 @@ public class PusherManager : MonoBehaviour
         pusherAnimators.Clear();
         foreach (Transform child in transform)
         {
-            Destroy(child);
+            Destroy(child.gameObject);
         }
 
         for (int i = 0; i < pushersCount; i++)
