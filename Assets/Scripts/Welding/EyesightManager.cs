@@ -14,12 +14,14 @@ public class EyesightManager : Singleton<EyesightManager>
         public float missingHealthPercentageHeal = 0;
         public float maxHealthPercentageHeal = 0;
         public List<(float duration, float damageMultiplier)> maskOffTemporaryDamageMultipliers = new List<(float duration, float damageMultiplier)>();
+        public float lpmEyesigthDamageMultiplier = 1;
 
         public float GetCurrentDamageMultiplier()
         {
             float maskOffTimestamp = WeldingMask.Instance.MaskOffTimestamp;
             float temporaryMultiplier = maskOffTemporaryDamageMultipliers.Where(e => maskOffTimestamp + e.duration > Time.time).Aggregate(1f, (current, e) => current * e.damageMultiplier);
-            return eyesightDamageMultiplier * temporaryMultiplier;
+            float lpmMultiplier = PlayerInputManager.Instance.IsWelding ? lpmEyesigthDamageMultiplier : 1;
+            return eyesightDamageMultiplier * temporaryMultiplier * lpmMultiplier;
         }
     }
 

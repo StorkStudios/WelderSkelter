@@ -18,6 +18,7 @@ public class PlayerInputManager : Singleton<PlayerInputManager>
     public event System.Action<Vector2> MouseMoveOnWeldCanvasEvent;
     public event System.Action<float> PusherMoveEvent;
 
+    public bool IsWelding { get; private set; } = false;
 
     protected override void Awake()
     {
@@ -30,10 +31,12 @@ public class PlayerInputManager : Singleton<PlayerInputManager>
     {
         if (context.started)
         {
+            IsWelding = true;
             WeldStartEvent?.Invoke();
         }
         else if (context.canceled)
         {
+            IsWelding = false;
             WeldStopEvent?.Invoke();
         }
     }

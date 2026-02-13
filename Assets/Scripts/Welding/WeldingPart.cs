@@ -204,7 +204,7 @@ public class WeldingPart : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (modifier.unweldOnCollision && components.Aggregate(0, (current, e) => current + e.Value) <= 1)
+        if (!modifier.unweldOnCollision || components.Aggregate(0, (current, e) => current + e.Value) <= 1)
         {
             return;
         }

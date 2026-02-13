@@ -51,7 +51,7 @@ public class MikeWelder : MonoBehaviour
 
     private void WeldOnPoint(Vector2 point)
     {
-        float welderRadius = radius * modifiers.GetRadiusMultiplier();
+        float welderRadius = radius * modifiers.GetCurrentRadiusMultiplier();
         Collider2D[] colliders = Physics2D.OverlapCircleAll(point, welderRadius);
         HashSet<WeldingPart> weldedParts = colliders.Select(c => c.GetComponentInParent<WeldingPart>()).Where(wp => wp != null).ToHashSet();
 
