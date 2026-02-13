@@ -12,6 +12,15 @@ public class MoneyManager : Singleton<MoneyManager>
         public float scrapSellMoneyMultipler = 1;
         public float allIncomeMultipler = 1;
         public float perItemIncomeMultiplier = 1;
+        public float furnaceIncomeMultiplier = 1;
+        public float furnaceIncomeMultiplierDuration = 0;
+
+        public float GetCurrentAllIncomeMultiplier()
+        {
+            float itemMultiplier = Mathf.Pow(perItemIncomeMultiplier, Pusher.Instance.ItemsCount);
+            float furnaceMultiplier = Time.time < Furnace.Instance.LastItemDestructionTimestamp + furnaceIncomeMultiplierDuration ? furnaceIncomeMultiplier : 1;
+            return allIncomeMultipler * itemMultiplier * furnaceMultiplier;
+        }
     }
 
     public event ObservableVariable<int>.ValueChangedDelegate MoneyChanged
@@ -55,8 +64,7 @@ public class MoneyManager : Singleton<MoneyManager>
         }
 
         MoneyManagerModifiers modifier = PlayerUpgrades.Instance.GetModifier<MoneyManagerModifiers>();
-        float multiplier = modifier.allIncomeMultipler * Mathf.Pow(modifier.perItemIncomeMultiplier, Pusher.Instance.ItemsCount);
-        int modifiedAmount = (int)(amount * multiplier);
+        int modifiedAmount = (int)(amount * modifier.GetCurrentAllIncomeMultiplier());
         if (modifiedAmount > 200)
         {
             audioSource.PlayOneShot(bigMoneySound);
