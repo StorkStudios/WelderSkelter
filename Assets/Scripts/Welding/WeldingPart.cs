@@ -143,11 +143,11 @@ public class WeldingPart : MonoBehaviour
         OnMaskOnChanged(false, WeldingMask.Instance.MaskOn.Value);
     }
 
-    public void WeldWith(WeldingPart otherPart)
+    public Dictionary<WeldingPartData, int> WeldWith(WeldingPart otherPart)
     {
         if (otherPart.WeldedThisFrame || WeldedThisFrame)
         {
-            return;
+            return null;
         }
 
         Debug.Log($"Welding parts: {Summary} with {otherPart.Summary}");
@@ -195,6 +195,8 @@ public class WeldingPart : MonoBehaviour
         otherPart.WeldedThisFrame = true;
         Destroy(otherPart);
         Destroy(otherRb);
+
+        return components;
     }
 
     public bool IsCollidingWith(WeldingPart otherPart)

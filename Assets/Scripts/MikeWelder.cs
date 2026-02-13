@@ -65,7 +65,11 @@ public class MikeWelder : MonoBehaviour
                 {
                     if (weldingPart.IsCollidingWith(otherWeldingPart))
                     {
-                        weldingPart.WeldWith(otherWeldingPart);
+                        Dictionary<WeldingPartData, int> result = weldingPart.WeldWith(otherWeldingPart);
+                        if (result != null)
+                        {
+                            MoneyManager.Instance.OnItemSold(result);
+                        }
                     }
                 }
             }

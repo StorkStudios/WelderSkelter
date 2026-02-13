@@ -50,7 +50,7 @@ public class MoneyManager : Singleton<MoneyManager>
         WorkPhaseManager.Instance.WorkPhasePreStartEvent += () => money.Value = 0;
     }
 
-    private void OnItemSold(Dictionary<WeldingPartData, int> dictionary)
+    public void OnItemSold(Dictionary<WeldingPartData, int> dictionary)
     {
         int amount = ItemSeller.Instance.CalculateItemPrice(dictionary);
         AddMoney((int)(amount * PlayerUpgrades.Instance.GetModifier<MoneyManagerModifiers>().scrapSellMoneyMultipler));
