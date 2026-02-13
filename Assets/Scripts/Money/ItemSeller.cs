@@ -48,7 +48,7 @@ public class ItemSeller : Singleton<ItemSeller>
 
     private void SellItemAtPosition(Vector2 position)
     {
-        Collider2D itemToSell = Physics2D.OverlapCircle(position, sellRadius);
+        Collider2D itemToSell = Physics2D.OverlapCircleAll(position, sellRadius).FirstOrDefault(e => !e.CompareTag(Tag.Mike.GetStringValue()));
         if (itemToSell != null)
         {
             WeldingPart weldingPart = itemToSell.GetComponentInParent<WeldingPart>();

@@ -29,7 +29,7 @@ public class Furnace : Singleton<Furnace>
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!modifiers.active)
+        if (!modifiers.active || collision.CompareTag(Tag.Mike.GetTagString()))
         {
             return;
         }
