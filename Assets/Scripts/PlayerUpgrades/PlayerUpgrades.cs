@@ -18,6 +18,11 @@ public class PlayerUpgrades : Singleton<PlayerUpgrades>
         upgrades.Add(upgrade);
     }
 
+    public void RemoveTutorialUpgrades(TutorialManager.TutorialLevel tutorialLevel)
+    {
+        upgrades.RemoveAll(u => u is TutorialUpgrade tutorialUpgrade && !tutorialUpgrade.TutorialLevels.Contains(tutorialLevel));
+    }
+
     public T GetModifier<T>() where T : class, new()
     {
         T modifier = new T();

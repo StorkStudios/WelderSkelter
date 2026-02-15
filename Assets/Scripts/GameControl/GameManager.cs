@@ -1,4 +1,5 @@
 using StorkStudios.CoreNest;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,14 +21,21 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        MainMenuController.Instance.StartGameEvent += OnStartGame;
+        MainMenuController.Instance.StartGameEvent += StartGame;
+        MainMenuController.Instance.StartTutorialEvent += StartTutorial;
         WorkPhaseManager.Instance.WorkPhaseEnded += OnGamePhaseEnded;
         ShopPhaseManager.Instance.ShopPhaseEnded += OnShopPhaseEnded;
 
         SetPhase(Phase.Menu);
     }
 
-    private void OnStartGame()
+    private void StartTutorial()
+    {
+        TutorialManager.Instance.InitTutorial();
+        StartGame();
+    }
+
+    private void StartGame()
     {
         currentDay = 0;
         SetPhase(Phase.Work);

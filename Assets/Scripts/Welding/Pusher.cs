@@ -54,6 +54,7 @@ public class Pusher : Singleton<Pusher>
         public float initialSpeedMultiplier = 1;
         public int mikesCount = 0;
         public float pushYForceMultiplier = 1;
+        public bool disableMovement = false;
 
         public float GetItemDelayMultiplier()
         {
@@ -93,7 +94,7 @@ public class Pusher : Singleton<Pusher>
 
     private void OnPusherMove(float value)
     {
-        if (lockMovement)
+        if (modifier.disableMovement || lockMovement)
         {
             return;
         }
