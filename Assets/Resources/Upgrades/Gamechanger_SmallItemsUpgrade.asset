@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fdb033a615a3474c8bbb23fbadb6717, type: 3}
   m_Name: Gamechanger_SmallItemsUpgrade
   m_EditorClassIdentifier: 
-  description: Item Size -40%, Welding Area Capacity +125%
+  description: Item Size -40%, Welding Area Capacity +25%
   scaleMultiplier: 0.6
   itemCapacityMultiplier: 1.25
