@@ -4,7 +4,8 @@ namespace StorkStudios.CoreNest
 {
 	public enum Scene
 	{
-		SampleScene = 0,
+		Intro = 0,
+		SampleScene = 1,
 	}
 	
 	public static class SceneExtensions
