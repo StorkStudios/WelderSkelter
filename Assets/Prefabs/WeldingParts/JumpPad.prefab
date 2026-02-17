@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 8124383846432372913}
   - component: {fileID: 348816037518623847}
   - component: {fileID: 293462281608279584}
+  - component: {fileID: 8318477199914496605}
   - component: {fileID: 1761726455269346690}
   - component: {fileID: 7350606591353814047}
   m_Layer: 6
@@ -267,6 +268,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WeldedThisFrame: 0
+--- !u!114 &8318477199914496605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2533076482088094023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d2a93fd8e87d1f44b6746b4ea479fae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: c5df3e0e63a75131ab227a91679e6a0a, type: 2}
 --- !u!60 &1761726455269346690
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -305,7 +319,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.24, y: 10.24}
+    oldSize: {x: 9.54, y: 4.72}
     newSize: {x: 10.24, y: 10.24}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

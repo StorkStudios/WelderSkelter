@@ -6,35 +6,52 @@ using UnityEngine;
 public class MikeWelder : MonoBehaviour
 {
     [SerializeField]
-    [NotNull]
-    private GameObject welderParticles;
+    private GameObject welderParticlesPrefab;
     [SerializeField]
     private float radius = 0.1f;
 
-    private Welder.WelderModifiers welderModifiers;
+    private Welder.WelderModifiers modifiers;
 
     private void Start()
     {
         WorkPhaseManager.Instance.WorkPhasePreStartEvent += OnBeforeWorkPhaseStart;
 
         OnBeforeWorkPhaseStart();
-
-        welderParticles.SetActive(true);
     }
 
     private void OnBeforeWorkPhaseStart()
     {
-        welderModifiers = PlayerUpgrades.Instance.GetModifier<Welder.WelderModifiers>();
+        modifiers = PlayerUpgrades.Instance.GetModifier<Welder.WelderModifiers>();
+
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        float radius = modifiers.welderPositionRadius / transform.lossyScale.x;
+        float angleSetp = 2 * Mathf.PI / modifiers.welderCount;
+        for (int i = 0; i < modifiers.welderCount; i++)
+        {
+            GameObject particles = Instantiate(welderParticlesPrefab, transform);
+            particles.transform.localPosition = new Vector3(Mathf.Cos(i * angleSetp), Mathf.Sin(i * angleSetp)) * radius + Vector3.back;
+        }
     }
 
     private void Update()
     {
-        WeldOnPoint((Vector2)transform.position);
+        float radius = modifiers.welderPositionRadius;
+        float angleSetp = 2 * Mathf.PI / modifiers.welderCount;
+        for (int i = 0; i < modifiers.welderCount; i++)
+        {
+            Vector2 circlePoint = new Vector2(Mathf.Cos(i * angleSetp), Mathf.Sin(i * angleSetp)) * radius;
+            Vector2 currentPosition = (Vector2)transform.position + circlePoint;
+            WeldOnPoint(currentPosition);
+        }
     }
 
     private void WeldOnPoint(Vector2 point)
     {
-        float welderRadius = radius * welderModifiers.GetRadiusMultiplier();
+        float welderRadius = radius * modifiers.GetCurrentRadiusMultiplier();
         Collider2D[] colliders = Physics2D.OverlapCircleAll(point, welderRadius);
         HashSet<WeldingPart> weldedParts = colliders.Select(c => c.GetComponentInParent<WeldingPart>()).Where(wp => wp != null).ToHashSet();
 
@@ -48,7 +65,11 @@ public class MikeWelder : MonoBehaviour
                 {
                     if (weldingPart.IsCollidingWith(otherWeldingPart))
                     {
-                        weldingPart.WeldWith(otherWeldingPart);
+                        Dictionary<WeldingPartData, int> result = weldingPart.WeldWith(otherWeldingPart);
+                        if (result != null)
+                        {
+                            MoneyManager.Instance.OnItemSold(result);
+                        }
                     }
                 }
             }

@@ -1,7 +1,8 @@
-using System;
+using StorkStudios.CoreNest;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static MoneyManager;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class WeldingPart : MonoBehaviour
@@ -11,6 +12,10 @@ public class WeldingPart : MonoBehaviour
         public float maskOnMoveSpeedMultiplier = 1;
         public float lpmMoveSpeedMultiplier = 1;
         public float gravityScale = 0;
+
+        public bool unweldOnCollision = false;
+        public float unweldExplosionForce = 0;
+        public float unweldScrapMoneyMultiplier = 1;
     }
 
     private WeldingPartData data;
@@ -138,11 +143,11 @@ public class WeldingPart : MonoBehaviour
         OnMaskOnChanged(false, WeldingMask.Instance.MaskOn.Value);
     }
 
-    public void WeldWith(WeldingPart otherPart)
+    public Dictionary<WeldingPartData, int> WeldWith(WeldingPart otherPart)
     {
         if (otherPart.WeldedThisFrame || WeldedThisFrame)
         {
-            return;
+            return null;
         }
 
         Debug.Log($"Welding parts: {Summary} with {otherPart.Summary}");
@@ -190,11 +195,45 @@ public class WeldingPart : MonoBehaviour
         otherPart.WeldedThisFrame = true;
         Destroy(otherPart);
         Destroy(otherRb);
+
+        return components;
     }
 
     public bool IsCollidingWith(WeldingPart otherPart)
     {
         return collidingParts.ContainsKey(otherPart);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!modifier.unweldOnCollision || components.Aggregate(0, (current, e) => current + e.Value) <= 1)
+        {
+            return;
+        }
+
+        WeldingPartsSpawner spawner = WeldingPartsSpawner.Instance;
+        WeldingPartDataContainer[] datas = GetComponentsInChildren<WeldingPartDataContainer>();
+
+        Vector3 forcePosition = datas.Select(e => e.transform.position).Average();
+
+        foreach (WeldingPartDataContainer dataContainer in datas)
+        {
+            GameObject gameObject = spawner.SpawnPart(dataContainer.Data);
+            gameObject.transform.SetPositionAndRotation(dataContainer.transform.position, dataContainer.transform.rotation);
+            Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
+
+            float speedMultiplier = PlayerUpgrades.Instance.GetModifier<Pusher.PusherModifier>().initialSpeedMultiplier;
+
+            rb.gravityScale *= speedMultiplier;
+
+            Vector3 direction = (gameObject.transform.position - forcePosition).normalized;
+            rb.AddForce(modifier.unweldExplosionForce * speedMultiplier * direction, ForceMode2D.Impulse);
+        }
+
+        float multiplier = PlayerUpgrades.Instance.GetModifier<MoneyManagerModifiers>().scrapSellMoneyMultipler;
+        multiplier *= modifier.unweldScrapMoneyMultiplier;
+        MoneyManager.Instance.AddMoney((int)(ItemSeller.Instance.CalculateItemPrice(components) * multiplier));
+        Destroy(gameObject);
     }
 
     private void OnDestroy()

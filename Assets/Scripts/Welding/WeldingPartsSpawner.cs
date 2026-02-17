@@ -17,6 +17,13 @@ public class WeldingPartsSpawner : Singleton<WeldingPartsSpawner>
 
     private List<WeldingPartData> weldingPartDataList;
 
+    public GameObject SpawnPart(WeldingPartData data)
+    {
+        GameObject gameObject = data.Instantiate(transform.position, Quaternion.identity, transform);
+        ApplyModifiers(gameObject);
+        return gameObject;
+    }
+
     public GameObject SpawnRandomPart()
     {
         weldingPartDataList ??= new List<WeldingPartData>(Resources.LoadAll<WeldingPartData>("WeldingParts"));
@@ -36,7 +43,7 @@ public class WeldingPartsSpawner : Singleton<WeldingPartsSpawner>
 
     public GameObject SpawnMike()
     {
-        GameObject gameObject = Instantiate(mikePrefab, transform.position, Quaternion.identity, transform);
+        GameObject gameObject = Instantiate(mikePrefab, (Vector2)transform.position, Quaternion.identity, transform);
         ApplyModifiers(gameObject);
         return gameObject;
     }

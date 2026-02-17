@@ -26,6 +26,19 @@ public class ItemSeller : Singleton<ItemSeller>
         PlayerInputManager.Instance.ItemSellEvent += OnItemSell;
     }
 
+    public int CalculateItemPrice(Dictionary<WeldingPartData, int> dictionary)
+    {
+        int componentsSum = dictionary.Aggregate(0, (current, key) => current + key.Value);
+        if (dictionary.Values.Count() > 1)
+        {
+            return (componentsSum - 1) * 10;
+        }
+        else
+        {
+            return componentsSum * (componentsSum - 1) * 10;
+        }
+    }
+
     private void OnItemSell()
     {
         Vector2 mousePosition = PlayerInputManager.Instance.MousePositionToPositionOnWeldViewport(Mouse.current.position.value);
@@ -35,7 +48,7 @@ public class ItemSeller : Singleton<ItemSeller>
 
     private void SellItemAtPosition(Vector2 position)
     {
-        Collider2D itemToSell = Physics2D.OverlapCircle(position, sellRadius);
+        Collider2D itemToSell = Physics2D.OverlapCircleAll(position, sellRadius).FirstOrDefault(e => !e.CompareTag(Tag.Mike.GetStringValue()));
         if (itemToSell != null)
         {
             WeldingPart weldingPart = itemToSell.GetComponentInParent<WeldingPart>();

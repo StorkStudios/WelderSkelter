@@ -85,6 +85,12 @@ public class Pusher : Singleton<Pusher>
         UpdatePusherPosition(true);
 
         ItemSeller.Instance.ItemSold += OnItemSold;
+        Furnace.Instance.ItemDestroyed += OnItemDestroyed;
+    }
+
+    private void OnItemDestroyed(Dictionary<WeldingPartData, int> dictionary)
+    {
+        itemsCount -= dictionary.Aggregate(0, (current, key) => current + key.Value);
     }
 
     private void OnItemSold(Dictionary<WeldingPartData, int> dictionary)
