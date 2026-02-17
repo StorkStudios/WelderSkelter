@@ -34,6 +34,11 @@ public class WeldingPartsSpawner : Singleton<WeldingPartsSpawner>
 
     public GameObject SpawnRandomTaskPart()
     {
+        if (TaskManager.Instance.CurrentTasks.Count == 0)
+        {
+            //There may be no tasks in tutorial, we spawn a normal item
+            return SpawnRandomPart();
+        }
         weldingPartDataList ??= new List<WeldingPartData>(Resources.LoadAll<WeldingPartData>("WeldingParts"));
         WeldingPartData taskPart = TaskManager.Instance.CurrentTasks.SelectMany(e => e.RequiredParts).Distinct().GetRandomElement();
         GameObject gameObject = taskPart.Instantiate(transform.position, Quaternion.identity, transform);

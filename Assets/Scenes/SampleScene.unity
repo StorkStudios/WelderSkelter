@@ -346,7 +346,9 @@ MonoBehaviour:
     currentDay: 0
     dayshifts:
     - moneyToCollect: 0
-      dayLength: 180
+      dayLength: 5
+    - moneyToCollect: 0
+      dayLength: 5
     phaseParents:
       pairs:
       - Key:

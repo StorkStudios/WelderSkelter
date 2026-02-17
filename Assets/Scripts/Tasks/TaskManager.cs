@@ -12,6 +12,12 @@ public class TaskManager : Singleton<TaskManager>
     public event System.Action<Task> TaskCompleted;
     public List<Task> CurrentTasks => currentTasks;
 
+    public class TaskManagerModifier
+    {
+        public bool disableGeneratingTasks = false;
+    }
+
+    private TaskManagerModifier modifier;
     private List<Task> currentTasks = new List<Task>();
 
     private void Start()
@@ -35,7 +41,17 @@ public class TaskManager : Singleton<TaskManager>
 
     public void Restart()
     {
+        modifier = PlayerUpgrades.Instance.GetModifier<TaskManagerModifier>();
+
         currentTasks.Clear();
+
+        if (modifier != null && modifier.disableGeneratingTasks)
+        {
+            // Tasks list stays empty while generation is disabled.
+            CurrentTasksChanged?.Invoke(currentTasks);
+            return;
+        }
+
         for (int i = 0; i < maxTasks; i++)
         {
             currentTasks.Add(TaskDatabase.Instance.GetNewTask());
@@ -45,15 +61,46 @@ public class TaskManager : Singleton<TaskManager>
 
     private void CompleteTask(Task task)
     {
-        currentTasks[currentTasks.IndexOf(task)] = TaskDatabase.Instance.GetNewTask();
+        int index = currentTasks.IndexOf(task);
+        if (index < 0)
+        {
+            return;
+        }
+
         task.Complete();
         TaskCompleted?.Invoke(task);
+
+        if (modifier == null || !modifier.disableGeneratingTasks)
+        {
+            currentTasks[index] = TaskDatabase.Instance.GetNewTask();
+        }
+        else
+        {
+            // Remove the completed task without generating a new one.
+            currentTasks.RemoveAt(index);
+        }
+
         CurrentTasksChanged?.Invoke(currentTasks);
     }
 
     public void DiscardTask(Task task)
     {
-        currentTasks[currentTasks.IndexOf(task)] = TaskDatabase.Instance.GetNewTask();
+        int index = currentTasks.IndexOf(task);
+        if (index < 0)
+        {
+            return;
+        }
+
+        if (modifier == null || !modifier.disableGeneratingTasks)
+        {
+            currentTasks[index] = TaskDatabase.Instance.GetNewTask();
+        }
+        else
+        {
+            // Remove the discarded task without generating a new one.
+            currentTasks.RemoveAt(index);
+        }
+
         CurrentTasksChanged?.Invoke(currentTasks);
     }
 }
