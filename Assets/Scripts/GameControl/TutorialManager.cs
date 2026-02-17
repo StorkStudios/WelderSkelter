@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class TutorialManager : Singleton<TutorialManager>
 {
+    [SerializeField]
+    private GameManagerHelper gameManagerHelper;
+
     public enum TutorialLevel
     {
         TutorialLevel1 = 0,
@@ -16,18 +19,26 @@ public class TutorialManager : Singleton<TutorialManager>
     private void Start()
     {
         MainMenuController.Instance.StartGameEvent += OnStartGame;
+        MainMenuController.Instance.StartTutorialEvent += StartTutorial;
+        WorkPhaseManager.Instance.WorkPhaseEnded += OnGamePhaseEnded;
+        ShopPhaseManager.Instance.ShopPhaseEnded += OnShopPhaseEnded;
     }
 
     private void OnStartGame()
     {
         enabled = false;
+        //Tutorial logic is being handled by TutorialManager
         MainMenuController.Instance.StartGameEvent -= OnStartGame;
+        MainMenuController.Instance.StartTutorialEvent -= StartTutorial;
+        WorkPhaseManager.Instance.WorkPhaseEnded -= OnGamePhaseEnded;
+        ShopPhaseManager.Instance.ShopPhaseEnded -= OnShopPhaseEnded;
     }
 
-    public void InitTutorial()
+    private void StartTutorial()
     {
         AddTutorialUpgrades();
         StartTutorialLevel(TutorialLevel.TutorialLevel1);
+        gameManagerHelper.StartGame();
     }
 
     private void AddTutorialUpgrades()
@@ -43,5 +54,23 @@ public class TutorialManager : Singleton<TutorialManager>
     {
         PlayerUpgrades.Instance.RemoveTutorialUpgrades(currentTutorialLevel);
         currentTutorialLevel = tutorialLevel;
+    }
+
+    private void OnGamePhaseEnded(bool won)
+    {
+        if (won && !gameManagerHelper.IsLastDay)
+        {
+            gameManagerHelper.SetPhase(GameManagerHelper.Phase.Shop);
+        }
+        else
+        {
+            gameManagerHelper.SetPhase(won ? GameManagerHelper.Phase.Win : GameManagerHelper.Phase.Lose);
+        }
+    }
+
+    private void OnShopPhaseEnded()
+    {
+        gameManagerHelper.StartNextDay();
+        gameManagerHelper.SetPhase(GameManagerHelper.Phase.Work);
     }
 }
