@@ -1,15 +1,18 @@
 using UnityEngine;
+using StorkStudios.CoreNest;
 using UnityEngine.SceneManagement;
+
+using SceneEnum = StorkStudios.CoreNest.Scene;
 
 public class IntroController : MonoBehaviour
 {
     public bool LoadMainScene = false;
 
-    void Update()
+    private void Update()
     {
         if (LoadMainScene || Input.GetKey(KeyCode.Escape))
         {
-            SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
+            SceneManager.LoadScene(SceneEnum.SampleScene.GetBuildIndex(), LoadSceneMode.Single);
         }
     }
 }
