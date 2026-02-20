@@ -249,9 +249,16 @@ MonoBehaviour:
   basePushForce: {x: 0, y: -4}
   randomPushForceRange: {x: 3, y: 0}
   itemsLimitErrorMessage: {fileID: 0}
-  pusherMoveSound: {fileID: 8300000, guid: ee98316fee65e684c8e4d0be6a7a4848, type: 3}
-  pusherPushSound: {fileID: 8300000, guid: b058f5421e1e5b240acd97f04e065c52, type: 3}
-  pusherAudioSource: {fileID: 8595203527178790971}
+  soundModule:
+    sounds:
+      pairs:
+      - Key:
+          item: 0
+        Value: {fileID: 8300000, guid: ee98316fee65e684c8e4d0be6a7a4848, type: 3}
+      - Key:
+          item: 1
+        Value: {fileID: 8300000, guid: b058f5421e1e5b240acd97f04e065c52, type: 3}
+    audioSource: {fileID: 8595203527178790971}
 --- !u!114 &9181816776966940310
 MonoBehaviour:
   m_ObjectHideFlags: 0
