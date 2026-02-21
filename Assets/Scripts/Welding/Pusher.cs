@@ -38,6 +38,8 @@ public class Pusher : Singleton<Pusher>
     [SerializeField]
     private GameObject itemsLimitErrorMessage;
 
+    private readonly HashSet<int> pushedItems = new HashSet<int>();
+
     private enum PusherSound
     {
         Move,
@@ -216,7 +218,6 @@ public class Pusher : Singleton<Pusher>
         yield return new WaitForSeconds(0.25f);
 
         lockMovement = true;
-
         Sequence sequence = DOTween.Sequence();
         for (int i = selectedSlot; i > selectedSlot - modifier.pushersCount; i--)
         {
@@ -236,8 +237,9 @@ public class Pusher : Singleton<Pusher>
             rb.AddForce((basePushForce + new Vector2(randX, randY)) * modifier.initialSpeedMultiplier, ForceMode2D.Impulse);
             itemsCount++;
             itemsOnSlots[selectedSlot].GetComponent<WeldingPart>().OnPush(modifier.initialSpeedMultiplier);
+            pushedItems.Add(i);
         }
-
+        
         lockMovement = false;
     }
 
@@ -248,12 +250,13 @@ public class Pusher : Singleton<Pusher>
         int k = 0;
         for (int i = slots.Length - 1; i >= 0; i--)
         {
-            if (i <= selectedSlot - modifier.pushersCount || selectedSlot < i)
+            if (!pushedItems.Contains(i))
             {
                 soundModule.PlaySound(PusherSound.Remove1 + (k++));
                 yield return RemoveItem(i);
             }
         }
+        pushedItems.Clear();
     }
 
     private IEnumerator SpawnItems()
