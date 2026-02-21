@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e6c1203454edda4c89ebb111e2cd597, type: 3}
   m_Name: Gamechanger_UnweldingBouncesUpgrade
   m_EditorClassIdentifier: 
-  description: Welded Items unweld upon bouncing off the Welding Area Boundries
+  description: Welded Items unweld upon bouncing off the Welding Area Boundries,
+    granting 50% of their Scrap value
   explosionForceIncrement: 4
   scrapMoneyMultiplier: 0.5
