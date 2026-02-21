@@ -37,7 +37,7 @@ public class PlayerItemPusher : Singleton<PlayerItemPusher>
             Vector2 mousePosition = PlayerInputManager.Instance.MousePositionToPositionOnWeldViewport(Mouse.current.position.value);
             Vector2 mouseWorldPosition = weldingCanvasUtils.GetWorldPositionOnWeldCanvas(mousePosition);
             Vector2 itemPosition = new(currentlyPushedItem.transform.position.x, currentlyPushedItem.transform.position.y);
-            Vector2 pushForce = (mouseWorldPosition - itemPosition) * pushForceMultipler / Time.deltaTime;
+            Vector2 pushForce = (mouseWorldPosition - itemPosition).normalized * (mouseWorldPosition - itemPosition).sqrMagnitude * pushForceMultipler / Time.deltaTime;
             if (pushForce.sqrMagnitude > maxPushForce * maxPushForce)
             {
                 //stoppedPushingLastFrame = true;
