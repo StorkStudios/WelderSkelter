@@ -1151,11 +1151,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb55b9774534971c88246ed3763c57f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushRadius: 0.5
-  maxPushForce: 1
+  pushRadius: 0.75
+  maxPushForce: 1.5
   pushForceMultipler: 0.05
-  maxItemVelocity: 10
-  maxPushDistance: 3
+  maxItemVelocity: 9
+  maxPushDistance: 2.75
 --- !u!1 &8905379833217621460
 GameObject:
   m_ObjectHideFlags: 0
