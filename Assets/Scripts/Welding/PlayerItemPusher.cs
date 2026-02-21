@@ -101,6 +101,7 @@ public class PlayerItemPusher : Singleton<PlayerItemPusher>
     {
         if (currentlyPushedItem != null)
         {
+            currentlyPushedItem.Rb.linearDamping = 0;
             currentlyPushedItem.ComponentsChangedEvent -= ClearPushing;
         }
         currentlyPushedItem = null;
