@@ -381,10 +381,10 @@ MonoBehaviour:
     pairs:
     - Key:
         item: 0
-      Value: 'Colonel "Heavy Boy":\n\n"Good evening, Karl!\n\nYour task will be welding
-        the space junk and then selling the resulting Scrap. You can move items around
-        the Welding Area with the Left Mouse Button and weld them with the Right
-        Mouse Button. To sell the resulting Scrap, press the Middle Mouse Button
+      Value: 'Colonel "Heavy Boy":\n\n"Good evening, Karl!\n\nYour task will be to
+        weld the space junk and then selling the resulting Scrap. You can move items
+        around the Welding Area with the Left Mouse Button and weld them with the
+        Right Mouse Button. To sell the resulting Scrap, press the Middle Mouse Button
         or S. Try to weld it together in a groups of 3 as an excercise.\n\nAnd don''t
         forget: welding is bad for your eyesight. I highly recommend equipping your
         mask with Space button before using your welder. Otherwise your eyes may
@@ -395,10 +395,10 @@ MonoBehaviour:
         to buy anything from the shop...\n\nIf you want to make more money, you should
         weld together only items of the same type. The larger the resulting Scrap,
         the better. But don''t get too greedy: your Welding Area item capacity is
-        limited. And don''t forget to sell it before your shift is over!\n\nAnd did
-        I mention that you can choose which item from the conveyor you want to get?
-        Try moving the Item Pusher with A and D buttons to pick the item you want
-        to have in the Welding Area."'
+        limited. And don''t forget to sell it before your shift is over!\n\nAlso,
+        did I mention that you can choose which item from the conveyor you want to
+        get? Try moving the Item Pusher with A and D buttons to pick the item you
+        want to have in the Welding Area."'
     - Key:
         item: 2
       Value: "Colonel \"Heavy Boy\":\\n\\n\"Now, we also want you to create specific
@@ -409,7 +409,7 @@ MonoBehaviour:
         be granted to you. And if you are unsatisfied with your current quests, you
         can also just discard them and you will get some others, hopefully meeting
         your conditions. Pick wisely: you need to get at least 500z\u0142 to successfully
-        complete this shift!\""
+        complete this tutorial!\""
 --- !u!1 &131519170 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9003347592809329931, guid: a10b8e4a28a25434e99e895c3e4f2e70, type: 3}
@@ -1911,7 +1911,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2269446050797381467, guid: 524e89c677d10f64facde0fee2aec7e0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.000061035156
+      value: -0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 2431549399409857671, guid: 524e89c677d10f64facde0fee2aec7e0, type: 3}
       propertyPath: m_SizeDelta.x

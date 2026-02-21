@@ -241,7 +241,7 @@ MonoBehaviour:
   WasteLocation: {fileID: 3929007166950879513}
   baseItemSpeed: 30
   delayBetweenItemGroups: 1.25
-  maxItems: 20
+  maxItems: 16
   slots:
   - {fileID: 9071237623083442810}
   - {fileID: 7750678728996187799}
