@@ -287,15 +287,15 @@ MonoBehaviour:
   gameManagerHelper:
     currentDay: 0
     dayshifts:
-    - moneyToCollect: 600
+    - moneyToCollect: 1000
       dayLength: 120
-    - moneyToCollect: 1600
+    - moneyToCollect: 2500
       dayLength: 140
-    - moneyToCollect: 3000
+    - moneyToCollect: 4500
       dayLength: 160
-    - moneyToCollect: 4000
+    - moneyToCollect: 7000
       dayLength: 180
-    - moneyToCollect: 5000
+    - moneyToCollect: 10000
       dayLength: 200
     phaseParents:
       pairs:
@@ -383,7 +383,7 @@ MonoBehaviour:
         item: 0
       Value: 'Colonel "Heavy Boy":\n\n"Good evening, Karl!\n\nYour task will be welding
         the space junk and then selling the resulting Scrap. You can move items around
-        the Welding Area with the Right Mouse Button and weld them with the Left
+        the Welding Area with the Left Mouse Button and weld them with the Right
         Mouse Button. To sell the resulting Scrap, press the Middle Mouse Button
         or S. Try to weld it together in a groups of 3 as an excercise.\n\nAnd don''t
         forget: welding is bad for your eyesight. I highly recommend equipping your
