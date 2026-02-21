@@ -15,12 +15,12 @@ public class PlayerItemPusher : Singleton<PlayerItemPusher>
 
     private WeldingCanvasUtils weldingCanvasUtils;
 
-    private List<WeldingPart> currentlyPushedItems;
+    private WeldingPart currentlyPushedItem;
 
     private Vector2 lastMousePosition;
     private bool stoppedPushingLastFrame;
 
-    public bool IsPushing => currentlyPushedItems != null && currentlyPushedItems.Count > 0;
+    public bool IsPushing => currentlyPushedItem != null;
 
     private void Start()
     {
@@ -44,17 +44,14 @@ public class PlayerItemPusher : Singleton<PlayerItemPusher>
             }
             else
             {
-                currentlyPushedItems.ForEach(e => e.transform.position = worldPosition);
+                currentlyPushedItem.transform.position = worldPosition;
             }
 
             if (stoppedPushingLastFrame)
             {
                 stoppedPushingLastFrame = false;
-                currentlyPushedItems.ForEach(e =>
-                {
-                    e.Rb.bodyType = RigidbodyType2D.Dynamic;
-                    e.Rb.linearVelocity = pushVelocity;
-                });
+                currentlyPushedItem.Rb.bodyType = RigidbodyType2D.Dynamic;
+                currentlyPushedItem.Rb.linearVelocity = pushVelocity;
                 ClearPushing();
             }
         }
@@ -81,31 +78,27 @@ public class PlayerItemPusher : Singleton<PlayerItemPusher>
 
     private void ClearPushing()
     {
-        currentlyPushedItems.ForEach(e =>
+        if (currentlyPushedItem != null)
         {
-            if (e != null)
-            {
-                e.Rb.bodyType = RigidbodyType2D.Dynamic;
-                e.ComponentsChangedEvent -= ClearPushing;
-            }
-        });
-        currentlyPushedItems.Clear();
+            currentlyPushedItem.Rb.bodyType = RigidbodyType2D.Dynamic;
+            currentlyPushedItem.ComponentsChangedEvent -= ClearPushing;
+        }
+        currentlyPushedItem = null;
     }
 
     private void StartPushing()
     {
         Vector2 mousePosition = PlayerInputManager.Instance.MousePositionToPositionOnWeldViewport(Mouse.current.position.value);
         Vector2 worldPosition = weldingCanvasUtils.GetWorldPositionOnWeldCanvas(mousePosition);
-        currentlyPushedItems = Physics2D.OverlapCircleAll(worldPosition, pushRadius)
+        currentlyPushedItem = Physics2D.OverlapCircleAll(worldPosition, pushRadius)
             .Where(c => !c.CompareTag(Tag.Mike.GetStringValue()))
             .Select(c => c.GetComponentInParent<WeldingPart>())
-            .Where(wp => wp != null)
-            .ToList();
-        currentlyPushedItems.ForEach(e =>
+            .FirstOrDefault(wp => wp != null);
+        if (currentlyPushedItem != null)
         {
-            e.ComponentsChangedEvent += ClearPushing;
-            e.Rb.bodyType = RigidbodyType2D.Kinematic;
-        });
+            currentlyPushedItem.ComponentsChangedEvent += ClearPushing;
+            currentlyPushedItem.Rb.bodyType = RigidbodyType2D.Kinematic;
+        }
         lastMousePosition = worldPosition;
     }
 }
