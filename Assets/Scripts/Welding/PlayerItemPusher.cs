@@ -21,6 +21,12 @@ public class PlayerItemPusher : Singleton<PlayerItemPusher>
     [SerializeField]
     private float maxPushDistance;
 
+    [Header("Push drag")]
+    [SerializeField]
+    private float pushDragDistance;
+    [SerializeField]
+    private float pushDragLevel;
+
 
     private WeldingCanvasUtils weldingCanvasUtils;
 
@@ -56,6 +62,14 @@ public class PlayerItemPusher : Singleton<PlayerItemPusher>
             {
                 currentlyPushedItem.Rb.AddForce(pushForce, ForceMode2D.Impulse);
                 currentlyPushedItem.Rb.linearVelocity = Vector2.ClampMagnitude(currentlyPushedItem.Rb.linearVelocity, maxItemVelocity);
+            }
+            if ((mouseWorldPosition - itemPosition).sqrMagnitude < pushDragDistance * pushDragDistance)
+            {
+                currentlyPushedItem.Rb.linearDamping = pushDragLevel;
+            }
+            else
+            {
+                currentlyPushedItem.Rb.linearDamping = 0;
             }
 
             if (stoppedPushingLastFrame)
