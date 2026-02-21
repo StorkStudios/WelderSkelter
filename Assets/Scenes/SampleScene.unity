@@ -369,6 +369,12 @@ MonoBehaviour:
       - Key:
           item: 3
         Value: {fileID: 2205540123710790800}
+  tutorialText:
+    pairs:
+    - Key:
+        item: 0
+      Value: <with indian accent>\nHello!\nHow are you?\nI hope you are doing great
+        :)\nIn this tutorial I gonna show you how to become a welder
 --- !u!1 &131519170 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9003347592809329931, guid: a10b8e4a28a25434e99e895c3e4f2e70, type: 3}
@@ -2317,6 +2323,14 @@ PrefabInstance:
     - target: {fileID: 67314521943147534, guid: 045d9b17b37d6db46b22038ea3766a1a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 432988457982742152, guid: 045d9b17b37d6db46b22038ea3766a1a, type: 3}
+      propertyPath: textFadeSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 432988457982742152, guid: 045d9b17b37d6db46b22038ea3766a1a, type: 3}
+      propertyPath: textSequenceSpeed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4400029732494316361, guid: 045d9b17b37d6db46b22038ea3766a1a, type: 3}
       propertyPath: m_Name

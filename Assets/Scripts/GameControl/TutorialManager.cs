@@ -7,6 +7,9 @@ public class TutorialManager : Singleton<TutorialManager>
     [SerializeField]
     private GameManagerHelper gameManagerHelper;
 
+    [SerializeField]
+    private SerializedDictionary<TutorialLevel, string> tutorialText;
+
     public enum TutorialLevel
     {
         TutorialLevel1 = 0,
@@ -22,6 +25,7 @@ public class TutorialManager : Singleton<TutorialManager>
         MainMenuController.Instance.StartTutorialEvent += StartTutorial;
         WorkPhaseManager.Instance.WorkPhaseEnded += OnGamePhaseEnded;
         ShopPhaseManager.Instance.ShopPhaseEnded += OnShopPhaseEnded;
+        TutorialPhaseManager.Instance.TutorialPhaseEnded += OnTutorialPhaseEnded;
     }
 
     private void OnStartGame()
@@ -32,13 +36,19 @@ public class TutorialManager : Singleton<TutorialManager>
         MainMenuController.Instance.StartTutorialEvent -= StartTutorial;
         WorkPhaseManager.Instance.WorkPhaseEnded -= OnGamePhaseEnded;
         ShopPhaseManager.Instance.ShopPhaseEnded -= OnShopPhaseEnded;
+        TutorialPhaseManager.Instance.TutorialPhaseEnded -= OnTutorialPhaseEnded;
     }
 
     private void StartTutorial()
     {
         AddTutorialUpgrades();
         StartTutorialLevel(TutorialLevel.TutorialLevel1);
-        gameManagerHelper.StartGame();
+        SetPhase(GameManagerHelper.Phase.Tutorial);
+    }
+
+    private void OnTutorialPhaseEnded()
+    {
+        SetPhase(GameManagerHelper.Phase.Work);
     }
 
     private void AddTutorialUpgrades()
@@ -60,17 +70,26 @@ public class TutorialManager : Singleton<TutorialManager>
     {
         if (won && !gameManagerHelper.IsLastDay)
         {
-            gameManagerHelper.SetPhase(GameManagerHelper.Phase.Shop);
+            SetPhase(GameManagerHelper.Phase.Shop);
         }
         else
         {
-            gameManagerHelper.SetPhase(won ? GameManagerHelper.Phase.Win : GameManagerHelper.Phase.Lose);
+            SetPhase(won ? GameManagerHelper.Phase.Win : GameManagerHelper.Phase.Lose);
         }
     }
 
     private void OnShopPhaseEnded()
     {
         gameManagerHelper.StartNextDay();
-        gameManagerHelper.SetPhase(GameManagerHelper.Phase.Work);
+        SetPhase(GameManagerHelper.Phase.Work);
+    }
+
+    private void SetPhase(GameManagerHelper.Phase phase)
+    {
+        gameManagerHelper.SetPhase(phase);
+        if (phase == GameManagerHelper.Phase.Tutorial)
+        {
+            TutorialPhaseManager.Instance.BeginTutorialPhase(tutorialText[currentTutorialLevel]);
+        }
     }
 }
