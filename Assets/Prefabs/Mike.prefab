@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d62baadaf64219b45a477707b2a19c04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  welderParticlesPrefab: {fileID: 2137535715798457676, guid: 1548258eea25dde4087f7b1aee898e9e, type: 3}
+  welderParticlesPrefab: {fileID: 7226135623683479753, guid: 02a1a4539256e8f36b7853506efeb73a, type: 3}
   radius: 0.1
 --- !u!1 &3606156731893342439
 GameObject:
