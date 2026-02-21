@@ -75,6 +75,17 @@
                 },
                 {
                     "name": "",
+                    "id": "023ff54d-73fe-4ce9-afe8-39ee9e9debc1",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Sell",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "103b1f48-bff2-4648-899e-1ea3db5185ae",
                     "path": "<Mouse>/position",
                     "interactions": "",
