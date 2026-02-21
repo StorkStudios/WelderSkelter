@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   welderParticlesPrefab: {fileID: 7226135623683479753, guid: 02a1a4539256e8f36b7853506efeb73a, type: 3}
-  radius: 0.1
+  radius: 0.15
 --- !u!114 &5585480337774110908
 MonoBehaviour:
   m_ObjectHideFlags: 0
