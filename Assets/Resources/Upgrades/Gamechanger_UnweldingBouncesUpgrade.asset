@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Gamechanger_UnweldingBouncesUpgrade
   m_EditorClassIdentifier: 
   description: Welded Items unweld upon bouncing off the Welding Area Boundries
-  explosionForceIncrement: 1
+  explosionForceIncrement: 4
   scrapMoneyMultiplier: 0.5

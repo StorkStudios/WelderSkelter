@@ -17,7 +17,14 @@ public class UIClock : MonoBehaviour
         float timeLeft = WorkPhaseManager.Instance.CurrentData.dayLength - WorkPhaseManager.Instance.DayTimer;
         int minutes = (int)(timeLeft / 60);
         int seconds = (int)(timeLeft % 60);
-        clock.text = $"{minutes}:{seconds}";
+        if (seconds < 10)
+        {
+            clock.text = $"{minutes}:0{seconds}";
+        }
+        else
+        {
+            clock.text = $"{minutes}:{seconds}";
+        }
         if (timeLeft <= accentStartTime && seconds % 2 == 0)
         {
             clock.color = accent;

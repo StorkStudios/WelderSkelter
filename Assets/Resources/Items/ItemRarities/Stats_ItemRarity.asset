@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c206fca0d329fb459eac5f5916e30b3, type: 3}
   m_Name: Stats_ItemRarity
   m_EditorClassIdentifier: 
-  rarityWeight: 5
+  rarityWeight: 10

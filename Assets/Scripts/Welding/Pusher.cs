@@ -38,12 +38,20 @@ public class Pusher : Singleton<Pusher>
     [SerializeField]
     private GameObject itemsLimitErrorMessage;
 
+    private enum PusherSound
+    {
+        Move,
+        Push,
+        SpawnStart,
+        Spawn1,
+        Spawn2,
+        Spawn3,
+        RemoveStart,
+        Remove1,
+        Remove2,
+    }
     [SerializeField]
-    private AudioClip pusherMoveSound;
-    [SerializeField]
-    private AudioClip pusherPushSound;
-    [SerializeField]
-    private AudioSource pusherAudioSource;
+    private SoundModule<PusherSound> soundModule;
 
     public class PusherModifier
     {
@@ -77,6 +85,8 @@ public class Pusher : Singleton<Pusher>
 
     private void Start()
     {
+        soundModule.Initialize();
+
         WorkPhaseManager.Instance.WorkPhasePreStartEvent += OnBeforeWorkPhaseStart;
         WorkPhaseManager.Instance.WorkPhaseEnded += OnWorkPhaseEnded;
 
@@ -112,7 +122,7 @@ public class Pusher : Singleton<Pusher>
             {
                 selectedSlot++;
                 UpdatePusherPosition(false);
-                pusherAudioSource.PlayOneShot(pusherMoveSound);
+                soundModule.PlaySound(PusherSound.Move);
             }
         }
         else
@@ -121,7 +131,7 @@ public class Pusher : Singleton<Pusher>
             {
                 selectedSlot--;
                 UpdatePusherPosition(false);
-                pusherAudioSource.PlayOneShot(pusherMoveSound);
+                soundModule.PlaySound(PusherSound.Move);
             }
         }
     }
@@ -199,7 +209,7 @@ public class Pusher : Singleton<Pusher>
     private IEnumerator PushItem()
     {
         pusher.StartPushAnimation();
-        pusherAudioSource.PlayOneShot(pusherPushSound);
+        soundModule.PlaySound(PusherSound.Push);
         yield return new WaitForSeconds(0.25f);
 
         lockMovement = true;
@@ -230,10 +240,14 @@ public class Pusher : Singleton<Pusher>
 
     private IEnumerator RemoveItems()
     {
+        soundModule.PlaySound(PusherSound.RemoveStart);
+
+        int k = 0;
         for (int i = slots.Length - 1; i >= 0; i--)
         {
             if (i <= selectedSlot - modifier.pushersCount || selectedSlot < i)
             {
+                soundModule.PlaySound(PusherSound.Remove1 + (k++));
                 yield return RemoveItem(i);
             }
         }
@@ -241,9 +255,13 @@ public class Pusher : Singleton<Pusher>
 
     private IEnumerator SpawnItems()
     {
+        soundModule.PlaySound(PusherSound.SpawnStart);
+
+        int k = 0;
         int taskPartIndex = UnityEngine.Random.Range(0, slots.Length);
         for (int i = slots.Length - 1; i >= 0; i--)
         {
+            soundModule.PlaySound(PusherSound.Spawn1 + (k++));
             yield return SpawnItem(i, i == taskPartIndex);
         }
     }
