@@ -15,7 +15,7 @@ public class GameManager : Singleton<GameManager>
         WorkPhaseManager.Instance.WorkPhaseEnded += OnGamePhaseEnded;
         ShopPhaseManager.Instance.ShopPhaseEnded += OnShopPhaseEnded;
 
-        gameManagerHelper.SetPhase(GameManagerHelper.Phase.Menu);
+        this.CallNextFrame(() => gameManagerHelper.SetPhase(GameManagerHelper.Phase.Menu));
     }
 
     private void StartTutorial()

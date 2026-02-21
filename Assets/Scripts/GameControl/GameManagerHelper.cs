@@ -5,7 +5,7 @@ using StorkStudios.CoreNest;
 [System.Serializable]
 public class GameManagerHelper
 {
-    public enum Phase { Menu, Work, Shop, Tutorial, Win, Lose }
+    public enum Phase { Menu, Work, Shop, Tutorial, Win, Lose, Init }
 
     [SerializeField]
     [ReadOnly]

@@ -155,8 +155,11 @@ public class Pusher : Singleton<Pusher>
 
     private void OnWorkPhaseEnded(bool _)
     {
-        StopCoroutine(spawnCoroutine);
-        spawnCoroutine = null;
+        if (this != null && spawnCoroutine != null)
+        {
+            StopCoroutine(spawnCoroutine);
+            spawnCoroutine = null;
+        }
     }
 
     private void SpawnMikes()
