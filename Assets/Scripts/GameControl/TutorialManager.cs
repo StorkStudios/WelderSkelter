@@ -62,8 +62,8 @@ public class TutorialManager : Singleton<TutorialManager>
 
     private void StartTutorialLevel(TutorialLevel tutorialLevel)
     {
-        PlayerUpgrades.Instance.RemoveTutorialUpgrades(currentTutorialLevel);
         currentTutorialLevel = tutorialLevel;
+        PlayerUpgrades.Instance.RemoveTutorialUpgrades(currentTutorialLevel);
     }
 
     private void OnWorkPhaseEnded(bool won)
