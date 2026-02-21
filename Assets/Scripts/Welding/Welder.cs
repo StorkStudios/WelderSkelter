@@ -33,15 +33,15 @@ public class Welder : Singleton<Welder>
     public bool IsWelding => inputWelding || (modifiers?.weldPermanently ?? false);
 
     private WelderModifiers modifiers;
-    private List<GameObject> welderParticles = new List<GameObject>();
+    private List<WeldingParticles> welderParticles = new List<WeldingParticles>();
 
     private void Start()
     {
         weldingCanvasUtils = GetComponent<WeldingCanvasUtils>();
 
         WorkPhaseManager.Instance.WorkPhasePreStartEvent += OnBeforeWorkPhaseStart;
+        WeldingMask.Instance.MaskOn.ValueChanged += OnMaskStateChanged;
     }
-
     private void OnBeforeWorkPhaseStart()
     {
         modifiers = PlayerUpgrades.Instance.GetModifier<WelderModifiers>();
@@ -53,17 +53,17 @@ public class Welder : Singleton<Welder>
             Destroy(child.gameObject);
         }
 
-        float radius = modifiers.welderPositionRadius;
-        float angleSetp = 2 * Mathf.PI / modifiers.welderCount;
+        inputWelding = false;
+        float positionRadius = modifiers.welderPositionRadius;
+        float angleStep = 2 * Mathf.PI / modifiers.welderCount;
         for (int i = 0; i < modifiers.welderCount; i++)
         {
-            GameObject particles = Instantiate(welderParticlesPrefab, transform);
-            particles.transform.localPosition = new Vector3(Mathf.Cos(i * angleSetp), Mathf.Sin(i * angleSetp)) * radius + Vector3.forward;
+            WeldingParticles particles = Instantiate(welderParticlesPrefab, transform).GetComponent<WeldingParticles>();
+            particles.transform.localPosition = new Vector3(Mathf.Cos(i * angleStep), Mathf.Sin(i * angleStep)) * positionRadius + Vector3.forward;
+            particles.transform.localScale = modifiers.GetCurrentRadiusMultiplier() * radius * Vector3.one;
+            particles.SetWelding(IsWelding);
             welderParticles.Add(particles);
         }
-
-        inputWelding = false;
-        welderParticles.ForEach(e => e.SetActive(IsWelding));
 
         PlayerInputManager.Instance.MouseMoveOnWeldCanvasEvent -= OnMouseMoveOnWeldCanvas;
         PlayerInputManager.Instance.WeldStartEvent -= OnWeldStart;
@@ -122,14 +122,20 @@ public class Welder : Singleton<Welder>
         {
             return;
         }
-        
+
         inputWelding = true;
-        welderParticles.ForEach(e => e.SetActive(IsWelding));
+        welderParticles.ForEach(e => e.SetWelding(IsWelding));
     }
 
     private void OnWeldStop()
     {
         inputWelding = false;
-        welderParticles.ForEach(e => e.SetActive(IsWelding));
+        welderParticles.ForEach(e => e.SetWelding(IsWelding));
     }
+
+    private void OnMaskStateChanged(bool oldValue, bool newValue)
+    {
+        welderParticles.ForEach(e => e.transform.localScale = modifiers.GetCurrentRadiusMultiplier() * radius * Vector3.one);
+    }
+
 }
