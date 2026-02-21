@@ -1152,7 +1152,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pushRadius: 0.5
-  maxPushSpeed: 20
+  maxPushForce: 5
+  pushForceMultipler: 0.1
 --- !u!1 &8905379833217621460
 GameObject:
   m_ObjectHideFlags: 0

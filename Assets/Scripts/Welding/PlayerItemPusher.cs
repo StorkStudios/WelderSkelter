@@ -11,13 +11,14 @@ public class PlayerItemPusher : Singleton<PlayerItemPusher>
     private float pushRadius = 0.5f;
 
     [SerializeField]
-    private float maxPushSpeed = 10;
+    private float maxPushForce = 10;
+
+    [SerializeField]
+    private float pushForceMultipler = 10;
 
     private WeldingCanvasUtils weldingCanvasUtils;
 
     private WeldingPart currentlyPushedItem;
-
-    private Vector2 lastMousePosition;
     private bool stoppedPushingLastFrame;
 
     public bool IsPushing => currentlyPushedItem != null;
@@ -31,32 +32,25 @@ public class PlayerItemPusher : Singleton<PlayerItemPusher>
 
     private void Update()
     {
-        Vector2 mousePosition = PlayerInputManager.Instance.MousePositionToPositionOnWeldViewport(Mouse.current.position.value);
-        Vector2 worldPosition = weldingCanvasUtils.GetWorldPositionOnWeldCanvas(mousePosition);
-
         if (IsPushing)
         {
-            Vector2 pushVelocity = (worldPosition - lastMousePosition) / Time.deltaTime;
-            if (pushVelocity.sqrMagnitude > maxPushSpeed * maxPushSpeed)
+            Vector2 mousePosition = PlayerInputManager.Instance.MousePositionToPositionOnWeldViewport(Mouse.current.position.value);
+            Vector2 mouseWorldPosition = weldingCanvasUtils.GetWorldPositionOnWeldCanvas(mousePosition);
+            Vector2 itemPosition = new(currentlyPushedItem.transform.position.x, currentlyPushedItem.transform.position.y);
+            Vector2 pushForce = (mouseWorldPosition - itemPosition) * pushForceMultipler / Time.deltaTime;
+            if (pushForce.sqrMagnitude > maxPushForce * maxPushForce)
             {
-                stoppedPushingLastFrame = true;
-                pushVelocity = pushVelocity.normalized * maxPushSpeed;
+                //stoppedPushingLastFrame = true;
+                pushForce = pushForce.normalized * maxPushForce;
             }
-            else
-            {
-                currentlyPushedItem.transform.position = worldPosition;
-            }
+            currentlyPushedItem.Rb.AddForce(pushForce, ForceMode2D.Impulse);
 
             if (stoppedPushingLastFrame)
             {
                 stoppedPushingLastFrame = false;
-                currentlyPushedItem.Rb.bodyType = RigidbodyType2D.Dynamic;
-                currentlyPushedItem.Rb.linearVelocity = pushVelocity;
                 ClearPushing();
             }
         }
-
-        lastMousePosition = worldPosition;
     }
 
     private void OnPushItem(bool pushInput)
@@ -80,7 +74,6 @@ public class PlayerItemPusher : Singleton<PlayerItemPusher>
     {
         if (currentlyPushedItem != null)
         {
-            currentlyPushedItem.Rb.bodyType = RigidbodyType2D.Dynamic;
             currentlyPushedItem.ComponentsChangedEvent -= ClearPushing;
         }
         currentlyPushedItem = null;
@@ -97,8 +90,6 @@ public class PlayerItemPusher : Singleton<PlayerItemPusher>
         if (currentlyPushedItem != null)
         {
             currentlyPushedItem.ComponentsChangedEvent += ClearPushing;
-            currentlyPushedItem.Rb.bodyType = RigidbodyType2D.Kinematic;
         }
-        lastMousePosition = worldPosition;
     }
 }
