@@ -17,6 +17,7 @@ public class PlayerInputManager : Singleton<PlayerInputManager>
     public event System.Action ToggleMaskEvent;
     public event System.Action<Vector2> MouseMoveOnWeldCanvasEvent;
     public event System.Action<float> PusherMoveEvent;
+    public event System.Action<bool> PushItemEvent;
 
     public bool IsWelding { get; private set; } = false;
 
@@ -46,6 +47,18 @@ public class PlayerInputManager : Singleton<PlayerInputManager>
         if (context.started)
         {
             ItemSellEvent?.Invoke();
+        }
+    }
+
+    public void OnPushItem(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            PushItemEvent?.Invoke(true);
+        }
+        else if (context.canceled)
+        {
+            PushItemEvent?.Invoke(false);
         }
     }
 
