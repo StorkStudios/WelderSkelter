@@ -379,18 +379,18 @@ MonoBehaviour:
         :)\nIn this tutorial I gonna show you how to become a welder
     - Key:
         item: 1
-      Value: 'Heavy:/n/nIf you want to make more money, you should weld together
+      Value: 'Heavy:\n\nIf you want to make more money, you should weld together
         only items of the same type. The larger the resulting Scrap, the better.
-        But don''t get too greedy: your Welding Area item capacity is limited./n/nAnd
+        But don''t get too greedy: your Welding Area item capacity is limited.\n\nAnd
         did I mention that you can choose which item from the conveyor you want to
         get? Try moving the Item Pusher with A and D buttons to pick the item you
         want to have in the Welding Area.'
     - Key:
         item: 2
-      Value: Heavy:/n/nNow, we also want you to create specific stuff for us, so
+      Value: Heavy:\n\nNow, we also want you to create specific stuff for us, so
         we send you these Quests. For completing a Quest you will be rewarded with
         some money and sometimes also new item in the Shop, that you can purchase
-        after the full day of welding./n/nTo complete the quest, simply sell the
+        after the full day of welding.\n\nTo complete the quest, simply sell the
         item that meets the quest conditions and the reward will be granted to you.
         And if you are unsatisfied with your current quests, you can also just discard
         them and you will get some others, hopefully meeting your conditions.
@@ -2048,7 +2048,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2269446050797381467, guid: 524e89c677d10f64facde0fee2aec7e0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.00015258789
+      value: 0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 2431549399409857671, guid: 524e89c677d10f64facde0fee2aec7e0, type: 3}
       propertyPath: m_SizeDelta.x
