@@ -346,11 +346,11 @@ MonoBehaviour:
     currentDay: 0
     dayshifts:
     - moneyToCollect: 0
-      dayLength: 5
+      dayLength: 45
     - moneyToCollect: 0
-      dayLength: 10
-    - moneyToCollect: 0
-      dayLength: 15
+      dayLength: 60
+    - moneyToCollect: 400
+      dayLength: 75
     phaseParents:
       pairs:
       - Key:
@@ -375,25 +375,35 @@ MonoBehaviour:
     pairs:
     - Key:
         item: 0
-      Value: <with indian accent>\nHello!\nHow are you?\nI hope you are doing great
-        :)\nIn this tutorial I gonna show you how to become a welder
+      Value: 'Colonel "Heavy Boy":\n\n"Good evening, Karl!\n\nYour task will be welding
+        the space junk and then selling the resulting Scrap. You can move items around
+        the Welding Area with the Right Mouse Button and weld them with the Left
+        Mouse Button. To sell the resulting Scrap, press the Middle Mouse Button
+        or S. Try to weld it together in a groups of 3 as an excercise.\n\nAnd don''t
+        forget: welding is bad for your eyesight. I highly recommend equipping your
+        mask with Space button before using your welder. Otherwise your eyes may
+        be quite damaged after some time..."'
     - Key:
         item: 1
-      Value: 'Heavy:\n\nIf you want to make more money, you should weld together
-        only items of the same type. The larger the resulting Scrap, the better.
-        But don''t get too greedy: your Welding Area item capacity is limited.\n\nAnd
-        did I mention that you can choose which item from the conveyor you want to
-        get? Try moving the Item Pusher with A and D buttons to pick the item you
-        want to have in the Welding Area.'
+      Value: 'Colonel "Heavy Boy":\n\n"Ummm, yeah, I guess that was not enough money
+        to buy anything from the shop...\n\nIf you want to make more money, you should
+        weld together only items of the same type. The larger the resulting Scrap,
+        the better. But don''t get too greedy: your Welding Area item capacity is
+        limited. And don''t forget to sell it before your shift is over!\n\nAnd did
+        I mention that you can choose which item from the conveyor you want to get?
+        Try moving the Item Pusher with A and D buttons to pick the item you want
+        to have in the Welding Area."'
     - Key:
         item: 2
-      Value: Heavy:\n\nNow, we also want you to create specific stuff for us, so
-        we send you these Quests. For completing a Quest you will be rewarded with
-        some money and sometimes also new item in the Shop, that you can purchase
-        after the full day of welding.\n\nTo complete the quest, simply sell the
-        item that meets the quest conditions and the reward will be granted to you.
-        And if you are unsatisfied with your current quests, you can also just discard
-        them and you will get some others, hopefully meeting your conditions.
+      Value: "Colonel \"Heavy Boy\":\\n\\n\"Now, we also want you to create specific
+        stuff for us, so we send you these Quests. For completing a Quest you will
+        be rewarded with some money and sometimes also new item in the Shop, that
+        you can purchase after the full day of welding.\\n\\nTo complete the quest,
+        simply sell the item that meets the quest conditions and the reward will
+        be granted to you. And if you are unsatisfied with your current quests, you
+        can also just discard them and you will get some others, hopefully meeting
+        your conditions. Pick wisely: you need to get at least 500z\u0142 to successfully
+        complete this shift!\""
 --- !u!1 &131519170 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9003347592809329931, guid: a10b8e4a28a25434e99e895c3e4f2e70, type: 3}
