@@ -118,6 +118,11 @@ public class Welder : Singleton<Welder>
 
     private void OnWeldStart()
     {
+        if (PlayerItemPusher.Instance.IsPushing)
+        {
+            return;
+        }
+        
         inputWelding = true;
         welderParticles.ForEach(e => e.SetActive(IsWelding));
     }

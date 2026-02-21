@@ -1,4 +1,5 @@
 using StorkStudios.CoreNest;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -25,6 +26,7 @@ public class WeldingPart : MonoBehaviour
     public List<ColliderEvents> WeldTriggers => weldTriggers;
     private Dictionary<WeldingPart, int> collidingParts = new Dictionary<WeldingPart, int>();
     private Rigidbody2D rb;
+    public Rigidbody2D Rb => rb;
     public bool WeldedThisFrame = false;
     private WeldingPartModifier modifier;
 
@@ -39,6 +41,8 @@ public class WeldingPart : MonoBehaviour
             components = new Dictionary<WeldingPartData, int> { { data, 1 } };
         }
     }
+
+    public event Action ComponentsChangedEvent;
 
     private void Awake()
     {
@@ -101,7 +105,6 @@ public class WeldingPart : MonoBehaviour
         {
             return;
         }
-
 
         if (collidingParts.ContainsKey(otherPart))
         {
@@ -185,12 +188,15 @@ public class WeldingPart : MonoBehaviour
         }
         otherPart.transform.SetParent(transform);
 
-        Rigidbody2D otherRb = otherPart.GetComponent<Rigidbody2D>();
+        Rigidbody2D otherRb = otherPart.Rb;
         Vector2 combinedVelocity = (rb.linearVelocity * rb.mass + otherRb.linearVelocity * otherRb.mass) / (rb.mass + otherRb.mass);
         float combinedAngularVelocity = (rb.angularVelocity * rb.mass + otherRb.angularVelocity * otherRb.mass) / (rb.mass + otherRb.mass);
         rb.mass += otherRb.mass;
         rb.linearVelocity = combinedVelocity;
         rb.angularVelocity = combinedAngularVelocity;
+
+        ComponentsChangedEvent?.Invoke();
+        otherPart.ComponentsChangedEvent?.Invoke();
 
         otherPart.WeldedThisFrame = true;
         Destroy(otherPart);
@@ -229,6 +235,8 @@ public class WeldingPart : MonoBehaviour
             Vector3 direction = (gameObject.transform.position - forcePosition).normalized;
             rb.AddForce(modifier.unweldExplosionForce * speedMultiplier * direction, ForceMode2D.Impulse);
         }
+
+        ComponentsChangedEvent?.Invoke();
 
         float multiplier = PlayerUpgrades.Instance.GetModifier<MoneyManagerModifiers>().scrapSellMoneyMultipler;
         multiplier *= modifier.unweldScrapMoneyMultiplier;
