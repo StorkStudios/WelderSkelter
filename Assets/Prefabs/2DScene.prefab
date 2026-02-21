@@ -1154,6 +1154,8 @@ MonoBehaviour:
   pushRadius: 0.5
   maxPushForce: 1
   pushForceMultipler: 0.05
+  maxItemVelocity: 10
+  maxPushDistance: 3
 --- !u!1 &8905379833217621460
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,6 +18,8 @@ public class PlayerItemPusher : Singleton<PlayerItemPusher>
 
     [SerializeField]
     private float maxItemVelocity = 10;
+    [SerializeField]
+    private float maxPushDistance;
 
 
     private WeldingCanvasUtils weldingCanvasUtils;
@@ -44,11 +46,17 @@ public class PlayerItemPusher : Singleton<PlayerItemPusher>
             Vector2 pushForce = (mouseWorldPosition - itemPosition).normalized * (mouseWorldPosition - itemPosition).sqrMagnitude * pushForceMultipler / Time.deltaTime;
             if (pushForce.sqrMagnitude > maxPushForce * maxPushForce)
             {
-                //stoppedPushingLastFrame = true;
                 pushForce = pushForce.normalized * maxPushForce;
             }
-            currentlyPushedItem.Rb.AddForce(pushForce, ForceMode2D.Impulse);
-            currentlyPushedItem.Rb.linearVelocity = Vector2.ClampMagnitude(currentlyPushedItem.Rb.linearVelocity, maxItemVelocity);
+            if ((mouseWorldPosition - itemPosition).sqrMagnitude > maxPushDistance * maxPushDistance)
+            {
+                stoppedPushingLastFrame = true;
+            }
+            else
+            {
+                currentlyPushedItem.Rb.AddForce(pushForce, ForceMode2D.Impulse);
+                currentlyPushedItem.Rb.linearVelocity = Vector2.ClampMagnitude(currentlyPushedItem.Rb.linearVelocity, maxItemVelocity);
+            }
 
             if (stoppedPushingLastFrame)
             {
@@ -89,7 +97,6 @@ public class PlayerItemPusher : Singleton<PlayerItemPusher>
         Vector2 mousePosition = PlayerInputManager.Instance.MousePositionToPositionOnWeldViewport(Mouse.current.position.value);
         Vector2 worldPosition = weldingCanvasUtils.GetWorldPositionOnWeldCanvas(mousePosition);
         currentlyPushedItem = Physics2D.OverlapCircleAll(worldPosition, pushRadius)
-            .Where(c => !c.CompareTag(Tag.Mike.GetStringValue()))
             .Select(c => c.GetComponentInParent<WeldingPart>())
             .FirstOrDefault(wp => wp != null);
         if (currentlyPushedItem != null)
