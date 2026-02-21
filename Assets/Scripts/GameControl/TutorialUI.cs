@@ -26,7 +26,13 @@ public class TutorialUI : Singleton<TutorialUI>
             return;
         }
 
-        tutorialTextLabel.text = "";
+        Color color = tutorialTextLabel.color;
+        color.a = 0;
+        tutorialTextLabel.color = color;
+        for (int i = 0; i < tutorialTextLabel.textInfo.characterCount; i++)
+        {
+            tutorialTextLabel.textInfo.SetCharacterAlpha(i, 0);
+        }
         TMP_TextInfo textInfo = tutorialTextLabel.GetTextInfo(text);
         Sequence sequence = textInfo.AnimateTextWordByWord(1 / textFadeSpeed, 1 / textSequenceSpeed);
         sequence = sequence.OnComplete(() => TextAnimationEnded?.Invoke());
