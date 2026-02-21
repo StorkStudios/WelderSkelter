@@ -348,7 +348,9 @@ MonoBehaviour:
     - moneyToCollect: 0
       dayLength: 5
     - moneyToCollect: 0
-      dayLength: 5
+      dayLength: 10
+    - moneyToCollect: 0
+      dayLength: 15
     phaseParents:
       pairs:
       - Key:
@@ -375,6 +377,12 @@ MonoBehaviour:
         item: 0
       Value: <with indian accent>\nHello!\nHow are you?\nI hope you are doing great
         :)\nIn this tutorial I gonna show you how to become a welder
+    - Key:
+        item: 1
+      Value: Tutorial 2
+    - Key:
+        item: 2
+      Value: Tutorial 3
 --- !u!1 &131519170 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9003347592809329931, guid: a10b8e4a28a25434e99e895c3e4f2e70, type: 3}
@@ -2193,7 +2201,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2269446050797381467, guid: 524e89c677d10f64facde0fee2aec7e0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.00012207031
+      value: -0.00015258789
       objectReference: {fileID: 0}
     - target: {fileID: 2431549399409857671, guid: 524e89c677d10f64facde0fee2aec7e0, type: 3}
       propertyPath: m_SizeDelta.x

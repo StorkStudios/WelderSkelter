@@ -23,7 +23,7 @@ public class TutorialManager : Singleton<TutorialManager>
     {
         MainMenuController.Instance.StartGameEvent += OnStartGame;
         MainMenuController.Instance.StartTutorialEvent += StartTutorial;
-        WorkPhaseManager.Instance.WorkPhaseEnded += OnGamePhaseEnded;
+        WorkPhaseManager.Instance.WorkPhaseEnded += OnWorkPhaseEnded;
         ShopPhaseManager.Instance.ShopPhaseEnded += OnShopPhaseEnded;
         TutorialPhaseManager.Instance.TutorialPhaseEnded += OnTutorialPhaseEnded;
     }
@@ -34,7 +34,7 @@ public class TutorialManager : Singleton<TutorialManager>
         //Tutorial logic is being handled by TutorialManager
         MainMenuController.Instance.StartGameEvent -= OnStartGame;
         MainMenuController.Instance.StartTutorialEvent -= StartTutorial;
-        WorkPhaseManager.Instance.WorkPhaseEnded -= OnGamePhaseEnded;
+        WorkPhaseManager.Instance.WorkPhaseEnded -= OnWorkPhaseEnded;
         ShopPhaseManager.Instance.ShopPhaseEnded -= OnShopPhaseEnded;
         TutorialPhaseManager.Instance.TutorialPhaseEnded -= OnTutorialPhaseEnded;
     }
@@ -66,22 +66,24 @@ public class TutorialManager : Singleton<TutorialManager>
         currentTutorialLevel = tutorialLevel;
     }
 
-    private void OnGamePhaseEnded(bool won)
+    private void OnWorkPhaseEnded(bool won)
     {
-        if (won && !gameManagerHelper.IsLastDay)
+        if (!gameManagerHelper.IsLastDay)
         {
             SetPhase(GameManagerHelper.Phase.Shop);
         }
         else
         {
-            SetPhase(won ? GameManagerHelper.Phase.Win : GameManagerHelper.Phase.Lose);
+            //TODO: ending tutorial
+            SetPhase(GameManagerHelper.Phase.Win);
         }
     }
 
     private void OnShopPhaseEnded()
     {
         gameManagerHelper.StartNextDay();
-        SetPhase(GameManagerHelper.Phase.Work);
+        StartTutorialLevel(currentTutorialLevel + 1);
+        SetPhase(GameManagerHelper.Phase.Tutorial);
     }
 
     private void SetPhase(GameManagerHelper.Phase phase)
