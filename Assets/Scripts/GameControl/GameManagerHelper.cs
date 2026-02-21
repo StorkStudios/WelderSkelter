@@ -41,9 +41,12 @@ public class GameManagerHelper
                 ShopPhaseManager.Instance.BeginShopPhase(dayshifts[currentDay + 1]);
                 break;
             case Phase.Win:
+                //Win and lose screen use the same object so they may have been disabled before (depends on order in dictionary)
+                phaseParents[Phase.Win].SetActive(true);
                 EndScreenController.Instance.SetScreen(EndScreenController.Screen.Win);
                 break;
             case Phase.Lose:
+                phaseParents[Phase.Lose].SetActive(true);
                 EndScreenController.Instance.SetScreen(EndScreenController.Screen.Lose);
                 break;
         }
