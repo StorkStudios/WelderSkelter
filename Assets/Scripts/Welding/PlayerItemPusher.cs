@@ -11,10 +11,14 @@ public class PlayerItemPusher : Singleton<PlayerItemPusher>
     private float pushRadius = 0.5f;
 
     [SerializeField]
-    private float maxPushForce = 10;
+    private float maxPushForce;
 
     [SerializeField]
-    private float pushForceMultipler = 10;
+    private float pushForceMultipler;
+
+    [SerializeField]
+    private float maxItemVelocity = 10;
+
 
     private WeldingCanvasUtils weldingCanvasUtils;
 
@@ -44,6 +48,7 @@ public class PlayerItemPusher : Singleton<PlayerItemPusher>
                 pushForce = pushForce.normalized * maxPushForce;
             }
             currentlyPushedItem.Rb.AddForce(pushForce, ForceMode2D.Impulse);
+            currentlyPushedItem.Rb.linearVelocity = Vector2.ClampMagnitude(currentlyPushedItem.Rb.linearVelocity, maxItemVelocity);
 
             if (stoppedPushingLastFrame)
             {
