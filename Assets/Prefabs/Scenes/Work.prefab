@@ -992,7 +992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxEyesight: 1
-  eyesightReductionPerSecond: 0.1
+  eyesightReductionPerSecond: 0.25
   itemsImage: {fileID: 7908323135933700050}
   volume: {fileID: 4144089371007171600}
   eyesightGradient:

@@ -352,8 +352,8 @@ MonoBehaviour:
       dayLength: 45
     - moneyToCollect: 0
       dayLength: 60
-    - moneyToCollect: 400
-      dayLength: 75
+    - moneyToCollect: 500
+      dayLength: 90
     phaseParents:
       pairs:
       - Key:
@@ -382,7 +382,7 @@ MonoBehaviour:
     - Key:
         item: 0
       Value: 'Colonel "Heavy Boy":\n\n"Good evening, Karl!\n\nYour task will be to
-        weld the space junk and then selling the resulting Scrap. You can move items
+        weld the space junk and then to sell the resulting Scrap. You can move items
         around the Welding Area with the Left Mouse Button and weld them with the
         Right Mouse Button. To sell the resulting Scrap, press the Middle Mouse Button
         or S. Try to weld it together in a groups of 3 as an excercise.\n\nAnd don''t
@@ -407,9 +407,9 @@ MonoBehaviour:
         you can purchase after the full day of welding.\\n\\nTo complete the quest,
         simply sell the item that meets the quest conditions and the reward will
         be granted to you. And if you are unsatisfied with your current quests, you
-        can also just discard them and you will get some others, hopefully meeting
-        your conditions. Pick wisely: you need to get at least 500z\u0142 to successfully
-        complete this tutorial!\""
+        can also just click on them to discard them and you will get some others,
+        hopefully meeting your expectations. Pick wisely: you need to get at least
+        500z\u0142 to successfully complete this tutorial!\""
 --- !u!1 &131519170 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9003347592809329931, guid: a10b8e4a28a25434e99e895c3e4f2e70, type: 3}
