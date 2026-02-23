@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 602a1c90b2582ea46894a204081eea0d, type: 3}
   m_Name: Gamechanger_Gravity
   m_EditorClassIdentifier: 
-  title: Add Gravity
+  title: Remove Gravity
   color: {r: 0.5803922, g: 0.29803923, b: 0.62352943, a: 1}
   rarity: {fileID: 11400000, guid: 85dec07ebbf27124eb75056f6eff97a5, type: 2}
   upgrade: {fileID: 11400000, guid: b7bfb364d7657e1498c3e3f111de2031, type: 2}

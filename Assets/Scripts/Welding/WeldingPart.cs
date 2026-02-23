@@ -12,7 +12,7 @@ public class WeldingPart : MonoBehaviour
     {
         public float maskOnMoveSpeedMultiplier = 1;
         public float lpmMoveSpeedMultiplier = 1;
-        public float gravityScale = 0;
+        public float gravityScale = 1;
 
         public bool unweldOnCollision = false;
         public float unweldExplosionForce = 0;

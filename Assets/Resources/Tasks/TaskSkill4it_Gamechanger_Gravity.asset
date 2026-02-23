@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1036167a7f86b9488f9638288d439ab, type: 3}
   m_Name: TaskSkill4it_Gamechanger_Gravity
   m_EditorClassIdentifier: 
-  title: HOMEBREWED GRAVITY GENERATOR
+  title: HOMEBREWED ANTI-GRAVITY GENERATOR
   color: {r: 0.5803922, g: 0.29803923, b: 0.62352943, a: 1}
   requiredParts:
   - {fileID: 11400000, guid: 98a876b76346b7546b3496e6d2cc4113, type: 2}

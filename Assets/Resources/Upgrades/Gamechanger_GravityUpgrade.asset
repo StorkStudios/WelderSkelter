@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5d9cbd50047cd47af8978f948a70bf, type: 3}
   m_Name: Gamechanger_GravityUpgrade
   m_EditorClassIdentifier: 
-  description: Add Gravity to Welding Area
-  gravityScaleIncrement: 1
+  description: Remove Gravity from Welding Area
+  gravityScaleIncrement: -1
+  pusherYForceMultiplier: 0
