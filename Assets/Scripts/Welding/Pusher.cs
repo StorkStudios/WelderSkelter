@@ -34,6 +34,10 @@ public class Pusher : Singleton<Pusher>
     private Vector2 basePushForce;
     [SerializeField]
     private Vector2 randomPushForceRange;
+    [SerializeField]
+    private float minTorque;
+    [SerializeField]
+    private float maxTorque;
 
     [SerializeField]
     private GameObject itemsLimitErrorMessage;
@@ -234,7 +238,9 @@ public class Pusher : Singleton<Pusher>
             rb.bodyType = RigidbodyType2D.Dynamic;
             float randX = UnityEngine.Random.Range(-randomPushForceRange.x, randomPushForceRange.x);
             float randY = UnityEngine.Random.Range(-randomPushForceRange.y, randomPushForceRange.y);
+            float randRot = UnityEngine.Random.Range(minTorque , maxTorque);
             rb.AddForce((basePushForce + new Vector2(randX, randY)) * modifier.initialSpeedMultiplier, ForceMode2D.Impulse);
+            rb.AddTorque(randRot);
             itemsCount++;
             itemsOnSlots[selectedSlot].GetComponent<WeldingPart>().OnPush(modifier.initialSpeedMultiplier);
             pushedItems.Add(i);

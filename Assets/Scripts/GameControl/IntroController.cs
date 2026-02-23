@@ -11,21 +11,12 @@ public class IntroController : MonoBehaviour
 
     private void Update()
     {
-        if (LoadMainScene && DontLoadMainScene)
-        {
-            MainMenuController.Instance.StartTutorial();
-            SceneManager.UnloadSceneAsync(SceneEnum.Intro.GetBuildIndex());
-        }
-        if (LoadMainScene && !DontLoadMainScene)
+        if ((Input.GetKey(KeyCode.Escape) || LoadMainScene) && !DontLoadMainScene)
         {
             DontLoadMainScene = true;
-            SceneManager.LoadScene(SceneEnum.SampleScene.GetBuildIndex(), LoadSceneMode.Additive);
-        }
-        if (Input.GetKey(KeyCode.Escape))
-        {
             SceneManager.LoadScene(SceneEnum.SampleScene.GetBuildIndex(), LoadSceneMode.Single);
         }
 
-        //I regret nothing.
+        //Now I regret.
     }
 }
