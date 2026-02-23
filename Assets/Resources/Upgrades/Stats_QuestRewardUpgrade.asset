@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2e30a202772e1ea9e37e91cdd401d0, type: 3}
   m_Name: Stats_QuestRewardUpgrade
   m_EditorClassIdentifier: 
-  description: Quest Money Income +25%
-  questIncomeMultiplier: 1.25
+  description: Quest Reward +15%
+  questIncomeMultiplier: 1.15

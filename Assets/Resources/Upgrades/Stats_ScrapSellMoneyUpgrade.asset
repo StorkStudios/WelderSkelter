@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de2bd21ce04279998af14dde08671eec, type: 3}
   m_Name: Stats_ScrapSellMoneyUpgrade
   m_EditorClassIdentifier: 
-  description: Scrap Money Income +25%
-  scrapIncomeMultiplier: 1.25
+  description: Items Selling Price +15%
+  scrapIncomeMultiplier: 1.15

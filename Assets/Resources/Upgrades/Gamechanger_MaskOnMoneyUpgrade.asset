@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e92b1de6314bd4349a49256a1fb6db09, type: 3}
   m_Name: Gamechanger_MaskOnMoneyUpgrade
   m_EditorClassIdentifier: 
-  description: After having mask on for 3s get Money Income +40%
-  incomeMultiplier: 1.4
+  description: After having mask on for 3s get Money Income +30% as long as your
+    Mask is on
+  incomeMultiplier: 1.3
   maskOnActivationDuration: 3

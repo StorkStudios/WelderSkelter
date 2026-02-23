@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef0c2d5fbe8397e46a6b3bef901c517f, type: 3}
   m_Name: Stats_NewItemIntervalUpgrade
   m_EditorClassIdentifier: 
-  description: New Item Spawn Speed +30%
-  newItemIntervalMultiplier: 0.77
+  description: New Item Spawn Speed +40%
+  newItemIntervalMultiplier: 0.714

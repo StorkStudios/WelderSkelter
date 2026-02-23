@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ffda761b4699b84abd07d34749a9b5f, type: 3}
   m_Name: Gamechanger_PermanentWeldingUpgrade
   m_EditorClassIdentifier: 
-  description: You weld all the time with the Eye Damage -75%, while pressing LPM
-    get Welding Radius +300% and Eye Damage +100%
+  description: You weld all the time with the Eye Damage -95%, while pressing LPM
+    get Welding Radius +300% and Eye Damage +900%
   lpmWeldingPointRadiusMultiplier: 4
-  eyeDamageMultiplier: 0.25
-  lpmEyeDamageMultiplier: 2
+  eyeDamageMultiplier: 0.05
+  lpmEyeDamageMultiplier: 10

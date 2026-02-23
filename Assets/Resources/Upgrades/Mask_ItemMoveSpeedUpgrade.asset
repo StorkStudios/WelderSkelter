@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634e82c4039c26b44ab8d407bf84fb49, type: 3}
   m_Name: Mask_ItemMoveSpeedUpgrade
   m_EditorClassIdentifier: 
-  description: Item Move Speed -40% when mask is on
-  moveSpeedMultiplier: 0.6
+  description: Item Move Speed -30% when mask is on
+  moveSpeedMultiplier: 0.7

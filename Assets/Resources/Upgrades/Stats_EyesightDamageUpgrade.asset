@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dae32cd5d05c318fb8e6871ea0b15945, type: 3}
   m_Name: Stats_EyesightDamageUpgrade
   m_EditorClassIdentifier: 
-  description: Eye Damage -50%
-  eyesighDamageReduction: 0.5
+  description: Eye Damage -40%
+  eyesighDamageMultiplier: 0.6

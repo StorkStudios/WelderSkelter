@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Gamechanger_UnweldingBouncesUpgrade
   m_EditorClassIdentifier: 
   description: Welded Items unweld upon bouncing off the Welding Area Boundries,
-    granting 50% of their Scrap value
+    instantly granting 100% of their Selling Price
   explosionForceIncrement: 4
-  scrapMoneyMultiplier: 0.5
+  scrapMoneyMultiplier: 1

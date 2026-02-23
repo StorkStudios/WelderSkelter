@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c242fc6a42bc3d15a3918ca4c587247, type: 3}
   m_Name: Stats_AllIncomeUpgrade
   m_EditorClassIdentifier: 
-  description: Money Income Mult +10%
+  description: Money Income +10%
   incomeMultiplier: 1.1
