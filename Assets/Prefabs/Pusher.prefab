@@ -247,8 +247,10 @@ MonoBehaviour:
   - {fileID: 7750678728996187799}
   - {fileID: 1388376490202423078}
   pusher: {fileID: 2808352210375894754}
-  basePushForce: {x: 0, y: -4}
-  randomPushForceRange: {x: 3, y: 0}
+  basePushForce: {x: 0, y: -8}
+  randomPushForceRange: {x: 5, y: 1}
+  minTorque: -90
+  maxTorque: 90
   itemsLimitErrorMessage: {fileID: 1199704373435984621}
   soundModule:
     sounds:
