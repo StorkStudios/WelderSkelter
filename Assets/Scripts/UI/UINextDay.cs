@@ -25,6 +25,13 @@ public class UINextDay : MonoBehaviour
     {
         DayshiftData data = ShopPhaseManager.Instance.NextDayData;
         money.text = $"{data.moneyToCollect}zł";
-        time.text = $"{(int)(data.dayLength / 60)}:{(int)(data.dayLength % 60)}";
+        if (data.dayLength % 60 < 10)
+        {
+            time.text = $"{(int)(data.dayLength / 60)}:0{(int)(data.dayLength % 60)}";
+        }
+        else
+        {
+            time.text = $"{(int)(data.dayLength / 60)}:{(int)(data.dayLength % 60)}";
+        }
     }
 }
