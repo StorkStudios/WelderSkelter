@@ -250,6 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff7c1848570050282b42ba4ceba79878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnBlockWeldingDuration: 0.1
   WeldedThisFrame: 0
 --- !u!114 &-844211707165613366
 MonoBehaviour:

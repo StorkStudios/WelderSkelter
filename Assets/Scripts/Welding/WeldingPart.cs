@@ -19,6 +19,9 @@ public class WeldingPart : MonoBehaviour
         public float unweldScrapMoneyMultiplier = 1;
     }
 
+    [SerializeField]
+    private float spawnBlockWeldingDuration;
+
     private WeldingPartData data;
     private Dictionary<WeldingPartData, int> components;
     public Dictionary<WeldingPartData, int> Components => components;
@@ -29,6 +32,9 @@ public class WeldingPart : MonoBehaviour
     public Rigidbody2D Rb => rb;
     public bool WeldedThisFrame = false;
     private WeldingPartModifier modifier;
+
+    public bool UnweldBlock => Time.time < unweldTimestamp + spawnBlockWeldingDuration;
+    private float unweldTimestamp;
 
     public string Summary => components.Keys.Aggregate("", (current, key) => current + $"{key} x{components[key]}, ");
 
@@ -66,6 +72,8 @@ public class WeldingPart : MonoBehaviour
                 Destroy(gameObject);
             }
         };
+
+        unweldTimestamp = Time.time;
     }
 
     private void OnWeldStart()
@@ -148,7 +156,7 @@ public class WeldingPart : MonoBehaviour
 
     public Dictionary<WeldingPartData, int> WeldWith(WeldingPart otherPart)
     {
-        if (otherPart.WeldedThisFrame || WeldedThisFrame)
+        if (otherPart.WeldedThisFrame || WeldedThisFrame || otherPart.UnweldBlock || UnweldBlock)
         {
             return null;
         }
@@ -241,6 +249,7 @@ public class WeldingPart : MonoBehaviour
         float multiplier = PlayerUpgrades.Instance.GetModifier<MoneyManagerModifiers>().scrapSellMoneyMultipler;
         multiplier *= modifier.unweldScrapMoneyMultiplier;
         MoneyManager.Instance.AddMoney((int)(ItemSeller.Instance.CalculateItemPrice(components) * multiplier));
+        unweldTimestamp = Time.time;
         Destroy(gameObject);
     }
 
