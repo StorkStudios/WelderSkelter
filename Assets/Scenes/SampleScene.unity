@@ -290,13 +290,17 @@ MonoBehaviour:
     - moneyToCollect: 1000
       dayLength: 120
     - moneyToCollect: 2500
-      dayLength: 140
+      dayLength: 130
     - moneyToCollect: 4500
-      dayLength: 160
+      dayLength: 140
     - moneyToCollect: 7000
-      dayLength: 180
+      dayLength: 150
     - moneyToCollect: 10000
-      dayLength: 200
+      dayLength: 160
+    - moneyToCollect: 15000
+      dayLength: 170
+    - moneyToCollect: 30000
+      dayLength: 180
     phaseParents:
       pairs:
       - Key:
@@ -2009,7 +2013,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2269446050797381467, guid: 524e89c677d10f64facde0fee2aec7e0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.000030517578
+      value: 0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 2431549399409857671, guid: 524e89c677d10f64facde0fee2aec7e0, type: 3}
       propertyPath: m_SizeDelta.x
