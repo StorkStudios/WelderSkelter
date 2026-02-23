@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f360dc4f8e45bd2499e555678e201429, type: 3}
   m_Name: Gamechanger_MikeUpgrade
   m_EditorClassIdentifier: 
-  description: Create Mike, The Little Welder
+  description: Create Mike, each time he welds something you get 100% of that item's
+    Scrap price
+  mikesCountIncrement: 1
