@@ -1,4 +1,3 @@
-using StorkStudios.CoreNest;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -11,6 +10,7 @@ public class MikeWelder : MonoBehaviour
     private float radius = 0.1f;
 
     private Welder.WelderModifiers modifiers;
+    private List<WeldingParticles> welderParticles = new List<WeldingParticles>();
 
     private void Start()
     {
@@ -32,13 +32,17 @@ public class MikeWelder : MonoBehaviour
         float angleSetp = 2 * Mathf.PI / modifiers.welderCount;
         for (int i = 0; i < modifiers.welderCount; i++)
         {
-            GameObject particles = Instantiate(welderParticlesPrefab, transform);
+            WeldingParticles particles = Instantiate(welderParticlesPrefab, transform).GetComponent<WeldingParticles>();
             particles.transform.localPosition = new Vector3(Mathf.Cos(i * angleSetp), Mathf.Sin(i * angleSetp)) * radius + Vector3.back;
+            particles.SetWelding(true);
+            welderParticles.Add(particles);
         }
     }
 
     private void Update()
     {
+        welderParticles.ForEach(e => e.transform.localScale = modifiers.GetCurrentRadiusMultiplier() * this.radius * Vector3.one);
+
         float radius = modifiers.welderPositionRadius;
         float angleSetp = 2 * Mathf.PI / modifiers.welderCount;
         for (int i = 0; i < modifiers.welderCount; i++)

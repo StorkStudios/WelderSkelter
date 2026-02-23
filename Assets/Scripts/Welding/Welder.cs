@@ -40,8 +40,8 @@ public class Welder : Singleton<Welder>
         weldingCanvasUtils = GetComponent<WeldingCanvasUtils>();
 
         WorkPhaseManager.Instance.WorkPhasePreStartEvent += OnBeforeWorkPhaseStart;
-        WeldingMask.Instance.MaskOn.ValueChanged += OnMaskStateChanged;
     }
+
     private void OnBeforeWorkPhaseStart()
     {
         modifiers = PlayerUpgrades.Instance.GetModifier<WelderModifiers>();
@@ -60,7 +60,6 @@ public class Welder : Singleton<Welder>
         {
             WeldingParticles particles = Instantiate(welderParticlesPrefab, transform).GetComponent<WeldingParticles>();
             particles.transform.localPosition = new Vector3(Mathf.Cos(i * angleStep), Mathf.Sin(i * angleStep)) * positionRadius + Vector3.forward;
-            particles.transform.localScale = modifiers.GetCurrentRadiusMultiplier() * radius * Vector3.one;
             particles.SetWelding(IsWelding);
             welderParticles.Add(particles);
         }
@@ -77,6 +76,8 @@ public class Welder : Singleton<Welder>
     {
         if (IsWelding)
         {
+            welderParticles.ForEach(e => e.transform.localScale = modifiers.GetCurrentRadiusMultiplier() * this.radius * Vector3.one);
+
             float radius = modifiers.welderPositionRadius;
             float angleSetp = 2 * Mathf.PI / modifiers.welderCount;
             for (int i = 0; i < modifiers.welderCount; i++)
@@ -132,10 +133,4 @@ public class Welder : Singleton<Welder>
         inputWelding = false;
         welderParticles.ForEach(e => e.SetWelding(IsWelding));
     }
-
-    private void OnMaskStateChanged(bool oldValue, bool newValue)
-    {
-        welderParticles.ForEach(e => e.transform.localScale = modifiers.GetCurrentRadiusMultiplier() * radius * Vector3.one);
-    }
-
 }
