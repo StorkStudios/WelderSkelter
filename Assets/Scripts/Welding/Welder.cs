@@ -74,10 +74,10 @@ public class Welder : Singleton<Welder>
 
     private void Update()
     {
+        welderParticles.ForEach(e => e.transform.localScale = modifiers.GetCurrentRadiusMultiplier() * radius * Vector3.one);
+
         if (IsWelding)
         {
-            welderParticles.ForEach(e => e.transform.localScale = modifiers.GetCurrentRadiusMultiplier() * this.radius * Vector3.one);
-
             float radius = modifiers.welderPositionRadius;
             float angleSetp = 2 * Mathf.PI / modifiers.welderCount;
             for (int i = 0; i < modifiers.welderCount; i++)
