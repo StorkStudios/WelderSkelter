@@ -385,11 +385,12 @@ MonoBehaviour:
     pairs:
     - Key:
         item: 0
-      Value: 'Colonel "Heavy Boy":\n\n"Good evening, Karl!\n\nYour task will be to
-        weld the space junk and then to sell the resulting Items. You can move objects
+      Value: 'Colonel "Heavy Boy":\n\n"Good evening, Karl!\n\nYour task will be welding
+        the space junk and then selling the resulting Items. You can move objects
         around the Welding Area with the Left Mouse Button and then use you welder
         with Right Mouse Button to weld them together. To sell the resulting Items,
-        press the Middle Mouse Button or S. Try to weld them together in a groups
+        press the Middle Mouse Button or S. Remember, only Items created from at
+        least two welded objects have any value. Try to weld them together in a groups
         of 3 as an excercise.\n\nAnd don''t forget: welding is bad for your eyesight.
         I highly recommend equipping your mask with Space button before using your
         welder. Otherwise your eyes may be quite damaged after some time..."'
@@ -401,20 +402,21 @@ MonoBehaviour:
         same type, this way they will be much more valuable. The larger the resulting
         Item, the better. But don''t get too greedy: your Welding Area item capacity
         is limited. And don''t forget to sell it before your shift is over!\n\nAlso,
-        did I mention that you can choose which object from the conveyor you want
-        to get? Try moving the Item Pusher with A and D buttons to pick the one you
-        want to have in the Welding Area."'
+        did I mention that you can now choose which object you want to get? There
+        will be always three options presented, try moving the Item Pusher with A
+        and D buttons to pick the one that you want to have in the Welding Area."'
     - Key:
         item: 2
-      Value: "Colonel \"Heavy Boy\":\\n\\n\"Now, we also want you to create specific
-        stuff for us, so we send you these Quests. For completing a Quest you will
-        be rewarded with some money and sometimes also a new item in the Shop, that
-        you can purchase after the your full shift.\\n\\nTo complete a Quest, simply
-        sell the Item that contains described items and the reward will be immediately
-        granted to you. And if you are unsatisfied with your current quests, you
-        can also just discard them with LMB. After doing so you will get new ones,
-        hopefully meeting your expectations. Pick your quests wisely: you need to
-        get at least 500z\u0142 to successfully complete this tutorial!\""
+      Value: "Colonel \"Heavy Boy\":\\n\\n\"From now on we also want you to create
+        specific stuff for us, so we send you these Quests. For completing a Quest
+        you will be rewarded with some money and sometimes also a new item in the
+        Shop, that you can purchase after the your full shift.\\n\\nTo complete a
+        Quest, simply sell the Item that contains described items and the reward
+        will be immediately granted to you. And if you are unsatisfied with your
+        current quests, you can also just discard them with LMB. After doing so you
+        will get new ones, hopefully meeting your expectations. Pick your quests
+        wisely: you need to get at least 500z\u0142 to successfully complete this
+        tutorial!\""
 --- !u!1 &131519170 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9003347592809329931, guid: a10b8e4a28a25434e99e895c3e4f2e70, type: 3}

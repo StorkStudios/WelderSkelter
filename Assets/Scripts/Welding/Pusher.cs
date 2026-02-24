@@ -293,6 +293,12 @@ public class Pusher : Singleton<Pusher>
         part.transform.position = SpawnLocationOnPusher.position;
         float distance = (slots[slot].position - transform.position).magnitude;
         itemsOnSlots[slot] = part;
+
+        if (modifier.disableMovement && slot != 1)
+        {
+            part.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
+        }
+
         yield return part.transform.DOMove(slots[slot].position, delayBetweenItemGroups * modifier.GetItemDelayMultiplier() * (distance / baseItemSpeed)).WaitForCompletion();
     }
 
@@ -306,6 +312,7 @@ public class Pusher : Singleton<Pusher>
         {
             spawnCoroutine = StartCoroutine(SpawnItemsCoroutine());
         }
+        pusher.SetKeyboardTips(!modifier.disableMovement);
 
         SpawnMikes();
     }

@@ -1,5 +1,38 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4687926425019918731
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3737966681441801295}
+  m_Layer: 0
+  m_Name: KeyboardTips
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3737966681441801295
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4687926425019918731}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7347727925499497374}
+  - {fileID: 8956263780560199589}
+  m_Father: {fileID: 8803319157911146462}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4715849422890159356
 GameObject:
   m_ObjectHideFlags: 0
@@ -27,12 +60,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4715849422890159356}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.003674925, y: 0.0031535823, z: 0.69385785, w: 0.7200957}
-  m_LocalPosition: {x: 0.061, y: 0.582, z: 1.047}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalRotation: {x: -0.0036748697, y: 0.003153562, z: 0.6938579, w: 0.7200957}
+  m_LocalPosition: {x: 0.06099955, y: 0.58200014, z: 1.0470004}
+  m_LocalScale: {x: 0.04999999, y: 0.050000004, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8803319157911146462}
+  m_Father: {fileID: 3737966681441801295}
   m_LocalEulerAnglesHint: {x: -0.554, y: -0.031982422, z: 87.874}
 --- !u!33 &1396016356552009025
 MeshFilter:
@@ -136,12 +169,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8583755862483367200}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.003674925, y: 0.0031535823, z: 0.69385785, w: 0.7200957}
-  m_LocalPosition: {x: 0.019, y: -0.535, z: 1.058}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalRotation: {x: -0.0036748697, y: 0.003153562, z: 0.6938579, w: 0.7200957}
+  m_LocalPosition: {x: 0.018999757, y: -0.5350002, z: 1.0580004}
+  m_LocalScale: {x: 0.04999999, y: 0.050000004, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8803319157911146462}
+  m_Father: {fileID: 3737966681441801295}
   m_LocalEulerAnglesHint: {x: -0.554, y: -0.031982422, z: 87.874}
 --- !u!33 &4867246226909414787
 MeshFilter:
@@ -283,14 +316,14 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 761083759650228504, guid: 76404f8879130df4caffc09e74b6c7c3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7347727925499497374}
-    - targetCorrespondingSourceObject: {fileID: 761083759650228504, guid: 76404f8879130df4caffc09e74b6c7c3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8956263780560199589}
+      addedObject: {fileID: 3737966681441801295}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 76404f8879130df4caffc09e74b6c7c3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3638929947313508484}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 76404f8879130df4caffc09e74b6c7c3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6386976051061330153}
   m_SourcePrefab: {fileID: 100100000, guid: 76404f8879130df4caffc09e74b6c7c3, type: 3}
 --- !u!4 &8803319157911146462 stripped
 Transform:
@@ -324,3 +357,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6386976051061330153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8963619379449641879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13a2179d6be234742837dc334edc75fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyboardTips: {fileID: 4687926425019918731}

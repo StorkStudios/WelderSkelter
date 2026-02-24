@@ -5,12 +5,14 @@ public class PusherManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject pusherPrefab;
-    
+
     private List<Animator> pusherAnimators = new List<Animator>();
+    private List<PushinatorController> pushinators = new List<PushinatorController>();
 
     public void Restart(int pushersCount, float positionOffset)
     {
         pusherAnimators.Clear();
+        pushinators.Clear();
         foreach (Transform child in transform)
         {
             Destroy(child.gameObject);
@@ -21,6 +23,7 @@ public class PusherManager : MonoBehaviour
             GameObject gameObject = Instantiate(pusherPrefab, transform);
             gameObject.transform.position += positionOffset * i * Vector3.left;
             pusherAnimators.Add(gameObject.GetComponent<Animator>());
+            pushinators.Add(gameObject.GetComponent<PushinatorController>());
         }
     }
 
@@ -29,6 +32,14 @@ public class PusherManager : MonoBehaviour
         foreach (Animator animator in pusherAnimators)
         {
             animator.SetTrigger("PushTrigger");
+        }
+    }
+
+    public void SetKeyboardTips(bool value)
+    {
+        foreach(PushinatorController pushinator in pushinators)
+        {
+            pushinator.SetKeyboardTips(value);
         }
     }
 }
