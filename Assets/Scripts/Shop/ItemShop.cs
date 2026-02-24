@@ -19,7 +19,7 @@ public class ItemShop : Singleton<ItemShop>
 
     protected override void Awake()
     {
-        WorkPhaseManager.Instance.WorkPhasePreStartEvent += () => taskItems.Clear();
+        //WorkPhaseManager.Instance.WorkPhasePreStartEvent += () => taskItems.Clear();
         base.Awake();
     }
 
@@ -73,6 +73,7 @@ public class ItemShop : Singleton<ItemShop>
         MoneyManager.Instance.DeductMoney(item.Cost);
         PlayerUpgrades.Instance.AddUpgrade(item.Upgrade);
         purchaseHistory.Add(item);
+        taskItems.Remove(item);
     }
 
     public void AddTaskItem(Item taskItem)
