@@ -119,10 +119,10 @@ public class Welder : Singleton<Welder>
 
     private void OnWeldStart()
     {
-        if (PlayerItemPusher.Instance.IsPushing)
-        {
-            return;
-        }
+        //if (PlayerItemPusher.Instance.IsPushing)
+        //{
+        //    return;
+        //}
 
         inputWelding = true;
         welderParticles.ForEach(e => e.SetWelding(IsWelding));
@@ -132,5 +132,10 @@ public class Welder : Singleton<Welder>
     {
         inputWelding = false;
         welderParticles.ForEach(e => e.SetWelding(IsWelding));
+    }
+
+    public bool IsWeldingPermanently()
+    {
+        return modifiers.weldPermanently;
     }
 }

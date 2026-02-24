@@ -82,10 +82,10 @@ public class PlayerItemPusher : Singleton<PlayerItemPusher>
 
     private void OnPushItem(bool pushInput)
     {
-        if (Welder.Instance.IsWelding)
-        {
-            return;
-        }
+        //if (Welder.Instance.IsWelding && !Welder.Instance.IsWeldingPermanently())
+        //{
+        //    return;
+        //}
 
         if (pushInput)
         {
