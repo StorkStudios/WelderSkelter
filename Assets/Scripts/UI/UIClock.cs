@@ -55,6 +55,7 @@ public class UIClock : MonoBehaviour
         {
             if ((int)timeLeft <= 0)
             {
+                lastTickedSecond = tickingStartTime;
                 //audioSource.PlayOneShot(endAudioClip);
             }
             else if ((int)timeLeft <= lastTickedSecond)
