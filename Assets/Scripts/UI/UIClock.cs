@@ -1,6 +1,8 @@
 using TMPro;
 using UnityEngine;
+using System.Collections.Generic;
 
+[RequireComponent(typeof(AudioSource))]
 public class UIClock : MonoBehaviour
 {
     [SerializeField]
@@ -11,6 +13,21 @@ public class UIClock : MonoBehaviour
     private Color accent;
     [SerializeField]
     private float accentStartTime;
+    [SerializeField]
+    private AudioClip tickingAudioClip;
+    [SerializeField]
+    private AudioClip endAudioClip;
+    [SerializeField]
+    private int tickingStartTime;
+
+    private AudioSource audioSource;
+    private int lastTickedSecond = 0;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        lastTickedSecond = tickingStartTime;
+    }
 
     private void Update()
     {
@@ -32,6 +49,19 @@ public class UIClock : MonoBehaviour
         else
         {
             clock.color = normal;
+        }
+
+        if (WorkPhaseManager.Instance.CurrentData.dayLength > 0)
+        {
+            if ((int)timeLeft <= 0)
+            {
+                //audioSource.PlayOneShot(endAudioClip);
+            }
+            else if ((int)timeLeft <= lastTickedSecond)
+            {
+                lastTickedSecond--;
+                audioSource.PlayOneShot(tickingAudioClip);
+            }
         }
     }
 }
