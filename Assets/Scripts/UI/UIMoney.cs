@@ -1,5 +1,7 @@
 using TMPro;
 using UnityEngine;
+using System.Collections.Generic;
+using UnityEngine.InputSystem;
 
 public class UIMoney : MonoBehaviour
 {
@@ -38,6 +40,11 @@ public class UIMoney : MonoBehaviour
         if (moneyThisFrame != 0)
         {
             Instantiate(effectPrefab.gameObject, transform).GetComponent<UIMoneyChangeEffect>().StartAnimation(moneyThisFrame);
+
+            GameObject effect = Instantiate(effectPrefab.gameObject, transform);
+            effect.transform.position = Mouse.current.position.value;
+            effect.GetComponent<UIMoneyChangeEffect>().StartAnimation(moneyThisFrame);
+
             moneyThisFrame = 0;
         }
     }
