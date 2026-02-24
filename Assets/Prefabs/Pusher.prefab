@@ -247,8 +247,8 @@ MonoBehaviour:
   - {fileID: 7750678728996187799}
   - {fileID: 1388376490202423078}
   pusher: {fileID: 2808352210375894754}
-  basePushForce: {x: 0, y: -6}
-  randomPushForceRange: {x: 4, y: 1}
+  basePushForce: {x: 0, y: -2}
+  randomPushForceRange: {x: 2, y: 0}
   minTorque: -45
   maxTorque: 45
   itemsLimitErrorMessage: {fileID: 1199704373435984621}

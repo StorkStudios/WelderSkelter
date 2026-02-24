@@ -31,11 +31,11 @@ public class ItemSeller : Singleton<ItemSeller>
         int componentsSum = dictionary.Aggregate(0, (current, key) => current + key.Value);
         if (dictionary.Values.Count() > 1)
         {
-            return (componentsSum - 1) * 10;
+            return (componentsSum - 1) * 25;
         }
         else
         {
-            return componentsSum * (componentsSum - 1) * 10;
+            return componentsSum * (componentsSum - 1) * 25;
         }
     }
 
