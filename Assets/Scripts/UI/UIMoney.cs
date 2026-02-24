@@ -15,6 +15,7 @@ public class UIMoney : MonoBehaviour
     private UIMoneyChangeEffect effectPrefab;
 
     private bool IsOverTarget => MoneyManager.Instance.Money >= WorkPhaseManager.Instance.CurrentData.moneyToCollect;
+    private int moneyThisFrame = 0;
 
     private void Start()
     {
@@ -26,13 +27,18 @@ public class UIMoney : MonoBehaviour
     private void OnMoneyChanged(int oldValue, int newValue)
     {
         money.text = $"{newValue}zł";
-        Instantiate(effectPrefab.gameObject, transform)
-            .GetComponent<UIMoneyChangeEffect>().StartAnimation(newValue - oldValue);
+        moneyThisFrame += newValue - oldValue;
     }
 
     private void Update()
     {
         target.text = $"{WorkPhaseManager.Instance.CurrentData.moneyToCollect}zł";
         money.color = IsOverTarget ? overColor : underColor;
+
+        if (moneyThisFrame != 0)
+        {
+            Instantiate(effectPrefab.gameObject, transform).GetComponent<UIMoneyChangeEffect>().StartAnimation(moneyThisFrame);
+            moneyThisFrame = 0;
+        }
     }
 }
