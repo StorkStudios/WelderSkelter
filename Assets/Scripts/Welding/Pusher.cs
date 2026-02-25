@@ -306,6 +306,7 @@ public class Pusher : Singleton<Pusher>
     {
         modifier = PlayerUpgrades.Instance.GetModifier<PusherModifier>();
         itemsCount = 0;
+        selectedSlot = 1;
         lockMovement = false;
         pusher.Restart(modifier.pushersCount, Mathf.Abs(slots[0].position.x - slots[1].position.x));
         if (spawnCoroutine == null)
