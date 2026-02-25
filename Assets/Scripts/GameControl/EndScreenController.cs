@@ -5,7 +5,7 @@ using SceneEnum = StorkStudios.CoreNest.Scene;
 
 public class EndScreenController : Singleton<EndScreenController>
 {
-    public enum Screen { Win, Lose }
+    public enum Screen { Win, Lose, TutorialWin, TutorialLose }
 
     [SerializeField]
     private SerializedDictionary<Screen, GameObject> screens;

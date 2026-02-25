@@ -74,8 +74,7 @@ public class TutorialManager : Singleton<TutorialManager>
         }
         else
         {
-            //TODO: ending tutorial
-            SetPhase(GameManagerHelper.Phase.Win);
+            SetPhase(won ? GameManagerHelper.Phase.Win : GameManagerHelper.Phase.Lose);
         }
     }
 
@@ -89,9 +88,17 @@ public class TutorialManager : Singleton<TutorialManager>
     private void SetPhase(GameManagerHelper.Phase phase)
     {
         gameManagerHelper.SetPhase(phase);
-        if (phase == GameManagerHelper.Phase.Tutorial)
+        switch (phase)
         {
-            TutorialPhaseManager.Instance.BeginTutorialPhase(tutorialText[currentTutorialLevel]);
+            case GameManagerHelper.Phase.Tutorial:
+                TutorialPhaseManager.Instance.BeginTutorialPhase(tutorialText[currentTutorialLevel]);
+                break;
+            case GameManagerHelper.Phase.Win:
+                EndScreenController.Instance.SetScreen(EndScreenController.Screen.TutorialWin);
+                break;
+            case GameManagerHelper.Phase.Lose:
+                EndScreenController.Instance.SetScreen(EndScreenController.Screen.TutorialLose);
+                break;
         }
     }
 }
