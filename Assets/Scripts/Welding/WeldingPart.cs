@@ -220,7 +220,7 @@ public class WeldingPart : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!modifier.unweldOnCollision || components.Aggregate(0, (current, e) => current + e.Value) <= 1)
+        if (!modifier.unweldOnCollision || WeldedThisFrame || UnweldBlock || components == null || components.Aggregate(0, (current, e) => current + e.Value) <= 1)
         {
             return;
         }
@@ -250,6 +250,8 @@ public class WeldingPart : MonoBehaviour
         multiplier *= modifier.unweldScrapMoneyMultiplier;
         MoneyManager.Instance.AddMoney((int)(ItemSeller.Instance.CalculateItemPrice(components) * multiplier));
         unweldTimestamp = Time.time;
+        WeldedThisFrame = true;
+        gameObject.SetActive(false);
         Destroy(gameObject);
     }
 
