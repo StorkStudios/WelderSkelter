@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb68e46cd96f0124589906ae4f48f839, type: 3}
   m_Name: Gamechanger_BulletTimeUpgrade
   m_EditorClassIdentifier: 
-  description: Item Move Speed -75% when pressing LMB
+  description: Item Move Speed -75% when pressing RMB
   moveSpeedMultiplier: 0.75

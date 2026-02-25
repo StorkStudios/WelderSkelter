@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: Welded Items unweld upon bouncing off the Welding Area Boundries,
     instantly granting 100% of their Selling Price
-  explosionForceIncrement: 4
+  explosionForceIncrement: 6
   scrapMoneyMultiplier: 1

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f12c369b19820b4da4951bc21638874, type: 3}
   m_Name: Gamechanger_MaskHealingUpgrade
   m_EditorClassIdentifier: 
-  description: Heal 15% of Eye Damage per second when mask is on
-  maskOnMaxHealthPercentageHealIncrement: 0.15
+  description: Heal 20% of Eye Damage per second when mask is on
+  maskOnMaxHealthPercentageHealIncrement: 0.2
