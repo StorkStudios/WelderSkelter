@@ -1519,6 +1519,10 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 32
       objectReference: {fileID: 0}
+    - target: {fileID: 3531959592949988529, guid: 8096e8cab73df404bac0c6942abef63d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4128eb23ef9e5c6448ec6629b0b01164, type: 2}
     - target: {fileID: 3605661207160210483, guid: 8096e8cab73df404bac0c6942abef63d, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.5
