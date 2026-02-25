@@ -18,6 +18,7 @@ public class PlayerInputManager : Singleton<PlayerInputManager>
     public event System.Action<Vector2> MouseMoveOnWeldCanvasEvent;
     public event System.Action<float> PusherMoveEvent;
     public event System.Action<bool> PushItemEvent;
+    public event System.Action PauseEvent;
 
     public bool IsWelding { get; private set; } = false;
 
@@ -84,6 +85,14 @@ public class PlayerInputManager : Singleton<PlayerInputManager>
         if (context.performed)
         {
             PusherMoveEvent?.Invoke(context.ReadValue<float>());
+        }
+    }
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            PauseEvent?.Invoke();
         }
     }
 

@@ -7,6 +7,24 @@ public class WeldingParticles : MonoBehaviour
     [SerializeField]
     private GameObject weldingPoint;
 
+    private void Start()
+    {
+        PauseManager.Instance.IsPaused.ValueChanged += OnPauseChanged;
+    }
+
+    private void OnDestroy()
+    {
+        if (PauseManager.IsInstanced)
+        {
+            PauseManager.Instance.IsPaused.ValueChanged -= OnPauseChanged;
+        }
+    }
+
+    private void OnPauseChanged(bool _, bool newValue)
+    {
+        gameObject.SetActive(!newValue);
+    }
+
     public void SetWelding(bool weldingState)
     {
         if (weldingState)

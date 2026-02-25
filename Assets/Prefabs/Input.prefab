@@ -194,6 +194,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: ef3b0a36-b567-4581-a973-7b1ef3d1b48d
     m_ActionName: 'Player/Push[/Mouse/rightButton]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6572395581207463156}
+        m_TargetAssemblyTypeName: PlayerInputManager, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3049709b-b31e-4cf6-870e-7e1e64d0b981
+    m_ActionName: 'Player/Pause[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: 
