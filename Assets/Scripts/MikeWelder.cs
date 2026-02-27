@@ -79,4 +79,9 @@ public class MikeWelder : MonoBehaviour
             }
         }
     }
+
+    private void OnDestroy()
+    {
+        WorkPhaseManager.Instance.WorkPhasePreStartEvent -= OnBeforeWorkPhaseStart;
+    }
 }
