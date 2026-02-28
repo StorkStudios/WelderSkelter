@@ -25,7 +25,7 @@ public class EndScreenController : Singleton<EndScreenController>
 
         if (screen == Screen.Lose)
         {
-            moneyText.text = $"{MoneyManager.Instance.Money}zł";
+            moneyText.text = $"{MoneyManager.Instance.Money} zł";
             dayText.text = $"{GameManager.Instance.CurrentDay}/{GameManager.Instance.TotalDays}";
         }
     }
