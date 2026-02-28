@@ -2204,18 +2204,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pause
       objectReference: {fileID: 0}
-    - target: {fileID: 2272564569598339848, guid: 698274372e4dad7429b1759cd5ea96cc, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 8253188558622618820}
-    - target: {fileID: 2272564569598339848, guid: 698274372e4dad7429b1759cd5ea96cc, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BackToMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 2272564569598339848, guid: 698274372e4dad7429b1759cd5ea96cc, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PauseScreenController, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 3209330507096547001, guid: 698274372e4dad7429b1759cd5ea96cc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2255,18 +2243,6 @@ PrefabInstance:
     - target: {fileID: 3209330507096547001, guid: 698274372e4dad7429b1759cd5ea96cc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8278274562496962543, guid: 698274372e4dad7429b1759cd5ea96cc, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 8253188558622618820}
-    - target: {fileID: 8278274562496962543, guid: 698274372e4dad7429b1759cd5ea96cc, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Unpause
-      objectReference: {fileID: 0}
-    - target: {fileID: 8278274562496962543, guid: 698274372e4dad7429b1759cd5ea96cc, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PauseScreenController, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2356,7 +2332,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2269446050797381467, guid: 524e89c677d10f64facde0fee2aec7e0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000030517578
+      value: -0.00015258789
       objectReference: {fileID: 0}
     - target: {fileID: 2431549399409857671, guid: 524e89c677d10f64facde0fee2aec7e0, type: 3}
       propertyPath: m_SizeDelta.x
@@ -2646,17 +2622,6 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
---- !u!114 &8253188558622618820 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4277635673900891393, guid: 698274372e4dad7429b1759cd5ea96cc, type: 3}
-  m_PrefabInstance: {fileID: 2451578194584707566}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b4555933af2d7a4f8c69bc6ab218740, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &8369956808414292504
 PrefabInstance:
   m_ObjectHideFlags: 0
