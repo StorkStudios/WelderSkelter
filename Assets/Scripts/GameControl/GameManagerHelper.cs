@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using SceneEnum = StorkStudios.CoreNest.Scene;
 
 [System.Serializable]
 public class GameManagerHelper
 {
-    public enum Phase { Menu, Work, Shop, Tutorial, Win, Lose, Init }
+    public enum Phase { Menu, Work, Shop, Tutorial, Win, Lose, Init, Exit }
 
     [SerializeField]
     [ReadOnly]
@@ -50,15 +52,17 @@ public class GameManagerHelper
             yield return new WaitUntil(() => fadeEnded);
         }
 
-        foreach (Phase key in phaseParents.Keys)
-        {
-            phaseParents[key].SetActive(key == phase);
-        }
+        if (phase != Phase.Exit)
+        {   
+            foreach (Phase key in phaseParents.Keys)
+            {
+                phaseParents[key].SetActive(key == phase);
+            }
 
-        fadeEnded = false;
-        phaseParents[Phase.Init].SetActive(true);
-        screenMaskManager.FadeOut(() => phaseParents[Phase.Init].SetActive(false));
-        //yield return new WaitUntil(() => fadeEnded);
+            fadeEnded = false;
+            phaseParents[Phase.Init].SetActive(true);
+            screenMaskManager.FadeOut(() => phaseParents[Phase.Init].SetActive(false));
+        }
 
         switch (phase)
         {
@@ -80,6 +84,12 @@ public class GameManagerHelper
         }
 
         currentPhase = phase;
+    }
+
+    public IEnumerator BackToMenu()
+    {
+        yield return SetPhase(Phase.Exit);
+        SceneManager.LoadScene(SceneEnum.SampleScene.GetBuildIndex());
     }
 
     public void StartNextDay()

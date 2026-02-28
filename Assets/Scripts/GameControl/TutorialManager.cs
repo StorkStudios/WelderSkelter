@@ -27,6 +27,7 @@ public class TutorialManager : Singleton<TutorialManager>
         WorkPhaseManager.Instance.WorkPhaseEnded += OnWorkPhaseEnded;
         ShopPhaseManager.Instance.ShopPhaseEnded += OnShopPhaseEnded;
         TutorialPhaseManager.Instance.TutorialPhaseEnded += OnTutorialPhaseEnded;
+        PauseScreenController.Instance.BackToMenuEvent += OnBackToMenu;
     }
 
     private void OnStartGame()
@@ -38,6 +39,7 @@ public class TutorialManager : Singleton<TutorialManager>
         WorkPhaseManager.Instance.WorkPhaseEnded -= OnWorkPhaseEnded;
         ShopPhaseManager.Instance.ShopPhaseEnded -= OnShopPhaseEnded;
         TutorialPhaseManager.Instance.TutorialPhaseEnded -= OnTutorialPhaseEnded;
+        PauseScreenController.Instance.BackToMenuEvent -= OnBackToMenu;
     }
 
     private void StartTutorial()
@@ -101,5 +103,10 @@ public class TutorialManager : Singleton<TutorialManager>
                 EndScreenController.Instance.SetScreen(EndScreenController.Screen.TutorialLose);
                 break;
         }
+    }
+
+    private void OnBackToMenu()
+    {
+        StartCoroutine(gameManagerHelper.BackToMenu());
     }
 }

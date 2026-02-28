@@ -2,9 +2,12 @@ using UnityEngine;
 using StorkStudios.CoreNest;
 using UnityEngine.SceneManagement;
 using SceneEnum = StorkStudios.CoreNest.Scene;
+using System;
 
-public class PauseScreenController : MonoBehaviour
+public class PauseScreenController : Singleton<PauseScreenController>
 {
+    public event Action BackToMenuEvent;
+
     private void Start()
     {
         PauseManager.Instance.IsPaused.ValueChanged += OnPauseValueChanged;
@@ -23,6 +26,7 @@ public class PauseScreenController : MonoBehaviour
 
     public void BackToMenu()
     {
-        SceneManager.LoadScene(SceneEnum.SampleScene.GetBuildIndex());
+        Unpause();
+        BackToMenuEvent?.Invoke();
     }
 }

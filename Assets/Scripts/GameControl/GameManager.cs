@@ -14,6 +14,7 @@ public class GameManager : Singleton<GameManager>
         MainMenuController.Instance.StartTutorialEvent += StartTutorial;
         WorkPhaseManager.Instance.WorkPhaseEnded += OnGamePhaseEnded;
         ShopPhaseManager.Instance.ShopPhaseEnded += OnShopPhaseEnded;
+        PauseScreenController.Instance.BackToMenuEvent += OnBackToMenu;
 
         StartCoroutine(gameManagerHelper.SetPhase(GameManagerHelper.Phase.Menu));
     }
@@ -26,6 +27,7 @@ public class GameManager : Singleton<GameManager>
         MainMenuController.Instance.StartTutorialEvent -= StartTutorial;
         WorkPhaseManager.Instance.WorkPhaseEnded -= OnGamePhaseEnded;
         ShopPhaseManager.Instance.ShopPhaseEnded -= OnShopPhaseEnded;
+        PauseScreenController.Instance.BackToMenuEvent -= OnBackToMenu;
     }
 
     private void OnStartGame()
@@ -49,5 +51,10 @@ public class GameManager : Singleton<GameManager>
     {
         gameManagerHelper.StartNextDay();
         StartCoroutine(gameManagerHelper.SetPhase(GameManagerHelper.Phase.Work));
+    }
+
+    private void OnBackToMenu()
+    {
+        StartCoroutine(gameManagerHelper.BackToMenu());
     }
 }
