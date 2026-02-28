@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef2ba300727aa4e4eadbfdca81fbf520, type: 3}
   m_Name: Gamechanger_TripleWelderUpgrade
   m_EditorClassIdentifier: 
-  description: Upgrade to triple welder
+  description: Upgrade to quadruple welder
   welderPositionRadiusIncrement: 0.5
   welderCountIncrement: 3

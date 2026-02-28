@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1036167a7f86b9488f9638288d439ab, type: 3}
   m_Name: TaskSkill4it_Gamechanger_WelderUpgrade
   m_EditorClassIdentifier: 
-  title: TRIPLE WELDER MUTANT ARM
+  title: QUADRUPLE WELDER MUTANT ARM
   color: {r: 0.5803922, g: 0.29803923, b: 0.62352943, a: 1}
   requiredParts:
   - {fileID: 11400000, guid: 028d00f18e29e38c09003110718d8c42, type: 2}
