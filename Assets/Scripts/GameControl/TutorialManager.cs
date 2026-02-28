@@ -28,6 +28,8 @@ public class TutorialManager : Singleton<TutorialManager>
         ShopPhaseManager.Instance.ShopPhaseEnded += OnShopPhaseEnded;
         TutorialPhaseManager.Instance.TutorialPhaseEnded += OnTutorialPhaseEnded;
         PauseScreenController.Instance.BackToMenuEvent += OnBackToMenu;
+
+        DG.Tweening.DOTween.SetTweensCapacity(1250, 50);
     }
 
     private void OnStartGame()
