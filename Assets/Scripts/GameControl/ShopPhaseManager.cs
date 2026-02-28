@@ -8,6 +8,7 @@ public class ShopPhaseManager : Singleton<ShopPhaseManager>
     private DayshiftData nextDayData;
 
     public event System.Action ShopPhaseEnded;
+    public event System.Action ShopPhaseStarted;
 
     public DayshiftData NextDayData => nextDayData;
 
@@ -16,6 +17,7 @@ public class ShopPhaseManager : Singleton<ShopPhaseManager>
         this.nextDayData = nextDayData;
 
         ItemShop.Instance.ShowShop();
+        ShopPhaseStarted?.Invoke();
     }
 
     public void EndShopPhase()

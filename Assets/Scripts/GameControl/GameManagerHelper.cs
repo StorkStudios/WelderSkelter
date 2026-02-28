@@ -1,11 +1,15 @@
+using StorkStudios.CoreNest;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using StorkStudios.CoreNest;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using SceneEnum = StorkStudios.CoreNest.Scene;
 
 [System.Serializable]
 public class GameManagerHelper
 {
-    public enum Phase { Menu, Work, Shop, Tutorial, Win, Lose, Init }
+    public enum Phase { Menu, Work, Shop, Tutorial, Win, Lose, Init, Exit }
 
     [SerializeField]
     [ReadOnly]
@@ -19,17 +23,45 @@ public class GameManagerHelper
 
     public bool IsLastDay => currentDay >= dayshifts.Count - 1;
 
-    public void StartGame()
+    private ScreenMaskManager screenMaskManager;
+
+    private Phase currentPhase = Phase.Init;
+
+    private bool fadeEnded;
+
+    public IEnumerator StartGame()
     {
         currentDay = 0;
-        SetPhase(Phase.Work);
+        return SetPhase(Phase.Work);
     }
 
-    public void SetPhase(Phase phase)
+    public IEnumerator SetPhase(Phase phase)
     {
-        foreach (Phase key in phaseParents.Keys)
+        if (screenMaskManager == null)
         {
-            phaseParents[key].SetActive(key == phase);
+            screenMaskManager = phaseParents[Phase.Init].GetComponent<ScreenMaskManager>();
+        }
+
+        yield return null;
+
+        if (currentPhase != Phase.Init || phase == Phase.Tutorial)
+        {
+            fadeEnded = false;
+            phaseParents[Phase.Init].SetActive(true);
+            screenMaskManager.FadeIn(() => fadeEnded = true);
+            yield return new WaitUntil(() => fadeEnded);
+        }
+
+        if (phase != Phase.Exit)
+        {   
+            foreach (Phase key in phaseParents.Keys)
+            {
+                phaseParents[key].SetActive(key == phase);
+            }
+
+            fadeEnded = false;
+            phaseParents[Phase.Init].SetActive(true);
+            screenMaskManager.FadeOut(() => phaseParents[Phase.Init].SetActive(false));
         }
 
         switch (phase)
@@ -50,6 +82,14 @@ public class GameManagerHelper
                 EndScreenController.Instance.SetScreen(EndScreenController.Screen.Lose);
                 break;
         }
+
+        currentPhase = phase;
+    }
+
+    public IEnumerator BackToMenu()
+    {
+        yield return SetPhase(Phase.Exit);
+        SceneManager.LoadScene(SceneEnum.SampleScene.GetBuildIndex());
     }
 
     public void StartNextDay()

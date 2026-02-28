@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using StorkStudios.CoreNest;
 using UnityEngine;
 
@@ -26,6 +27,7 @@ public class TutorialManager : Singleton<TutorialManager>
         WorkPhaseManager.Instance.WorkPhaseEnded += OnWorkPhaseEnded;
         ShopPhaseManager.Instance.ShopPhaseEnded += OnShopPhaseEnded;
         TutorialPhaseManager.Instance.TutorialPhaseEnded += OnTutorialPhaseEnded;
+        PauseScreenController.Instance.BackToMenuEvent += OnBackToMenu;
     }
 
     private void OnStartGame()
@@ -37,18 +39,19 @@ public class TutorialManager : Singleton<TutorialManager>
         WorkPhaseManager.Instance.WorkPhaseEnded -= OnWorkPhaseEnded;
         ShopPhaseManager.Instance.ShopPhaseEnded -= OnShopPhaseEnded;
         TutorialPhaseManager.Instance.TutorialPhaseEnded -= OnTutorialPhaseEnded;
+        PauseScreenController.Instance.BackToMenuEvent -= OnBackToMenu;
     }
 
     private void StartTutorial()
     {
         AddTutorialUpgrades();
         StartTutorialLevel(TutorialLevel.TutorialLevel1);
-        SetPhase(GameManagerHelper.Phase.Tutorial);
+        StartCoroutine(SetPhase(GameManagerHelper.Phase.Tutorial));
     }
 
     private void OnTutorialPhaseEnded()
     {
-        SetPhase(GameManagerHelper.Phase.Work);
+        StartCoroutine(SetPhase(GameManagerHelper.Phase.Work));
     }
 
     private void AddTutorialUpgrades()
@@ -70,11 +73,11 @@ public class TutorialManager : Singleton<TutorialManager>
     {
         if (!gameManagerHelper.IsLastDay)
         {
-            SetPhase(GameManagerHelper.Phase.Shop);
+            StartCoroutine(SetPhase(GameManagerHelper.Phase.Shop));
         }
         else
         {
-            SetPhase(won ? GameManagerHelper.Phase.Win : GameManagerHelper.Phase.Lose);
+            StartCoroutine(SetPhase(won ? GameManagerHelper.Phase.Win : GameManagerHelper.Phase.Lose));
         }
     }
 
@@ -82,12 +85,12 @@ public class TutorialManager : Singleton<TutorialManager>
     {
         gameManagerHelper.StartNextDay();
         StartTutorialLevel(currentTutorialLevel + 1);
-        SetPhase(GameManagerHelper.Phase.Tutorial);
+        StartCoroutine(SetPhase(GameManagerHelper.Phase.Tutorial));
     }
 
-    private void SetPhase(GameManagerHelper.Phase phase)
+    private IEnumerator SetPhase(GameManagerHelper.Phase phase)
     {
-        gameManagerHelper.SetPhase(phase);
+        yield return gameManagerHelper.SetPhase(phase);
         switch (phase)
         {
             case GameManagerHelper.Phase.Tutorial:
@@ -100,5 +103,10 @@ public class TutorialManager : Singleton<TutorialManager>
                 EndScreenController.Instance.SetScreen(EndScreenController.Screen.TutorialLose);
                 break;
         }
+    }
+
+    private void OnBackToMenu()
+    {
+        StartCoroutine(gameManagerHelper.BackToMenu());
     }
 }
