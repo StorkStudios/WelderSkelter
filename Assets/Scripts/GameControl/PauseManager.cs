@@ -14,6 +14,7 @@ public class PauseManager : Singleton<PauseManager>
         IsPaused.ValueChanged += OnPauseValueChanged;
         PlayerInputManager.Instance.PauseEvent += OnPauseClicked;
         MainMenuController.Instance.StartGameEvent += () => pauseEnabled = true;
+        MainMenuController.Instance.StartTutorialEvent += () => pauseEnabled = true;
     }
 
     private void OnPauseClicked()
