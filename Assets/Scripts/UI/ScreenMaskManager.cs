@@ -17,12 +17,10 @@ public class ScreenMaskManager : MonoBehaviour
         image.DOColor(Color.black, fadeDuration).SetEase(Ease.OutQuart).OnComplete(callback);
     }
 
-    public void FadeOut(Action callback)
+    public void FadeOut(TweenCallback callback)
     {
-        image.color = Color.clear;
-        callback?.Invoke();
-/*        image.DOColor(Color.clear, fadeDuration).SetEase(Ease.InQuart);
-        //Called a little bit before
-        this.CallDelayed(fadeDuration - 0.3f, callback);*/
+        image.color = Color.black;
+        image.DOColor(Color.clear, fadeDuration).SetEase(Ease.InQuart).OnComplete(callback);
+        //this.CallDelayed(fadeDuration - 0.3f, callback);
     }
 }

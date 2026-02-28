@@ -42,7 +42,7 @@ public class GameManagerHelper
 
         yield return null;
 
-        if (currentPhase != Phase.Init)
+        if (currentPhase != Phase.Init || phase == Phase.Tutorial)
         {
             fadeEnded = false;
             phaseParents[Phase.Init].SetActive(true);
@@ -57,10 +57,8 @@ public class GameManagerHelper
 
         fadeEnded = false;
         phaseParents[Phase.Init].SetActive(true);
-        screenMaskManager.FadeOut(() => fadeEnded = true);
-        yield return new WaitUntil(() => fadeEnded);
-
-        phaseParents[Phase.Init].SetActive(false);
+        screenMaskManager.FadeOut(() => phaseParents[Phase.Init].SetActive(false));
+        //yield return new WaitUntil(() => fadeEnded);
 
         switch (phase)
         {
