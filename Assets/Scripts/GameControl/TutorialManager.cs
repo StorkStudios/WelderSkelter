@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using StorkStudios.CoreNest;
 using UnityEngine;
 
@@ -85,9 +86,9 @@ public class TutorialManager : Singleton<TutorialManager>
         SetPhase(GameManagerHelper.Phase.Tutorial);
     }
 
-    private void SetPhase(GameManagerHelper.Phase phase)
+    private IEnumerator SetPhase(GameManagerHelper.Phase phase)
     {
-        gameManagerHelper.SetPhase(phase);
+        yield return StartCoroutine(gameManagerHelper.SetPhase(phase));
         switch (phase)
         {
             case GameManagerHelper.Phase.Tutorial:

@@ -9,7 +9,7 @@ public class UITasks : Singleton<UITasks>
     [SerializeField]
     private RectTransform taskParent;
 
-    private bool tasksDisabled = false;
+    private bool tasksDisabled = true;
 
     protected override void Awake()
     {

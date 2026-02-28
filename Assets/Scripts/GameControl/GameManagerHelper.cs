@@ -1,6 +1,8 @@
+using StorkStudios.CoreNest;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using StorkStudios.CoreNest;
+using UnityEngine.InputSystem;
 
 [System.Serializable]
 public class GameManagerHelper
@@ -19,18 +21,46 @@ public class GameManagerHelper
 
     public bool IsLastDay => currentDay >= dayshifts.Count - 1;
 
-    public void StartGame()
+    private ScreenMaskManager screenMaskManager;
+
+    private Phase currentPhase = Phase.Init;
+
+    private bool fadeEnded;
+
+    public IEnumerator StartGame()
     {
         currentDay = 0;
-        SetPhase(Phase.Work);
+        return SetPhase(Phase.Work);
     }
 
-    public void SetPhase(Phase phase)
+    public IEnumerator SetPhase(Phase phase)
     {
+        if (screenMaskManager == null)
+        {
+            screenMaskManager = phaseParents[Phase.Init].GetComponent<ScreenMaskManager>();
+        }
+
+        yield return null;
+
+        if (currentPhase != Phase.Init)
+        {
+            fadeEnded = false;
+            phaseParents[Phase.Init].SetActive(true);
+            screenMaskManager.FadeIn(() => fadeEnded = true);
+            yield return new WaitUntil(() => fadeEnded);
+        }
+
         foreach (Phase key in phaseParents.Keys)
         {
             phaseParents[key].SetActive(key == phase);
         }
+
+        fadeEnded = false;
+        phaseParents[Phase.Init].SetActive(true);
+        screenMaskManager.FadeOut(() => fadeEnded = true);
+        yield return new WaitUntil(() => fadeEnded);
+
+        phaseParents[Phase.Init].SetActive(false);
 
         switch (phase)
         {
@@ -50,6 +80,8 @@ public class GameManagerHelper
                 EndScreenController.Instance.SetScreen(EndScreenController.Screen.Lose);
                 break;
         }
+
+        currentPhase = phase;
     }
 
     public void StartNextDay()

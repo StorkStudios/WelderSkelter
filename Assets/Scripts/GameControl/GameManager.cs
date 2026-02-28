@@ -10,39 +10,44 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        MainMenuController.Instance.StartGameEvent += gameManagerHelper.StartGame;
+        MainMenuController.Instance.StartGameEvent += OnStartGame;
         MainMenuController.Instance.StartTutorialEvent += StartTutorial;
         WorkPhaseManager.Instance.WorkPhaseEnded += OnGamePhaseEnded;
         ShopPhaseManager.Instance.ShopPhaseEnded += OnShopPhaseEnded;
 
-        this.CallNextFrame(() => gameManagerHelper.SetPhase(GameManagerHelper.Phase.Menu));
+        StartCoroutine(gameManagerHelper.SetPhase(GameManagerHelper.Phase.Menu));
     }
 
     private void StartTutorial()
     {
         enabled = false;
         //Tutorial logic is being handled by TutorialManager
-        MainMenuController.Instance.StartGameEvent -= gameManagerHelper.StartGame;
+        MainMenuController.Instance.StartGameEvent -= OnStartGame;
         MainMenuController.Instance.StartTutorialEvent -= StartTutorial;
         WorkPhaseManager.Instance.WorkPhaseEnded -= OnGamePhaseEnded;
         ShopPhaseManager.Instance.ShopPhaseEnded -= OnShopPhaseEnded;
+    }
+
+    private void OnStartGame()
+    {
+        StartCoroutine(gameManagerHelper.StartGame());
     }
 
     private void OnGamePhaseEnded(bool won)
     {
         if (won && !gameManagerHelper.IsLastDay)
         {
-            gameManagerHelper.SetPhase(GameManagerHelper.Phase.Shop);
+            StartCoroutine(gameManagerHelper.SetPhase(GameManagerHelper.Phase.Shop));
         }
         else
         {
-            gameManagerHelper.SetPhase(won ? GameManagerHelper.Phase.Win : GameManagerHelper.Phase.Lose);
+            StartCoroutine(gameManagerHelper.SetPhase(won ? GameManagerHelper.Phase.Win : GameManagerHelper.Phase.Lose));
         }
     }
 
     private void OnShopPhaseEnded()
     {
         gameManagerHelper.StartNextDay();
-        gameManagerHelper.SetPhase(GameManagerHelper.Phase.Work);
+        StartCoroutine(gameManagerHelper.SetPhase(GameManagerHelper.Phase.Work));
     }
 }
