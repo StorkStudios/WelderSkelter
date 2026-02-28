@@ -444,7 +444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e670cdbb578e8147aad064cf2f0e8ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableTelemetry: 1
+  enableTelemetry: 0
   telemetryServerAddress: https://srv10-20255.wykr.es
   gameId: welder
   timeout: 10
