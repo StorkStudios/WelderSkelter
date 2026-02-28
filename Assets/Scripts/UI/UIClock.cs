@@ -53,12 +53,12 @@ public class UIClock : MonoBehaviour
 
         if (WorkPhaseManager.Instance.CurrentData.dayLength > 0)
         {
-            if ((int)timeLeft <= 0)
+            if ((int)timeLeft <= 0 && !audioSource.isPlaying)
             {
                 lastTickedSecond = tickingStartTime;
-                //audioSource.PlayOneShot(endAudioClip);
+                audioSource.PlayOneShot(endAudioClip);
             }
-            else if ((int)timeLeft <= lastTickedSecond)
+            else if ((int)timeLeft <= lastTickedSecond && (int)timeLeft > 0)
             {
                 lastTickedSecond--;
                 audioSource.PlayOneShot(tickingAudioClip);
