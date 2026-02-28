@@ -9,18 +9,20 @@ public class ScreenMaskManager : MonoBehaviour
     private UnityEngine.UI.Image image;
 
     [SerializeField]
-    private float fadeDuration;
+    private float fadeInDuration;
+
+    [SerializeField]
+    private float fadeOutDuration;
     
     public void FadeIn(TweenCallback callback)
     {
         image.color = Color.clear;
-        image.DOColor(Color.black, fadeDuration).SetEase(Ease.OutQuart).OnComplete(callback);
+        image.DOColor(Color.black, fadeInDuration).SetEase(Ease.OutQuart).OnComplete(callback);
     }
 
     public void FadeOut(TweenCallback callback)
     {
         image.color = Color.black;
-        image.DOColor(Color.clear, fadeDuration).SetEase(Ease.InQuart).OnComplete(callback);
-        //this.CallDelayed(fadeDuration - 0.3f, callback);
+        image.DOColor(Color.clear, fadeOutDuration).SetEase(Ease.InQuart).OnComplete(callback);
     }
 }

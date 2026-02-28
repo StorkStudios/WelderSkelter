@@ -223,4 +223,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 6440072002325633220}
-  fadeDuration: 0.5
+  fadeInDuration: 0.5
+  fadeOutDuration: 0.3
