@@ -251,6 +251,7 @@ GameObject:
   - component: {fileID: 56847460}
   - component: {fileID: 56847461}
   - component: {fileID: 56847462}
+  - component: {fileID: 56847463}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -430,6 +431,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f769e9fddb9b242a42c39d07a912eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &56847463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56847453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e670cdbb578e8147aad064cf2f0e8ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableTelemetry: 0
+  telemetryServerAddress: https://srv10-20255.wykr.es
+  gameId: welder
+  timeout: 10
+  telemetryErrorHandler: {fileID: 11400000, guid: c048f02df523bd980a42a1b84e9ce160, type: 2}
+  debugInfo: 0
+  sendInitPackage: 1
+  serverStatus: 0
 --- !u!1 &131519170 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9003347592809329931, guid: a10b8e4a28a25434e99e895c3e4f2e70, type: 3}
@@ -2332,7 +2353,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2269446050797381467, guid: 524e89c677d10f64facde0fee2aec7e0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.00015258789
+      value: -0.000091552734
       objectReference: {fileID: 0}
     - target: {fileID: 2431549399409857671, guid: 524e89c677d10f64facde0fee2aec7e0, type: 3}
       propertyPath: m_SizeDelta.x

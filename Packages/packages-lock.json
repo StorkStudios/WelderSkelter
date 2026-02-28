@@ -16,6 +16,16 @@
       "dependencies": {},
       "hash": "7243f929a94fef4fd41b9e34c6edff9ce32e1b51"
     },
+    "com.storkstudios.datawaste": {
+      "version": "https://github.com/StorkStudios/DataWaste.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.storkstudios.corenest": "1.0.12",
+        "com.unity.nuget.newtonsoft-json": "3.2.1"
+      },
+      "hash": "bf273162c1ce83d8bd2bf30efbe5a3b64c7b2a27"
+    },
     "com.unity.2d.animation": {
       "version": "10.2.2",
       "depth": 1,
@@ -212,6 +222,13 @@
     "com.unity.nuget.mono-cecil": {
       "version": "1.11.4",
       "depth": 3,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.nuget.newtonsoft-json": {
+      "version": "3.2.1",
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
