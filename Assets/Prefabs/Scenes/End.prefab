@@ -35,9 +35,9 @@ RectTransform:
   - {fileID: 2793550439345210883}
   - {fileID: 8599002619185377808}
   - {fileID: 6863361487511147600}
+  - {fileID: 2134460989336331673}
   - {fileID: 6020706761124984817}
   - {fileID: 8613652278841081955}
-  - {fileID: 2134460989336331673}
   m_Father: {fileID: 438673124466458551}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -133,7 +133,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 347795577944850775}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -143,7 +143,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.87, y: 0.74}
   m_AnchorMax: {x: 0.97, y: 0.84}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0.000030517578}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5995651478020650504
@@ -842,7 +842,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6398268947798750956}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1160,5 +1160,5 @@ MonoBehaviour:
     - Key:
         item: 3
       Value: {fileID: 5254138288472149539}
-  moneyText: {fileID: 2360054563505673033}
-  dayText: {fileID: 6175384091073732339}
+  moneyTextObject: {fileID: 6398268947798750956}
+  dayTextObject: {fileID: 347795577944850775}
