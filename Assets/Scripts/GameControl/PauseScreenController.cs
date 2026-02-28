@@ -1,7 +1,6 @@
 using UnityEngine;
 using StorkStudios.CoreNest;
 using UnityEngine.SceneManagement;
-using SceneEnum = StorkStudios.CoreNest.Scene;
 using System;
 
 public class PauseScreenController : Singleton<PauseScreenController>

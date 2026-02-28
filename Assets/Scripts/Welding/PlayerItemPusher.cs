@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using StorkStudios.CoreNest;
@@ -40,11 +41,17 @@ public class PlayerItemPusher : Singleton<PlayerItemPusher>
         weldingCanvasUtils = GetComponent<WeldingCanvasUtils>();
 
         PlayerInputManager.Instance.PushItemEvent += OnPushItem;
+        PauseScreenController.Instance.BackToMenuEvent += StopPushing;
+    }
+
+    private void StopPushing()
+    {
+        currentlyPushedItem = null;
     }
 
     private void Update()
     {
-        if (IsPushing)
+        if (IsPushing && Time.deltaTime > 0)
         {
             Vector2 mousePosition = PlayerInputManager.Instance.MousePositionToPositionOnWeldViewport(Mouse.current.position.value);
             Vector2 mouseWorldPosition = weldingCanvasUtils.GetWorldPositionOnWeldCanvas(mousePosition);

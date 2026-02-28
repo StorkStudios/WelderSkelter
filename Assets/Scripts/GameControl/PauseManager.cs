@@ -13,7 +13,10 @@ public class PauseManager : Singleton<PauseManager>
 
         IsPaused.ValueChanged += OnPauseValueChanged;
         PlayerInputManager.Instance.PauseEvent += OnPauseClicked;
-        MainMenuController.Instance.StartGameEvent += () => pauseEnabled = true;
+        WorkPhaseManager.Instance.WorkPhasePreStartEvent += () => pauseEnabled = true;
+        WorkPhaseManager.Instance.WorkPhaseEnded += (_) => pauseEnabled = false;
+        ShopPhaseManager.Instance.ShopPhaseStarted += () => pauseEnabled = true;
+        ShopPhaseManager.Instance.ShopPhaseEnded += () => pauseEnabled = false;
 
         Time.timeScale = 1;
     }
