@@ -1,4 +1,5 @@
 using StorkStudios.CoreNest;
+using StorkStudios.DataWaste;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -82,6 +83,14 @@ public class GameManagerHelper
                 EndScreenController.Instance.SetScreen(EndScreenController.Screen.Lose);
                 break;
         }
+        
+        if (phase != Phase.Init &&
+            phase != Phase.Menu &&
+            phase != Phase.Tutorial &&
+            phase != Phase.Exit)
+        {
+            SendPhaseChangeTelemetryMessage(phase);
+        }
 
         currentPhase = phase;
     }
@@ -95,5 +104,15 @@ public class GameManagerHelper
     public void StartNextDay()
     {
         currentDay++;
+    }
+
+    private void SendPhaseChangeTelemetryMessage(Phase newPhase)
+    {
+        TelemetryMessage message = new TelemetryMessage("GamePhaseChanged");
+        message.AddProperty("CurrentPhase", currentPhase.ToString());
+        message.AddProperty("NewPhase", newPhase.ToString());
+        message.AddProperty("CurrentDay", currentDay.ToString());
+        message.AddProperty("CurrentMoney", MoneyManager.Instance.Money);
+        Telemetry.Instance.SendTelemetryMessage(message);
     }
 }

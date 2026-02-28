@@ -1,4 +1,5 @@
 using StorkStudios.CoreNest;
+using StorkStudios.DataWaste;
 using UnityEngine;
 
 public class ShopPhaseManager : Singleton<ShopPhaseManager>
