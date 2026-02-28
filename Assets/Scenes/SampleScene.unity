@@ -387,38 +387,39 @@ MonoBehaviour:
     pairs:
     - Key:
         item: 0
-      Value: 'Colonel "Heavy Boy":\n\n"Good evening, Karl!\n\nYour task will be welding
-        the space junk and then selling the resulting Items. You can move objects
-        around the Welding Area with the Left Mouse Button and then use you welder
-        with Right Mouse Button to weld them together. To sell the resulting Items,
-        press the Middle Mouse Button or S. Remember, only Items created from at
-        least two welded objects have any value. Try to weld them together in a groups
-        of 3 as an excercise.\n\nAnd don''t forget: welding is bad for your eyesight.
-        I highly recommend equipping your mask with Space button before using your
-        welder. Otherwise your eyes may be quite damaged after some time..."'
+      Value: 'Colonel "Heavy Boy":\n\n"Good evening, Karl!\n\nYour task will be to
+        weld the space junk and then sell the resulting items. You can move objects
+        around the Welding Area with the Left Mouse Button and then use your welder
+        with the Right Mouse Button to weld them together. To sell the resulting
+        items, press the Middle Mouse Button or S. Remember, only items created from
+        at least two welded objects have any value. Try to weld them together in
+        groups of three as an exercise.\n\nAnd don''t forget: welding is bad for
+        your eyesight. I highly recommend equipping your mask with the Space button
+        before using your welder. Otherwise, your eyes may be seriously damaged after
+        some time..."'
     - Key:
         item: 1
-      Value: 'Colonel "Heavy Boy":\n\n"Ummm, yeah, I guess that was not enough money
+      Value: 'Colonel "Heavy Boy":\n\n"Ummm, yeah, I guess that wasn''t enough money
         to buy anything from the shop... But at least you now know there IS a shop!\n\nIf
         you want to make more money, you should weld together only objects of the
-        same type, this way they will be much more valuable. The larger the resulting
-        Item, the better. But don''t get too greedy: your Welding Area item capacity
+        same type; this way, they will be much more valuable. The larger the resulting
+        item, the better. But don''t get too greedy: your Welding Area item capacity
         is limited. And don''t forget to sell it before your shift is over!\n\nAlso,
         did I mention that you can now choose which object you want to get? There
-        will be always three options presented, try moving the Item Pusher with A
-        and D buttons to pick the one that you want to have in the Welding Area."'
+        will always be three options presented. Try moving the Item Pusher with the
+        A and D buttons to pick the one that you want to have in the Welding Area."'
     - Key:
         item: 2
-      Value: "Colonel \"Heavy Boy\":\\n\\n\"From now on we also want you to create
-        specific stuff for us, so we send you these Quests. For completing a Quest
-        you will be rewarded with some money and sometimes also a new item in the
-        Shop, that you can purchase after the your full shift.\\n\\nTo complete a
-        Quest, simply sell the Item that contains described items and the reward
-        will be immediately granted to you. And if you are unsatisfied with your
-        current quests, you can also just discard them with LMB. After doing so you
-        will get new ones, hopefully meeting your expectations. Pick your quests
-        wisely: you need to get at least 500z\u0142 to successfully complete this
-        tutorial!\""
+      Value: "Colonel \"Heavy Boy\":\\n\\n\"From now on, we also want you to create
+        specific stuff for us, so we will send you these Quests. For completing a
+        Quest, you will be rewarded with some money and sometimes also a new item
+        in the Shop that you can purchase after your full shift.\\n\\nTo complete
+        a Quest, simply sell the item that contains the described items, and the
+        reward will be immediately granted to you. And if you are unsatisfied with
+        your current quests, you can just discard them with the LMB. After doing
+        so, you will get new ones, hopefully meeting your expectations. Pick your
+        quests wisely: you need to get at least 500 z\u0142 to successfully complete
+        this tutorial!\""
 --- !u!114 &56847462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,7 +444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e670cdbb578e8147aad064cf2f0e8ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableTelemetry: 0
+  enableTelemetry: 1
   telemetryServerAddress: https://srv10-20255.wykr.es
   gameId: welder
   timeout: 10
@@ -2512,29 +2513,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a10b8e4a28a25434e99e895c3e4f2e70, type: 3}
---- !u!114 &8221659001692074673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3740658232461910310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_UiScaleMode: 1
-  m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1920, y: 1080}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
-  m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
 --- !u!1001 &8369956808414292504
 PrefabInstance:
   m_ObjectHideFlags: 0
