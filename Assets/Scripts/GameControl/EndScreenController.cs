@@ -10,11 +10,23 @@ public class EndScreenController : Singleton<EndScreenController>
     [SerializeField]
     private SerializedDictionary<Screen, GameObject> screens;
 
+    [SerializeField]
+    private TMPro.TextMeshProUGUI moneyText;
+
+    [SerializeField]
+    private TMPro.TextMeshProUGUI dayText;
+
     public void SetScreen(Screen screen)
     {
         foreach (Screen key in screens.Keys)
         {
            screens[key].SetActive(key == screen);
+        }
+
+        if (screen == Screen.Lose)
+        {
+            moneyText.text = $"{MoneyManager.Instance.Money}zł";
+            dayText.text = $"{GameManager.Instance.CurrentDay}/{GameManager.Instance.TotalDays}";
         }
     }
 

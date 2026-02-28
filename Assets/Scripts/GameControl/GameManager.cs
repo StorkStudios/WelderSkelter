@@ -12,6 +12,9 @@ public class GameManager : Singleton<GameManager>
     private int gameIndex;
     private bool tutorialGameMode = false;
 
+    public int CurrentDay => gameManagerHelper.CurrentDay;
+    public int TotalDays => gameManagerHelper.TotalDays;
+
     private void Start()
     {
         gameIndex = GetAndUpdateGameIndex();
@@ -72,6 +75,8 @@ public class GameManager : Singleton<GameManager>
         {
             Telemetry.Instance.PreSendProcessor = null;
         }
+
+        base.OnDestroy();
     }
 
     private void TelemetryPreSendProcessor(Dictionary<string, object> data)

@@ -24,6 +24,9 @@ public class GameManagerHelper
 
     public bool IsLastDay => currentDay >= dayshifts.Count - 1;
 
+    public int CurrentDay => currentDay + 1;
+    public int TotalDays => dayshifts.Count;
+
     private ScreenMaskManager screenMaskManager;
 
     private Phase currentPhase = Phase.Init;
